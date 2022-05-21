@@ -82,7 +82,7 @@ class EncoderTests(TestCase):
         
         for index,col in enumerate(weightColumn):
             value = re.sub('\D','',col)
-            print(value)
+            print(index, ' -> ', value)
 
     @skip("7. Already tested")
     def test_heightHandler(self):
@@ -134,7 +134,8 @@ class EncoderTests(TestCase):
             'highBloodGlucose1': [],
             'highBloodGlucose2': [],
             'highBloodGlucose3': [],
-            'glucoseAnalysis': [],
+            'glucoseAnalysis1': [],
+            'glucoseAnalysis2': [],
             'glucoseLevelChange1': [],
             'glucoseLevelChange2': [],
             'glucoseLevelChange3': [],
@@ -142,9 +143,7 @@ class EncoderTests(TestCase):
             'womanGlucoseChange2': [],
             'womanGlucoseChange3': [],
             'womanGlucoseChange4': [],
-            'areYouDiabetic1': [],
-            'areYouDiabetic2': [],
-            'areYouDiabetic3': []
+            'areYouDiabetic': [],
         }
 
         #Dataframe
@@ -250,11 +249,10 @@ class EncoderTests(TestCase):
         for index, col in enumerate(heightColumn):
             value = (
                 diabetesFrame['weight'][index] /
-                (pow(diabetesFrame['height'][index], 2)) )
-            
-            if value >=45:
+                (pow(diabetesFrame['height'][index], 2)) )/45
+            if value >1:
                 diabetesFrame['imc'][index] = 1
-            else:
+            elif value <= 1:
                 diabetesFrame['imc'][index] = 0
         
         
@@ -307,7 +305,6 @@ class EncoderTests(TestCase):
                 diabetesFrame['diabeticFamily3'][index] = 0
                 diabetesFrame['diabeticFamily4'][index] = 1
         
-
         #12.Fats
         diabetesFrame['eataLotFats'] = currentFile['10.Consome diariamente alimentos ricos em gordura (ex.: frituras, salgados, enchidos, queijos, carnes gordas)?']
         diabetesFrame['eataLotFats'] = diabetesFrame['eataLotFats'].str.replace('Sim', '1')
@@ -355,16 +352,17 @@ class EncoderTests(TestCase):
         #15.Glucose analysis
         for index, col in enumerate(glucoseAnalysisColumn):
             if col == "Não sei":
-                diabetesFrame['glucoseAnalysis'][index] = 1
+                diabetesFrame['glucoseAnalysis1'][index] = 1
+                diabetesFrame['glucoseAnalysis2'][index] = 0
             else:
                 value = re.sub('\D', '', col)
                 value = int(value)
-                if value >= 450:
-                    diabetesFrame['glucoseAnalysis'][index] = 1
-                else: 
-                    diabetesFrame['glucoseAnalysis'][index] = 0
-        
-        
+                diabetesFrame['glucoseAnalysis1'][index] = 0    
+                if value/450 > 1:
+                    diabetesFrame['glucoseAnalysis2'][index] = 1
+                else:
+                    diabetesFrame['glucoseAnalysis2'][index] = 0
+
         #16.Glucose level change
         for index, col in enumerate(glucoseLevelChangeColumn):
             if col == "Sim":
@@ -380,7 +378,6 @@ class EncoderTests(TestCase):
                 diabetesFrame['glucoseLevelChange2'][index] = 0
                 diabetesFrame['glucoseLevelChange3'][index] = 1
                 
-        
         #17.woman Glucose Change
         for index, col in enumerate(womanGlucoseChangeColumn):
             if col == "Sim":
@@ -405,21 +402,17 @@ class EncoderTests(TestCase):
                 diabetesFrame['womanGlucoseChange4'][index] = 1
         #for index,col in enumerate(ageColumn):
         
-             #16.Glucose level change
+        #16.Are you diabetic
         for index, col in enumerate(areYouDiabeticColumn):
             if col == "Sim, diagnosticada pelo médico":
-                diabetesFrame['areYouDiabetic1'][index] = 1
-                diabetesFrame['areYouDiabetic2'][index] = 0
-                diabetesFrame['areYouDiabetic3'][index] = 0
+                diabetesFrame['areYouDiabetic'][index] = 1
             elif col == "Não, de acordo com o meu médico":
-                diabetesFrame['areYouDiabetic1'][index] = 0
-                diabetesFrame['areYouDiabetic2'][index] = 1
-                diabetesFrame['areYouDiabetic3'][index] = 0
+                diabetesFrame['areYouDiabetic'][index] = 0
             elif col == "Não sei":
-                diabetesFrame['areYouDiabetic1'][index] = 0
-                diabetesFrame['areYouDiabetic2'][index] = 0
-                diabetesFrame['areYouDiabetic3'][index] = 1
+                diabetesFrame['areYouDiabetic'][index] = 0.50
+
         
+        print(diabetesFrame[['glucoseAnalysis1','glucoseAnalysis2']].to_string())
         diabetesFrame.drop(['weight', 'height'], axis= 1, inplace = True)
         diabetesFrame.to_csv('diabetesOutput.csv', index=False)
 
