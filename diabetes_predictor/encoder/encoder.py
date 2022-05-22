@@ -20,19 +20,20 @@ def Encoder(sex, age, weight, height, waist, doesExercise, takePills, eatFruit, 
         "womanGlucose": EncoderHelper.womanGlucoseChangeHandler(womanGlucose),
         "areYouDiabetic":     EncoderHelper.areYouDiabeticHandler(diabetic)
     }
+    
+    #print(encoderOutput)
     return encoderOutput
-    # print(encoderOutput)
 
 
-Encoder("Masculino",
-        "Menos de 45 anos",
-        "80kg",
-        "1.70m",
-        "Homens - Menos de 94 cm | Mulheres - Menos de 80 cm",
-        "Sim",
-        "Sim",
-        "As vezes",
-        "Sim: pais, irmãos, irmãs ou filhos", "Não", "Fumo 1 a 10 cigarros por dia",
-        "Não", "400", "Não sei",
-        "Não sou mulher",
-        "Não sei")
+# Encoder("Masculino",
+#         "Menos de 45 anos",
+#         "80kg",
+#         "1.70m",
+#         "Homens - Menos de 94 cm | Mulheres - Menos de 80 cm",
+#         "Sim",
+#         "Sim",
+#         "As vezes",
+#         "Sim: pais, irmãos, irmãs ou filhos", "Não", "Fumo 1 a 10 cigarros por dia",
+#         "Não", "400", "Não sei",
+#         "Não sou mulher",
+#         "Não sei")
