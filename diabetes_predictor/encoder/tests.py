@@ -2,7 +2,7 @@ from django.test import TestCase
 import os
 from unittest import skip
 import pandas as pd
-import re 
+import re
 
 class EncoderTests(TestCase):
     
@@ -13,6 +13,8 @@ class EncoderTests(TestCase):
     def test_readfile(self):
         file = open("../diabetes.csv","r") 
         self.assertEqual(file.readable() , True)
+
+   
 
     #Useful for creating a new dataframa with specific fields
     @skip("1. Already tested")
@@ -102,7 +104,7 @@ class EncoderTests(TestCase):
                 
             print(index,"->", format(value))
                
-    #@skip("8. Already tested")
+    @skip("8. Already tested")
     def test_csvFileEncoderPreview(self):
         diabetesDictionary = {
             'sex' : [],
@@ -416,8 +418,9 @@ class EncoderTests(TestCase):
         diabetesFrame.drop(['weight', 'height'], axis= 1, inplace = True)
         diabetesFrame.to_csv('diabetesOutput.csv', index=False)
 
-        
 
+        
+    
     
 
 
