@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+{% include 'head.html' %}
+<body>
+    {% include 'navBar.html' %}
+    <div>
+        <h2 style="text-align: center;">Preencha o formulário e obtenha o diagnostico</h2>
+    </div>
+    <div class="row m-xl-5" style="text-align: center;">
+        <div class="col-5" style="border: solid rgb(50, 50, 80);">
+           <h6>1/12</h6>
+           <select class="form-select" aria-label="Default select example">
+            <option selected>Femenino</option>
+            <option value="1">Masculino</option>
+          </select>
+          <div class="row m-xl-5">
+          </div>
+          <h6 style="text-align: start;">Idade</h6>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
+            <label class="form-check-label" for="flexRadioDefault1">
+                Menos de 45 anos
+            </label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2" checked>
+            <label class="form-check-label" for="flexRadioDefault2">
+                45-54 anos
+            </label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2" checked>
+            <label class="form-check-label" for="flexRadioDefault2">
+                55-64 anos
+            </label>
+          </div>
+          <div class="form-check mb-1">
+            <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2" checked>
+            <label class="form-check-label" for="flexRadioDefault2">
+                Mais de 64 anos
+            </label>
+          </div>
+        </div>
+        <div class="col-2"></div>
+        <div class="col-5" style="border: solid rgb(50, 50, 80);">
+           <h6 style="text-align: calc(110,199);">O seu diagnostico aparecerá aqui</h6>       
+         </div>
+  </div>
+
+  <div class="row m-xl-5">
+    <div class="col-2">
+      
+    </div>
+    <div class="col-1">
+      <button type="button" class="btn btn-outline-secondary">Obter<br> diagnostico</button>
+    </div>
+    <div class="col-7">
+      
+    </div>
+  </div>
+   
+</body>
+</html>
