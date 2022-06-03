@@ -15,6 +15,7 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import include, path
+from django.contrib.staticfiles.urls import staticfiles_urlpatterns
 
 
 from . import views
@@ -26,5 +27,10 @@ urlpatterns = [
     path('register',views.register, name="register"),
     path('login',views.login, name="login"),
     path('diagnostico',views.diagnostico, name="diagnostico"),
-    path('base',views.base, name="base")
+    path('base',views.base, name="base"),
+    path('diabetes',views.diabetes,name="diabetes"),
+    path('diabetesTipo1',views.diabetesTipo1,name="diabetesTipo1")
+    
 ]
+
+urlpatterns += staticfiles_urlpatterns()

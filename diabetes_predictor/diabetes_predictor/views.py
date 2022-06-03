@@ -22,4 +22,9 @@ def diagnostico(request):
 def base(request):
     return render(request,'base.html')
 
+def diabetes(request):
+    return render(request,'diabetes.html')
+
+def diabetesTipo1(request):
+    return render(request,'diabetesTipo1.html')
 

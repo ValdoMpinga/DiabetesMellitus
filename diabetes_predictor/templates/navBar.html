@@ -1,5 +1,4 @@
-
-    <nav class="navbar navbar-expand-lg navBarColor">
+    <nav class="navbar navbar-expand-sm navBarColor">
         <div class="container-fluid">
             <a class="navbar-brand" href="#"></a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup"
@@ -10,7 +9,7 @@
                 <div class="navbar-nav" style="width: 100%;">
 
                     <div style="width: 20%;">
-                        <svg width="40" height="48" viewBox="0 0 54 86" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <svg onclick="location.href='{% url 'base' %}'" width="40" height="48" viewBox="0 0 54 86" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <path
                                 d="M54 57.116C54 73.0676 41.9111 86 27 86C12.0889 86 0 73.0676 0 57.116C0 41.1645 23.5956 0 27 0C30.2852 0 54 41.1645 54 57.116Z"
                                 fill="#97DAF8" />
@@ -18,9 +17,13 @@
                     </div>
                     <div style="width: 80%;">
                         <a style="float:right;" class="nav-link disabled"></a>
-                        <a style="float:right;" class="nav-link" href="{% url 'base' %}">Diabetes</a>   
-                        <a style="float:right;" class="nav-link" href="{% url 'apoiar' %}">Apoiar Projeto</a>
-                        <a style="float:right;" class="nav-link" href="{% url 'diagnostico' %}">Diagnostico</a>
+                        <a style="float:right; color: aliceblue;" class="nav-link" href="{% url 'diabetes' %}">Diabetes</a>   
+                        <a style="float:right;color: aliceblue;" class="nav-link" href="{% url 'apoiar' %}">Apoiar Projeto</a>
+                        <li class="nav-item active">
+                            <a style="float:right;color: aliceblue;" class="nav-link" href="{% url 'diagnostico' %}">Diagnostico<span class="sr-only">
+                                 </span> </a>
+                        </li>
+                        
                     </div>
                 </div>
             </div>
