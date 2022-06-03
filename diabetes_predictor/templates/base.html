@@ -1,0 +1,31 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+    {% include 'head.html' %}
+
+<body>
+    {% include 'navBar.html' %}
+    <div class="container-fluid">
+        <div class="row" style="padding-top: 7%;padding-left: 10%;" >
+            <div class="col-sm-12 col-md-7">
+                <h1>Faça uma breve analise e <br> descubra se tem diabetes!</h1>
+                <h5>A nossa equipe criou um modelo de inteligencia artificial<br>
+                capaz de prever se tem ou não diabetes! Interessado?<br>
+                Simplesmente precisas preencher um formulario e o<br>
+                resultado lhe é mostrado em instantes!</h5>
+                <button style="height: 14%;" type="button" class="btn btn-dark" onclick="location.href='{% url 'diagnostico' %}'">Ir ao Diagnostico</button>
+                <button style="height: 14%;" type="button" class="btn btn-info" onclick="location.href='{% url 'diabetes' %}'">O que são Diabetes</button>
+            </div>
+            <div class="col-sm-12 col-md-5">
+                {% load static %}
+                <img  style="width: 90%;height: 80%;" src="static/images/home.png" class="img-fluid" alt="Responsive image">      
+             </div>
+        </div>
+    </div>
+    <!-- <div class="row">
+        <div class="col-sm-12 col-md-7" style="height: 150px; background-color: red;"></div>
+        <div class="col-sm-12 col-md-5" style="height: 150px; background-color: yellow;"></div>
+    </div> -->
+</body> 
+</html>

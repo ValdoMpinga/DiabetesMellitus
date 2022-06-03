@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- <head>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2"
+    crossorigin="anonymous"></script>
+
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=<div id=" carouselExampleControlsNoTouching" class="carousel slide"
+    data-bs-touch="false" data-bs-interval="false">
+
+  <title>Document</title>
+
+  <style>
+    .disableDiv {
+      display: none;
+    }
+  </style>
+</head> -->
+
+{% include 'head.html' %}
+
+<body>
+  {% include 'navBar.html' %}
+  <div>
+    <h2 style="text-align: center; font-size: 300%; ">Preencha o formulário e obtenha o diagnostico!</h2>
+  </div>
+  <div class="content">
+    <div class="row" style="height: 50%;">
+      <div class="row mx-xl-5 mt-xl-5">
+        <div class="col-2 mt-1">
+        </div>
+        <div class="col-3" style="border: solid rgb(149, 196, 228); height: 400px;">
+          <div id="div1">
+            <h1>
+              <h6>1/12</h6>
+              <h6 style="text-align: start;">Sexo</h6>
+              <select class="form-select" aria-label="Default select example">
+                <option selected>Femenino</option>
+                <option value="1">Masculino</option>
+              </select>
+              <div class="row m-xl-5">
+              </div>
+              <h6 style="text-align: start;">Idade</h6>
+              <div class="form-check">
+                <input class="form-check-input" type="radio" name="age" id="age1">
+                <label class="form-check-label" for="age1">
+                  Menos de 45 anos
+                </label>
+              </div>
+              <div class="form-check">
+                <input class="form-check-input" type="radio" name="age" id="age2" checked>
+                <label class="form-check-label" for="age2">
+                  45-54 anos
+                </label>
+              </div>
+              <div class="form-check">
+                <input class="form-check-input" type="radio" name="age" id="age3" checked>
+                <label class="form-check-label" for="age3">
+                  55-64 anos
+                </label>
+              </div>
+              <div class="form-check mb-1">
+                <input class="form-check-input" type="radio" name="age" id="age4" checked>
+                <label class="form-check-label" for="age4">
+                  Mais de 64 anos
+                </label>
+              </div>
+            </h1>
+          </div>
+          <div id="div2" class="disableDiv">
+            <h6>2/12</h6>
+            <h6>Qual o seu peso em kilogramas(por favor exclua o sufixo kg)?</h6>
+            <div class="form-outline mb-2">
+              <input type="number" id="peso" class="form-control form-control-lg" />
+              <label class="form-label" for="peso"></label>
+            </div>
+            <h6>Qual a sua altura(por favor exclua o sufixo cm)?</h6>
+            <div class="form-outline mb-2">
+              <input type="number" id="altura" class="form-control form-control-lg" />
+              <label class="form-label" for="altura"></label>
+            </div>
+          </div>
+          <div id="div3" class="disableDiv">
+            <h6>3/12</h6>
+            <div>
+              <h6>Qual a medida da sua cintura?</h6>
+              <div class="form-check">
+                <input class="form-check-input" type="radio" name="waist" id="waist1">
+                <label class="form-check-label" for="waist1">
+                  Homens - Menos de 94 cm | Mulheres - Menos de 80 cm
+                </label>
+              </div>
+              <div class="form-check">
+                <input class="form-check-input" type="radio" name="waist" id="waist2" checked>
+                <label class="form-check-label" for="waist2">
+                  Homens - 94-102 cm | Mulheres - 80-88 cm
+                </label>
+              </div>
+              <div class="form-check">
+                <input class="form-check-input" type="radio" name="waist" id="waist3" checked>
+                <label class="form-check-label" for="waist3">
+                  Homens - Mais de 102 cm | Mulheres - Mais de 88 cm
+                </label>
+              </div>
+              <div class="form-check mb-1">
+                <input class="form-check-input" type="radio" name="waist" id="waist4" checked>
+                <label class="form-check-label" for="waist4">
+                  Não sei
+                </label>
+              </div>
+            </div>
+
+            <div>
+              <h6>4/12</h6>
+              <h6>Pratica, diariamente, atividade física com alum esforço durante pelo menos 30 minutos(ex.: no
+                trabalho, tempo livre, caminhada, ... )?</h6>
+              <div class="form-check">
+                <input class="form-check-input" type="radio" name="gym" id="gym1" checked>
+                <label class="form-check-label" for="gym1">
+                  Sim
+                </label>
+              </div>
+              <div class="form-check mb-1">
+                <input class="form-check-input" type="radio" name="gym" id="gym2" checked>
+                <label class="form-check-label" for="gym2">
+                  Não
+                </label>
+              </div>
+            </div>
+          </div>
+          <div id="div4" class="disableDiv">
+            <div>
+              <h6>7. Toma regularmente ou já tomou algum medicamento para a Hipertensão Arterial?</h6>
+              <div class="form-check">
+                <input class="form-check-input" type="radio" name="voltage" id="voltage1" checked>
+                <label class="form-check-label" for="voltage1">
+                  Sim
+                </label>
+              </div>
+              <div class="form-check mb-1">
+                <input class="form-check-input" type="radio" name="voltage" id="voltage2" checked>
+                <label class="form-check-label" for="voltage2">
+                  Não
+                </label>
+              </div>
+            </div>
+            <div>
+              <h6>8. Com que regularidade come vegetais e/ou frutas (sopa, salada, legumes cozidos, entre outros)?</h6>
+              <div class="form-check">
+                <input class="form-check-input" type="radio" name="vegetable" id="vegetable1" checked>
+                <label class="form-check-label" for="vegetable1">
+                  Todos os dias
+                </label>
+              </div>
+              <div class="form-check mb-1">
+                <input class="form-check-input" type="radio" name="vegetable" id="vegetable2" checked>
+                <label class="form-check-label" for="vegetable2">
+                  As vezes
+                </label>
+              </div>
+              <div class="form-check mb-1">
+                <input class="form-check-input" type="radio" name="vegetable" id="vegetable3" checked>
+                <label class="form-check-label" for="vegetable3">
+                  Não como
+                </label>
+              </div>
+            </div>
+          </div>
+          <div id="div5" class="disableDiv">
+            <h6>5/12</h6>
+            <div>
+              <h6>9. Tem algum membro de família próximo ou outros familiares a quem foi diagnosticado diabetes (Tipo 1
+                ou Tipo 2)?</h6>
+              <div class="form-check">
+                <input class="form-check-input" type="radio" name="family" id="family1">
+                <label class="form-check-label" for="family1">
+                  Sim: avós, tias, tios ou primos em 1º grau (excepto pais, irmãos, irmãs ou filhos)?
+                </label>
+              </div>
+              <div class="form-check">
+                <input class="form-check-input" type="radio" name="family" id="family2" checked>
+                <label class="form-check-label" for="family2">
+                  Sim: pais, irmãos, irmãs ou filhos
+                </label>
+              </div>
+              <div class="form-check">
+                <input class="form-check-input" type="radio" name="family" id="family3" checked>
+                <label class="form-check-label" for="family3">
+                  Não
+                </label>
+              </div>
+              <div class="form-check mb-1">
+                <input class="form-check-input" type="radio" name="family" id="family4" checked>
+                <label class="form-check-label" for="family4">
+                  Não sei
+                </label>
+              </div>
+            </div>
+
+            <div>
+              <h6>10.Consome diariamente alimentos ricos em gordura (ex.: frituras, salgados, enchidos, queijos, carnes
+                gordas)?</h6>
+              <div class="form-check">
+                <input class="form-check-input" type="radio" name="food" id="food1" checked>
+                <label class="form-check-label" for="food1">
+                  Sim
+                </label>
+              </div>
+              <div class="form-check mb-1">
+                <input class="form-check-input" type="radio" name="food" id="food2" checked>
+                <label class="form-check-label" for="food2">
+                  Não
+                </label>
+              </div>
+            </div>
+
+          </div>
+        </div>
+        <div class="col-2 mt-1">          
+        </div>
+        <div class="col-3" style="padding-top: 10%;">
+          <div style="border: solid rgb(149, 196, 228); height: 100px; padding-top: 8%; text-align: center;">
+            <h6 style="text-align: calc(110,199);">O seu diagnostico aparecerá aqui</h6>
+            <progress id="progress" value="32" max="100"> 32% </progress>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="row mx-xl-5 mt-1" style="text-align: center;">
+        <div class="col-2 mt-1">          
+        </div>
+        <div class="col-1">
+          <button type="button" class="btn btn-outline-primary btn-lg disableDiv" style="float: left;"
+            onclick="previousDiv()" id="btnPrev"><i class="icon-arrow-left"></i> </button>
+        </div>
+        <div class="col-1">          
+        </div>
+        <div class="col-1">
+          <button type="button" class="btn btn-outline-primary btn-lg" style="float: right;" onclick="nextDiv()" id="btnNext"><i
+            class="icon-arrow-right"></i></button>
+        </div>
+        <div class="col"></div>
+    </div>
+    
+
+    <div class="row mx-xl-5 mt-2">
+      <div class="col-2 ">          
+      </div>
+      <div class="col-3">
+        <button style="width: 100%; color: black;" type="button" class="btn btn-outline-secondary">Obter 
+          diagnostico</button>
+      </div>
+      <div class="col">
+
+      </div>
+    </div>
+  </div>
+</body>
+
+</html>
+
+<script>
+  let divAtual = 1;
+
+  function nextDiv() {
+    disableAllDivs();
+    switch (divAtual) {
+      case 1:
+        divAtual++
+        document.getElementById("btnPrev").classList.remove("disableDiv");
+        document.getElementById("div2").classList.remove("disableDiv");
+        break;
+      case 2:
+        divAtual++
+        document.getElementById("div3").classList.remove("disableDiv");
+        break;
+      case 3:
+        divAtual++
+        document.getElementById("div4").classList.remove("disableDiv");
+        break;
+      case 4:
+        divAtual++
+        document.getElementById("btnNext").classList.add("disableDiv");
+        document.getElementById("div5").classList.remove("disableDiv");
+        break;
+      case 5:
+        document.getElementById("div5").classList.remove("disableDiv");
+        break;
+    }
+  }
+
+  function previousDiv() {
+    disableAllDivs();
+
+    switch (divAtual) {
+      case 1:
+        document.getElementById("div1").classList.remove("disableDiv");
+        break;
+      case 2:
+        divAtual--
+        document.getElementById("btnPrev").classList.add("disableDiv");
+        document.getElementById("div1").classList.remove("disableDiv");
+        break;
+      case 3:
+        divAtual--
+        document.getElementById("div2").classList.remove("disableDiv");
+        break;
+      case 4:
+        divAtual--
+        document.getElementById("div3").classList.remove("disableDiv");
+        break;
+      case 5:
+        divAtual--
+        document.getElementById("btnNext").classList.remove("disableDiv");
+        document.getElementById("div4").classList.remove("disableDiv");
+        break;
+    }
+  }
+
+  function disableAllDivs() {
+    document.getElementById("div1").classList.add("disableDiv");
+    document.getElementById("div2").classList.add("disableDiv");
+    document.getElementById("div3").classList.add("disableDiv");
+    document.getElementById("div4").classList.add("disableDiv");
+    document.getElementById("div5").classList.add("disableDiv");
+
+  }
+
+
+</script>
