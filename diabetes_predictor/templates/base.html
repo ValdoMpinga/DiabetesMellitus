@@ -2,10 +2,10 @@
 
 <!DOCTYPE html>
 <html lang="en">
-    {% include 'head.html' %}
+    {% include 'components/head.html' %}
 
 <body>
-    {% include 'navBar.html' %}
+    {% include 'components/navBar.html' %}
     <div class="container-fluid">
         <div class="row" style="padding-top: 7%;padding-left: 10%;" >
             <div class="col-sm-12 col-md-7">
@@ -14,8 +14,8 @@
                 capaz de prever se tem ou não diabetes! Interessado?<br>
                 Simplesmente precisas preencher um formulario e o<br>
                 resultado lhe é mostrado em instantes!</h5>
-                <button style="height: 14%;" type="button" class="btn btn-dark" onclick="location.href='{% url 'diagnostico' %}'">Ir ao Diagnostico</button>
-                <button style="height: 14%;" type="button" class="btn btn-info" onclick="location.href='{% url 'diabetes' %}'">O que são Diabetes</button>
+                <button style="height: 14%;" type="button" class="btn btn-dark" onclick="location.href='diagnostic'">Ir ao Diagnostico</button>
+                <button style="height: 14%;" type="button" class="btn btn-info" onclick="location.href='diabetes'">O que são Diabetes</button>
             </div>
             <div class="col-sm-12 col-md-5">
                 {% load static %}

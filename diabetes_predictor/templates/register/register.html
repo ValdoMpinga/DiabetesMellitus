@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    {% include 'head.html' %}
+    {% include '../components/head.html' %}
 </head>
 
 <style>
@@ -37,7 +37,8 @@ background: linear-gradient(to right, rgba(132, 250, 176, 1), rgba(143, 211, 244
             <div class="card-body p-5">
               <h2 class="text-uppercase text-center mb-3">Registo</h2>
 
-              <form>
+              <form method="post"  action="">
+              {%csrf_token%}
 
                 <svg width="10" height="30" viewBox="0 0 54 86" fill="none" xmlns="http://www.w3.org/2000/svg">
                   <path d="M54 57.116C54 73.0676 41.9111 86 27 86C12.0889 86 0 73.0676 0 57.116C0 41.1645 23.5956 0 27 0C30.2852 0 54 41.1645 54 57.116Z" fill="#97DAF8"/>
@@ -75,11 +76,11 @@ background: linear-gradient(to right, rgba(132, 250, 176, 1), rgba(143, 211, 244
                 </div>
 
                 <div class="d-flex justify-content-center">
-                  <button type="button"
+                  <button type="submit"
                     class="btn btn-success btn-block btn-lg gradient-custom-4 text-body">Registar</button>
                 </div>
 
-                <p class="text-center text-muted mt-3 mb-0">Já tem uma conta? Faça o login <a href="{% url 'login' %}"
+                <p class="text-center text-muted mt-3 mb-0">Já tem uma conta? Faça o login <a href="login"
                     class="fw-bold text-body"><u>Login</u></a></p>
               </form>
             </div>

@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
-    {% include 'head.html' %}
+    {% include '../components/head.html' %}
 <body>
-    {% include 'navBar.html' %}
+    {% include '../components/navBar.html' %}
 <!-- 
     <div style="margin: auto; align-content: center;"  id="carouselExampleDark" class="carousel carousel-dark slide row d-flex justify-content-center" data-bs-ride="carousel">
       <div class="carousel-indicators">
@@ -56,7 +56,9 @@
         </div>
         <div class="carousel-inner">
           <div class="carousel-item active">
-            <img onclick="location.href='{% url 'diabetesTipo1' %}'" src="static/images/type1.jpg" class="d-block w-100" alt="...">
+            <img onclick="location.href='typeOneDiabetes'" 
+            src="static/images/type1.jpg" 
+            class="d-block w-100" alt="...">
             <div class="carousel-caption d-none d-md-block">
               <h5 style="color: #000;">Diabetes Tipo 1</h5>
               <p>Clique na imagem para mais informações</p>

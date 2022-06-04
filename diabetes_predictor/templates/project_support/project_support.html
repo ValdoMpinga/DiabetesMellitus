@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
-{% include 'head.html' %}
+{% include '../components/head.html' %}
 <body>
-    {% include 'navBar.html' %}
+    {% include '../components/navBar.html' %}
     <div style="text-align: center;">
         <h2>Contribuindo com seus dados</h2>
         <h5>Muito obrigado por considerar em contribuir para o website,  para contribuir para o website, somente precisa  se registar no website usando<br>o seu email  e permitir que os dados dos seus diagnostico sejam armazenados no sistema do site.<br>
@@ -43,7 +43,7 @@
     <div class="col-5">
     </div>
     <div class="col-1" style="padding-left: 3%;">
-      <button style="color: black; height: 50px; width: 150px;" onclick="location.href='{% url 'login' %}'" type="button" class="btn btn-outline-secondary">Contribuir</button>
+      <button style="color: black; height: 50px; width: 150px;" onclick="location.href='login' " type="button" class="btn btn-outline-secondary">Contribuir</button>
     </div>
     <div class="col-9">
       
