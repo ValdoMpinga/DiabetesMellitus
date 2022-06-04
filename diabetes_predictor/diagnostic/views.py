@@ -1,8 +1,12 @@
 from django.shortcuts import render
-from django.http import HttpResponse
-from django.template import loader
+from .models import predictPreview
 from django.shortcuts import render
 
 def diagnostic(request):
-    return render(request,'diagnostic/diagnostic.html')
+    if request.method == 'POST':
+        print("yo")
+        predictPreview()
+        return render(request,'diagnostic/diagnostic.html')
+    else:
+        return render(request,'diagnostic/diagnostic.html')
 
