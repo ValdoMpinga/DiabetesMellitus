@@ -1,10 +1,20 @@
+from django.shortcuts import render,redirect
 from django.shortcuts import render
-from django.shortcuts import render
-from .models import createUser
-def register(request):
-    if request.method == "POST":
-        print(request.POST['firstName'])
-        createUser(request.POST['firstName'])
-    
-    return render(request,'register/register.html')
+from .registerForm import CreateUserRegistationForm
+
+def register(request):            
+        form = CreateUserRegistationForm()
+        context = {'form' : form}
+        if request.method == 'POST':
+            form = CreateUserRegistationForm(request.POST)
+            if form.is_valid():
+                print("valid")
+                form.save()
+                #redirect('login')
+            else:
+                print("Error saving user")
+        
+        return render(request,'register/register.html', context)
+
+
 
