@@ -18,7 +18,7 @@ def project_support(request):
         "Não", "400", "Não sei",
         "Não sou mulher",
         "Não sei")
-        print(userContribute)
+        print("here: ",userContribute)
         saveUserContribute(userContribute)
         return render(request,'project_support/project_support.html')
     else:
