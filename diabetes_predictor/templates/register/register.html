@@ -39,27 +39,23 @@ background: linear-gradient(to right, rgba(132, 250, 176, 1), rgba(143, 211, 244
 
               <form method="post"  action="">
               {%csrf_token%}
-                {{form.first_name.label}}
-                {{form.first_name}}
+              {{form.first_name.label}}
+              {{form.first_name}}
+      
+              {{form.last_name.label}}
+              {{form.last_name}}
+      
+              {{form.email.label}}
+              {{form.email}}
+      
+              {{form.password1.label}}
+              {{form.password1}}
+      
+      
+              {{form.password2.label}}
+              {{form.password2}}
         
-        
-                {{form.last_name.label}}
-                {{form.last_name}}
-        
-        
-                {{form.email.label}}
-                {{form.email}}
-        
-        
-                {{form.password1.label}}
-                {{form.password1}}
-        
-        
-                {{form.password2.label}}
-                {{form.password2}}
-        
-    
-         
+  
                 <svg width="10" height="30" viewBox="0 0 54 86" fill="none" xmlns="http://www.w3.org/2000/svg">
                   <path d="M54 57.116C54 73.0676 41.9111 86 27 86C12.0889 86 0 73.0676 0 57.116C0 41.1645 23.5956 0 27 0C30.2852 0 54 41.1645 54 57.116Z" fill="#97DAF8"/>
                   </svg>

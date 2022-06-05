@@ -9,4 +9,4 @@ def diagnostic(request):
     else:
         print("Ha")
         return render(request,'diagnostic/diagnostic.html')
-
+    
