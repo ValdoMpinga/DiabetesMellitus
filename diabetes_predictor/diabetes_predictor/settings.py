@@ -34,7 +34,7 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
-    'django.contrib.admin',
+  #  'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
@@ -84,8 +84,8 @@ WSGI_APPLICATION = 'diabetes_predictor.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'djongo',
-        'NAME': 'diabetes_predictorDB',
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': BASE_DIR / 'diabetes_predictorDB.sqlite3',
     }
 }
 
@@ -107,7 +107,7 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
-
+AUTH_USER_MODEL = 'register.UserModel'
 # Internationalization
 # https://docs.djangoproject.com/en/4.0/topics/i18n/
 
