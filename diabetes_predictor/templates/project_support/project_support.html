@@ -42,9 +42,15 @@
   <div class="row m-xl-5">
     <div class="col-5">
     </div>
-    <div class="col-1" style="padding-left: 3%;">
+    <!-- <div class="col-1" style="padding-left: 3%;">
       <button style="color: black; height: 50px; width: 150px;" onclick="location.href='login' " type="button" class="btn btn-outline-secondary">Contribuir</button>
-    </div>
+    </div> -->
+    <form method="post" action="">     
+        {%csrf_token%}   
+        <div class="col-1" style="padding-left: 3%;">
+          <button style="color: black; height: 50px; width: 150px;"  type="submit" class="btn btn-outline-secondary">Contribuir</button>
+        </div>
+    </form>
     <div class="col-9">
       
     </div>

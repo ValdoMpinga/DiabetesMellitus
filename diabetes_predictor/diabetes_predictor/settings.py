@@ -40,12 +40,12 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'encoder',
     'diabetes',
     'diagnostic',
     'register',
     'login',
     'project_support',
+    'encoder'
 ]
 
 MIDDLEWARE = [
@@ -85,7 +85,7 @@ WSGI_APPLICATION = 'diabetes_predictor.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'djongo',
-        'NAME': 'diabetesDB',
+        'NAME': 'diabetes_predictorDB',
     }
 }
 
