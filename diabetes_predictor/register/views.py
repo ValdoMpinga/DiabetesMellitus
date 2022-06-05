@@ -16,7 +16,6 @@ def register(request):
             email = form.cleaned_data['email']
             if form.cleaned_data['password1'] == form.cleaned_data['password2']:
                 raw_password = form.cleaned_data['password1']
-                print(type(raw_password))
                 data = UserModel(first_name=first_name,
                                  last_name=last_name,
                                  email=email,

@@ -84,8 +84,8 @@ WSGI_APPLICATION = 'diabetes_predictor.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'diabetes_predictorDB.sqlite3',
+        'ENGINE': 'djongo',
+        'NAME':'diabetes_predictorDB',
     }
 }
 
