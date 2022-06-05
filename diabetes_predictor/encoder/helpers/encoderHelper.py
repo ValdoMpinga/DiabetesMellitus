@@ -1,6 +1,6 @@
 import re
 from enum import Enum
-from helpers.encoderEnumerations import *
+from .encoderEnumerations import *
 
 
 class EncoderHelper():

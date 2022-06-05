@@ -1,4 +1,4 @@
-from helpers.encoderHelper import *
+from .helpers.encoderHelper import *
 
 def Encoder(sex, age, weight, height, waist, doesExercise, takePills, eatFruit, diabeticFamily, eatFats, smoke, bloodGlucose, analysis, glucoseLevelChange, womanGlucose, diabetic):
 
@@ -6,6 +6,8 @@ def Encoder(sex, age, weight, height, waist, doesExercise, takePills, eatFruit, 
         "sex": EncoderHelper.sexHandler(sex),
         "age": EncoderHelper.ageHandler(age),
         "waist": EncoderHelper.waistHandler(waist),
+        "weight": EncoderHelper.weightHandler(weight),
+        "height": EncoderHelper.heightHandler(height),
         "imc": EncoderHelper.imcHandler(EncoderHelper.weightHandler(
             weight), EncoderHelper.heightHandler(height)),
         "exercise": EncoderHelper.exerciseHandler(doesExercise),
