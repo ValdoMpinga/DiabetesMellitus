@@ -10,3 +10,5 @@ def diagnostic(request):
         print("Ha")
         return render(request,'diagnostic/diagnostic.html')
     
+
+mtv = mvc

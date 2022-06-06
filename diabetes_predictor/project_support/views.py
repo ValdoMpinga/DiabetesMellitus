@@ -2,8 +2,13 @@ from django.shortcuts import render
 from encoder import encoder
 from .models import saveUserContribute
 import pandas as pd
+from django.contrib.auth import authenticate, login, logout, user_logged_in
 
 def project_support(request):
+    if request.user.is_authenticated:
+        print('yes the user is logged-in')
+    else:
+        print('no the user is not logged-in')
     if request.method == "POST":
         print("POST")
         userContribute = encoder.Encoder("Masculino",

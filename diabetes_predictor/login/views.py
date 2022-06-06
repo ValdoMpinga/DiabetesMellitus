@@ -1,16 +1,34 @@
+from django.shortcuts import redirect, render
 from django.shortcuts import render
-from django.shortcuts import render
-from django.contrib.auth.forms import UserCreationForm
+from django.contrib.auth import authenticate, login, logout
+from .loginForm import LoginForm
+from django.contrib import messages
 # from .loginForm import UserloginRegistationForm
 
-def login(request):            
-        # form = UserloginRegistationForm()
-        # context = {'form' : form}
-        # if request.method == 'POST':
-        #     form = UserloginRegistationForm(request.POST)
-        #     if form.is_valid():
-        #         form.save()
-        #     else:
-        #         print("Error saving user")   
-        return render(request,'register/register.html')
 
+def loginFunc(request):
+    if request.method == "GET":
+        print("hahaha")
+        form = LoginForm
+        context = {
+            'form': form
+        }
+        return render(request, 'login/login.html', context=context)
+    else:
+        form = LoginForm(request.POST)
+        print(form.data['email'])
+        user = authenticate(request, 
+                            username=form.data['email'],
+                            password = form.data['password'])
+        print("User ", user)
+        if user is not None:
+            login(request , user)
+            return redirect('/projectsupport')
+        else:
+            messages.info(request, 'Email or password incorrect')
+	
+        form = LoginForm
+        context = {
+            'form' : form
+        }
+        return render(request,'login/login.html', context = context)
