@@ -26,6 +26,7 @@
 
 <body>
   {% include '../components/navBar.html' %}
+
   <div>
     <h2 style="text-align: center; font-size: 300%; ">Preencha o formulário e obtenha o diagnostico!</h2>
   </div>
@@ -34,15 +35,21 @@
       <div class="row mx-xl-5 mt-xl-5">
         <div class="col-2 mt-1">
         </div>
-        <div class="col-3" style="border: solid rgb(149, 196, 228); height: 400px;">~
+        <div class="col-3" style="border: solid rgb(149, 196, 228); height: 400px;">
           <form method="post" action="">
             {%csrf_token%}
           <div id="div1">
             <h1>
               <h6>1/12</h6>
               <h6 style="text-align: start;">Sexo</h6>
+              <p>
+                                {{first_name}}
+
+              </p>
               <select class="form-select" aria-label="Default select example">
                 <option selected>Femenino</option>
+                  
+            
                 <option value="1">Masculino</option>
               </select>
               <div class="row m-xl-5">
