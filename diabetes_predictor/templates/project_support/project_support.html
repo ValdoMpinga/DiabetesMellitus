@@ -1,60 +1,71 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
-{% include '../components/head.html' %}
+    <head>
+        <link rel="stylesheet" href="{% static '/styles/pages/project_support/project_support.css' %}" />
+        {% include '../components/head.html' %}
+    </head>
 <body>
-    {% include '../components/navBar.html' %}
-    <div style="text-align: center;">
-        <h2>Contribuindo com seus dados</h2>
-        <h5>Muito obrigado por considerar em contribuir para o website,  para contribuir para o website, somente precisa  se registar no website usando<br>o seu email  e permitir que os dados dos seus diagnostico sejam armazenados no sistema do site.<br>
-            O registro por email serve para garantir que uma pessoa real esta a contribuiir para o projeto com dados solidos e coerentes.</h5>
-    </div>
-    <div class="row m-xl-5"  style="text-align: center; ">
-        <h2 style="">Ao contribuir esteja seguro que:</h2>
-        <div class="col" style="border: solid rgb(50, 50, 80); max-width: 280px ;  ">
-            <h6>Um modelo mais preciso e saudavel</h6>
-            <svg width="50" height="49" viewBox="0 0 50 49" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path fill-rule="evenodd" clip-rule="evenodd" d="M20.603 1.16264C23.2851 2.3733 26.7149 2.37332 29.397 1.16257C44.3282 -5.5777 67.8644 17.907 27.8881 47.9006C26.1977 49.1689 23.8022 49.1689 22.1118 47.9007C-17.8643 17.9099 5.6718 -5.57709 20.603 1.16264Z" fill="#93DEFF"/>
-            </svg>
-            <h6>O modelo estará um passo a mais  de se tornar mais forte, mais preciso, pois um modelo de inteligencia artificial alimenta se com dados. E se o mesmo crescerá graças a si!
-            </h6>       
+       {% include '../components/navBar.html' %}
+    <main>
+        <div class="container">
+            <section class="text-center">
+                <h1 class="mt-3 " >Contribuindo com seus dados</h1>
+                <p class="mt-3 ">
+                    Muito obrigado por considerar em contribuir para o website,  para contribuir para o website, somente precisa  se registar no website usando>o seu email  e permitir que os dados dos seus diagnostico sejam armazenados no sistema do site. <br>
+                     O registro por email serve para garantir que uma pessoa real esta a contribuiir para o projeto com dados solidos e coerentes.      
+                </p class="mt-5 ">
+                  <h1 >Ao contribuir esteja seguro que:</h1>
+            </section>
+            
+            <section class="p-5">
+                <div class="container">
+                    <div class="row text-center g-4">
+
+                        <div class="col-lg mx-auto" >
+                            <h6>Um modelo mais preciso</h6>
+
+                            <div class="h1">
+                                <i class="bi bi-suit-heart-fill"></i>
+                            </div>
+            
+                            <h6>O modelo estará um passo a mais  de se tornar mais forte, mais preciso, pois um modelo de inteligencia artificial alimenta se com dados. E se o mesmo crescerá graças a si!</h6>       
         
-        </div>
-        <div class="col"></div>
-        <div class="col" style="border: solid rgb(50, 50, 80); max-width: 280px ;">
-            <h6>Segurança</h6>
-            <svg width="50" height="73" viewBox="0 0 50 73" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M25 4.54109C27.6522 4.54109 30.1957 5.49796 32.0711 7.2012C33.9464 8.90443 35 11.2145 35 13.6233V26.7876C35 29.549 32.7614 31.7876 30 31.7876H20C17.2386 31.7876 15 29.549 15 26.7876V13.6233C15 11.2145 16.0536 8.90443 17.9289 7.2012C19.8043 5.49796 22.3478 4.54109 25 4.54109ZM44.8256 32.9151C42.3561 31.6794 40 29.549 40 26.7876V13.6233C40 10.0101 38.4197 6.54502 35.6066 3.99016C32.7936 1.4353 28.9782 0 25 0C21.0218 0 17.2064 1.4353 14.3934 3.99016C11.5804 6.54502 10 10.0101 10 13.6233V26.7876C10 29.549 7.6439 31.6794 5.17436 32.9151C4.35736 33.3238 3.60033 33.838 2.92893 34.4477C1.05357 36.151 0 38.4611 0 40.8698V63.5752C0 65.984 1.05357 68.2941 2.92893 69.9973C4.8043 71.7005 7.34784 72.6574 10 72.6574H40C42.6522 72.6574 45.1957 71.7005 47.0711 69.9973C48.9464 68.2941 50 65.984 50 63.5752V40.8698C50 38.4611 48.9464 36.151 47.0711 34.4477C46.3997 33.838 45.6426 33.3238 44.8256 32.9151Z" fill="#93DEFF"/>
-            </svg>
-            <h6>Os dados do seu diagnostico serão armazenados de forma segura e anonima.</h6>
-        </div>
-        <div class="col"></div>
-        <div class="col" style="border: solid rgb(50, 50, 80); max-width: 280px ;">
-            <h6>Autenticação por email</h6>
-            <svg width="50" height="50" viewBox="0 0 50 50" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M34.375 18.75C34.375 21.2364 33.3873 23.621 31.6291 25.3791C29.871 27.1373 27.4864 28.125 25 28.125C22.5136 28.125 20.129 27.1373 18.3709 25.3791C16.6127 23.621 15.625 21.2364 15.625 18.75C15.625 16.2636 16.6127 13.879 18.3709 12.1209C20.129 10.3627 22.5136 9.375 25 9.375C27.4864 9.375 29.871 10.3627 31.6291 12.1209C33.3873 13.879 34.375 16.2636 34.375 18.75Z" fill="#93DEFF"/>
-                <path fill-rule="evenodd" clip-rule="evenodd" d="M0 25C0 18.3696 2.63392 12.0107 7.32233 7.32233C12.0107 2.63392 18.3696 0 25 0C31.6304 0 37.9893 2.63392 42.6777 7.32233C47.3661 12.0107 50 18.3696 50 25C50 31.6304 47.3661 37.9893 42.6777 42.6777C37.9893 47.3661 31.6304 50 25 50C18.3696 50 12.0107 47.3661 7.32233 42.6777C2.63392 37.9893 0 31.6304 0 25ZM25 3.125C20.8806 3.12522 16.8449 4.28863 13.3575 6.48134C9.87012 8.67404 7.07276 11.8069 5.28739 15.5194C3.50202 19.2318 2.80121 23.3729 3.26562 27.4661C3.73003 31.5593 5.34079 35.4382 7.9125 38.6562C10.1313 35.0812 15.0156 31.25 25 31.25C34.9844 31.25 39.8656 35.0781 42.0875 38.6562C44.6592 35.4382 46.27 31.5593 46.7344 27.4661C47.1988 23.3729 46.498 19.2318 44.7126 15.5194C42.9272 11.8069 40.1299 8.67404 36.6425 6.48134C33.1551 4.28863 29.1194 3.12522 25 3.125Z" fill="#93DEFF"/>
-            </svg>
-            <h6>O email é necessario para garantir que cada pessoa contribua para o modelo no maximo uma vez por ano, no entanto podem na mesma tirar quantos diagnostico quiserem!</h6>
-        </div>
-    </div>
+                        </div>
 
+                        <div class="col-lg mx-auto security-class">
+                            <h6>Segurança</h6>
+                                <div class="h1">
+
+                                <i class="bi bi-lock-fill"></i>
+                            </div>
+                            <h6>Os dados do seu diagnostico serão armazenados de forma segura e anonima. Os mesmos jamais serão partilhados com terceiros!</h6>
+                        </div>
+
+                        <div class="col-lg mx-auto">
+                            <h6>Autenticação por email</h6>
+                                <div class="h1">
+
+                                <i class="bi bi-person-circle"></i>
+                            </div>
+                             <h6>O email é necessario para garantir que cada pessoa contribua para o modelo no maximo uma vez por ano, no entanto podem na mesma tirar quantos diagnostico quiserem!</h6>
+                         </div>
+
+                    </div>
+                        
+                    </div>
+                </div>
+            </section>
+
+            <section class="text-center">
+                <button class="btn btn-lg mb-3">Contribuir</button>
+            </section>
+
+
+        </div>
+
+    </main>
+<body>
     
-  <div class="row m-xl-5">
-    <div class="col-5">
-    </div>
-    <!-- <div class="col-1" style="padding-left: 3%;">
-      <button style="color: black; height: 50px; width: 150px;" onclick="location.href='login' " type="button" class="btn btn-outline-secondary">Contribuir</button>
-    </div> -->
-    <form method="post" action="">     
-        {%csrf_token%}   
-        <div class="col-1" style="padding-left: 3%;">
-          <button style="color: black; height: 50px; width: 150px;"  type="submit" class="btn btn-outline-secondary">Contribuir</button>
-        </div>
-    </form>
-    <div class="col-9">
-      
-    </div>
-  </div>
-
 </body>
 </html>
