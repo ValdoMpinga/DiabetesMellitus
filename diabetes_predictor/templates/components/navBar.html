@@ -1,36 +1,62 @@
-    <nav class="navbar navbar-expand-sm navBarColor">
-        <div class="container-fluid">
-            <a class="navbar-brand" href="#"></a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup"
-                aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarNavAltMarkup" style="width: 100%;">
-                <div class="navbar-nav" style="width: 100%;">
+{% load static %}
 
-                    <div style="width: 20%;">
-                        <svg onclick="location.href='/'  " 
-                        width="40" 
-                        height="48" 
-                        viewBox="0 0 54 86" 
-                        fill="none"
-                         xmlns="http://www.w3.org/2000/svg">
-                            <path
-                                d="M54 57.116C54 73.0676 41.9111 86 27 86C12.0889 86 0 73.0676 0 57.116C0 41.1645 23.5956 0 27 0C30.2852 0 54 41.1645 54 57.116Z"
-                                fill="#97DAF8" />
-                        </svg>
-                    </div>
-                    <div style="width: 80%;">
-                        <a style="float:right;" class="nav-link disabled"></a>
-                        <a style="float:right; color: aliceblue;" class="nav-link" href=diabetes>Diabetes</a>   
-                        <a style="float:right;color: aliceblue;" class="nav-link" href=projectsupport>Apoiar Projeto</a>
-                        <li class="nav-item active">
-                            <a style="float:right;color: aliceblue;" class="nav-link" href=diagnostic>Diagnostico<span class="sr-only">
-                                 </span> </a>
-                        </li>
-                        
-                    </div>
-                </div>
-            </div>
-        </div>
-    </nav>
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <link
+      rel="stylesheet"
+      href="{% static '/styles/components/navBar.css' %}"
+    />
+  </head>
+<body>
+  <nav class="navbar navbar-expand-sm ">
+    <div class="container ">
+
+      <svg
+              class="navbar-brand  logo"
+              width="40"
+              onclick="location.href='/'"
+              height="48"
+              viewBox="0 0 54 86"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M54 57.116C54 73.0676 41.9111 86 27 86C12.0889 86 0 73.0676 0 57.116C0 41.1645 23.5956 0 27 0C30.2852 0 54 41.1645 54 57.116Z"
+                fill="#97DAF8"
+              />
+            </svg>
+             
+           <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navmenu"
+        >
+         <i class="fa-solid fa-bars"></i>
+        </button>
+
+      <div class="collapse navbar-collapse" id="navmenu">
+            <ul class="navbar-nav ms-auto">
+              <li class="nav-item">
+                <a class="nav-link diabetes-link" href="diabetes">Diabetes</a>
+              </li>
+
+              <li class="nav-item">
+                <a class="nav-link support-project-link" href="projectsupport"
+                  >Apoiar Projeto</a
+                >
+              </li >
+
+              <li class="nav-item">
+                <a class="nav-link diagnostic-link" href="diagnostic"
+                  >Diagnostico<span class="sr-only"> </span>
+                </a>
+              </li>
+            </ul>
+          </div>
+      </div>
+    </div>
+  </nav>
+</body>
+</html>

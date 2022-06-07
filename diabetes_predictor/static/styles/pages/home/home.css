@@ -1,0 +1,38 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+.diagnostic-button {
+  background-color: #323643 !important;
+  color: white !important;
+  margin-right: 20px;
+}
+
+.diabetes-button {
+  background-color: #93deff !important;
+  color: white !important;
+  margin-left: 20px;
+}
+
+.diabetes-image {
+}
+
+h1 {
+  margin-top: 20px;
+  font-size: 45px !important;
+}
+
+section {
+  margin-top: 20px;
+
+  font-size: 20px !important;
+  color: #606470 !important;
+  display: block !important;
+}
+
+.buttonsContainer {
+  display: grid;
+  grid-template-columns: 50% 50%;
+  padding: 20px;
+}

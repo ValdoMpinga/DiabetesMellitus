@@ -19,4 +19,4 @@ def diagnostic(request):
         }
 
       #  return render(request, 'diagnostic/diagnostic.html', {'x': name, 'v': context})
-        return render(request, 'diagnostic/diagnostic.html', [context,name])
+        return render(request, 'diagnostic/diagnostic.html')

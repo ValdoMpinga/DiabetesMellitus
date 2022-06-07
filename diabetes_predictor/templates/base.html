@@ -1,31 +1,87 @@
 {% load static %}
-
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="{% static '/styles/pages/home/home.css' %}" />
     {% include 'components/head.html' %}
+  </head>
+  <body>
+    <header>{% include 'components/navBar.html' %}</header>
+    <main>
+      <section class="text-center">
+        <div class="container">
+          <div class="d-lg-flex align-items-center">
+            <div class="ms-auto">
+              <h1>
+                Faça uma breve analise e <br />
+                descubra se tem diabetes!
+              </h1>
+              <section>
+                A nossa equipe criou um modelo de inteligencia artificial<br />
+                capaz de prever se tem ou não diabetes! Interessado?<br />
+                Simplesmente precisas preencher um formulario e o<br />
+                resultado lhe é mostrado em instantes!
+              </section>
 
-<body>
-    {% include 'components/navBar.html' %}
-    <div class="container-fluid">
-        <div class="row" style="padding-top: 7%;padding-left: 10%;" >
-            <div class="col-sm-12 col-md-7">
-                <h1>Faça uma breve analise e <br> descubra se tem diabetes!</h1>
-                <h5>A nossa equipe criou um modelo de inteligencia artificial<br>
-                capaz de prever se tem ou não diabetes! Interessado?<br>
-                Simplesmente precisas preencher um formulario e o<br>
-                resultado lhe é mostrado em instantes!</h5>
-                <button style="height: 14%;" type="button" class="btn btn-dark" onclick="location.href='diagnostic'">Ir ao Diagnostico</button>
-                <button style="height: 14%;" type="button" class="btn btn-info" onclick="location.href='diabetes'">O que são Diabetes</button>
+              <div class="buttonsContainer">
+                <button
+                  type="button"
+                  class="btn btn-lg diagnostic-button"
+                  onclick="location.href='diagnostic'"
+                >
+                  Ir ao Diagnostico
+                </button>
+                <button
+                  type="button"
+                  class="btn btn-lg diabetes-button"
+                  onclick="location.href='diabetes'"
+                >
+                  O que são Diabetes
+                </button>
+              </div>
             </div>
-            <div class="col-sm-12 col-md-5">
-                {% load static %}
-                <img  style="width: 90%;height: 80%;" src="static/images/home.png" class="img-fluid" alt="Responsive image">      
-             </div>
+
+            <img
+              src="static/images/diabetes-removed-bg.png"
+              class="img-fluid w-50 diabetes-image ms-auto"
+              alt="Responsive image"
+            />
+          </div>
+          <!-- <h1>
+            Faça uma breve analise e <br />
+            descubra se tem diabetes!
+          </h1>
+          <h5>
+            A nossa equipe criou um modelo de inteligencia artificial<br />
+            capaz de prever se tem ou não diabetes! Interessado?<br />
+            Simplesmente precisas preencher um formulario e o<br />
+            resultado lhe é mostrado em instantes!
+          </h5>
+          <button
+            type="button"
+            class="btn btn-dark"
+            onclick="location.href='diagnostic'"
+          >
+            Ir ao Diagnostico
+          </button>
+          <button
+            type="button"
+            class="btn btn-primary"
+            onclick="location.href='diabetes'"
+          >
+            O que são Diabetes
+          </button>
+          <img
+            src="static/images/analytics.jpg"
+            class="img-fluid"
+            alt="Responsive image"
+          /> -->
         </div>
-    </div>
-    <!-- <div class="row">
-        <div class="col-sm-12 col-md-7" style="height: 150px; background-color: red;"></div>
-        <div class="col-sm-12 col-md-5" style="height: 150px; background-color: yellow;"></div>
-    </div> -->
-</body> 
+      </section>
+    </main>
+  </body>
 </html>

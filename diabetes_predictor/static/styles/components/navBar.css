@@ -1,0 +1,38 @@
+.navbar {
+  background-color: #323643;
+}
+
+
+
+.logo {
+  cursor: pointer;
+  margin-left: 30px !important;
+}
+
+a {
+  float: right;
+  color: #ffffff !important;
+}
+
+ul {
+  list-style-type: none;
+}
+
+.support-project-link {
+    margin-right: 25px !important;
+}
+
+.diabetes-link {
+   margin-right: 25px !important;
+}
+
+.diagnostic-link {
+   margin-right: 25px !important;
+}
+
+.navbar-toggler {
+   margin-right: 25px !important;
+   width: 50px !important;
+   height: 50px !important;
+}
+
