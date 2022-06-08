@@ -6,6 +6,10 @@
     padding: 10px !important;
 }
 
+.support-project-link
+{
+  font-weight: 900 !important
+}
 .bi
 {
    color: aqua !important;
