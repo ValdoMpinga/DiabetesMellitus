@@ -1,0 +1,27 @@
+.card {
+  background-color: white !important;
+  border: 3px solid #93deff !important;
+}
+
+h2 {
+  font-family: "Times New Roman", Times, sans-serif;
+}
+
+.btn {
+  background-color: #93deff !important;
+}
+
+.label {
+  font-weight: bolder;
+}
+
+body {
+  background-image: url("https://mdbcdn.b-cdn.net/img/Photos/new-templates/search-box/img4.webp");
+}
+
+u {
+  cursor: pointer;
+  font-weight: 900 !important;
+}
+
+
