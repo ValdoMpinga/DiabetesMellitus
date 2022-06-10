@@ -1,4 +1,38 @@
-.diagnostic-link
-{
-  font-weight: 900 !important
+.diagnostic-link {
+  font-weight: 900 !important;
+}
+
+h6 {
+  margin-top: 10px !important;
+  width: 5px;
+  margin: 0;
+  padding: 0;
+}
+
+.formBox {
+  border: 1px solid #93deff;
+  width: 400px;
+  height: 400px;
+  display: grid !important;
+  grid-template-rows: 10% 90% !important;
+}
+
+
+label{
+  margin-bottom: 10px;
+}
+#div1 {
+  display: grid !important;
+  grid-template-rows: 50% 50% !important;
+}
+
+
+select{
+  width: 75% !important;
+  align-self: center;
+  margin:0 auto;
+}
+
+label, select {
+  margin-left: 40px !important;
 }

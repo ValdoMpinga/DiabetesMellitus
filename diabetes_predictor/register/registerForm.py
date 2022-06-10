@@ -13,7 +13,7 @@ class CreateUserForm(ModelForm):
     attrs={'class': 'form-control', 'placeholder': 'Último nome', 'type': 'text'}))
     
     email = forms.CharField(widget=forms.TextInput(
-        attrs={'class': 'form-control', 'placeholder': 'Email', 'type': 'password'}))
+        attrs={'class': 'form-control', 'placeholder': 'Email', 'type': 'email'}))
     
     password1 = forms.CharField(widget=forms.PasswordInput(
                 attrs={'class': 'form-control', 'placeholder': 'Palavra passe'}))

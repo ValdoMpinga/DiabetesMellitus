@@ -32,3 +32,7 @@ def loginFunc(request):
             'form' : form
         }
         return render(request,'login/login.html', context = context)
+
+def logoutFunc(request):
+    logout(request)
+    return redirect('/login')

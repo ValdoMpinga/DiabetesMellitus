@@ -1,22 +1,32 @@
 from django.shortcuts import render
-from .models import predictPreview
+# from .models import predictPreview
+from .diabetes.diabetesForm import DiabetesForm
 
 
 def diagnostic(request):
     if request.method == 'POST':
         print("yo")
-        predictPreview()
-        return render(request, 'diagnostic/diagnostic.html')
+        # predictPreview()
+        form = DiabetesForm
+        context = {
+            'form': form
+        }
+        return render(request, 'diagnostic/diagnostic.html', context=context)
     else:
         print("Ha")
-        name = {
-            "n": "Pedro"
-        }
-
+        form = DiabetesForm(request.POST)
+        form = DiabetesForm
         context = {
-            "first_name": "Naveen",
-            "last_name": "Arora",
+            'form': form
         }
+        # name = {
+        #     "n": "Pedro"
+        # }
+
+        # context = {
+        #     "first_name": "Naveen",
+        #     "last_name": "Arora",
+        # }
 
       #  return render(request, 'diagnostic/diagnostic.html', {'x': name, 'v': context})
-        return render(request, 'diagnostic/diagnostic.html')
+        return render(request, 'diagnostic/diagnostic.html', context=context)
