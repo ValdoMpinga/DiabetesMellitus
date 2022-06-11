@@ -1,324 +1,308 @@
 
-let ageSelection = 0
-let check = 0
-let checkWaist = 0
-let checkMeds = 0
-let checkFruit = 0
-let checkFam = 0
-let checkSmoke = 0
-let checkSugar = 0
-let checkLevelGlic = 0
-let checkIfGirl = 0
-let checkDiabetes = 0
-let checkWeight = 0
-let checkHeight = 0
-let checkActivity = 0
-let checkFat = 0
+const progress = document.getElementById("progress");
+let ageVerifier = 0
+let waistVerifier= 0
+let pillsVerifier = 0
+let fruitsVerifier = 0
+let diabeticFamilyVerifier = 0
+let smokeVerifier = 0
+let sugarVerifier = 0
+let glicemyLevelVerifier = 0
+let glicemyValueVerifier = 0
+let isGirlVerifier = 0
+let diabetesVerifier = 0
+let weightVerifier = 0
+let heightVerifier = 0
+let physicalExerciseVerifier = 0
+let fatVerifier = 0
 
 
-function myfunction(event)
+function ageProgress()
 {
-  console.log("bbbbbbbbbb");
-  if (ageSelection == 0)
+  if (ageVerifier == 0)
   {
-
-    var progress = document.getElementById("progress");
     progress.value += 6
-    ageSelection++
+    ageVerifier = 1
   }
 }
 
-function check2(event)
+function waistProgress()
 {
-  if (check == 0)
+  if (waistVerifier == 0)
   {
-
-    var progress = document.getElementById("progress");
     progress.value += 6
-    check++
+    waistVerifier = 1
   }
 }
 
-function check3(event)
+function pillsProgress()
 {
-  if (checkMeds == 0)
+  if (pillsVerifier == 0)
   {
-
-    var progress = document.getElementById("progress");
     progress.value += 6
-    checkMeds++
+    pillsVerifier=1
   }
 }
 
-function check4(event)
+function fruitsProgress()
 {
-  if (checkFruit == 0)
+  if (fruitsVerifier == 0)
   {
-
-    var progress = document.getElementById("progress");
     progress.value += 6
-    checkFruit++
+    fruitsVerifier=1
   }
 }
 
-function check5(event)
+function diabeticFamilyProgress()
 {
-  if (checkFam == 0)
+  if (diabeticFamilyVerifier == 0)
   {
-
-    var progress = document.getElementById("progress");
     progress.value += 6
-    checkFam++
-  }
-}
-function check6(event)
-{
-  if (checkSmoke == 0)
-  {
-
-    var progress = document.getElementById("progress");
-    progress.value += 6
-    checkSmoke++
+    diabeticFamilyVerifier=1
   }
 }
 
-function check7(event)
+function smokeProgress()
 {
-  if (checkSugar == 0)
+  if (smokeVerifier == 0)
   {
-
-    var progress = document.getElementById("progress");
     progress.value += 6
-    checkSugar++
+    smokeVerifier=1
   }
 }
 
-
-function check8(event)
+function sugarProgress()
 {
-  if (checkLevelGlic == 0)
+  if (sugarVerifier == 0)
   {
-
-    var progress = document.getElementById("progress");
     progress.value += 6
-    checkLevelGlic++
+    sugarVerifier=1
   }
 }
 
-function check9(event)
+function glicemyLevelProgress()
 {
-  if (checkIfGirl == 0)
+  if (glicemyLevelVerifier == 0)
   {
-
-    var progress = document.getElementById("progress");
     progress.value += 6
-    checkIfGirl++
+    glicemyLevelVerifier=1
   }
 }
 
-function check10(event)
+function isGirlProgress()
 {
-  if (checkDiabetes == 0)
+  if (isGirlVerifier == 0)
   {
-
-    var progress = document.getElementById("progress");
     progress.value += 6
-    checkDiabetes++
+    isGirlVerifier=1
   }
 }
 
-function check11(event)
+function diabetesProgress()
 {
-  if (checkWeight == 0)
+  if (diabetesVerifier == 0)
   {
 
-    var progress = document.getElementById("progress");
+
     progress.value += 6
-    checkWeight++
+    diabetesVerifier=1
   }
 }
 
-
-function check12(event)
+function weightProgress()
 {
-  if (checkHeight == 0)
+  if (weightVerifier == 0)
   {
-
-    var progress = document.getElementById("progress");
     progress.value += 6
-    checkHeight++
+    weightVerifier=1
   }
 }
 
-function check13(event)
+function heightProgress()
 {
-  if (checkActivity == 0)
+  if (heightVerifier == 0)
   {
-
-    var progress = document.getElementById("progress");
     progress.value += 6
-    checkActivity++
+    heightVerifier=1
   }
 }
 
-function check14(event)
+function glicemyValueSelectProgress()
 {
-  if (checkFat == 0)
+  if (glicemyValueVerifier == 0)
   {
-
-    var progress = document.getElementById("progress");
     progress.value += 6
-    checkFat++
+    glicemyValueVerifier =1
   }
 }
+
+function glicemyValueFieldProgress()
+{
+  if (glicemyValueVerifier == 0)
+  {
+    progress.value += 6
+    glicemyValueVerifier =1
+  }
+}
+
+function physicalExerciseProgress()
+{
+  if (physicalExerciseVerifier == 0)
+  {
+    progress.value += 6
+    physicalExerciseVerifier=1
+  }
+}
+
+function fatProgress()
+{
+  if (fatVerifier == 0)
+  {
+    progress.value += 6
+    fatVerifier=1
+  }
+}
+
 
 document.querySelectorAll("input[name='idade']").forEach((input) =>
 {
-  console.log("zzz");
-
-  input.addEventListener('change', myfunction);
+  input.addEventListener('change', ageProgress);
 });
+
 
 document.querySelectorAll("input[name='cintura']").forEach((input) =>
 {
-  input.addEventListener('change', check2);
+  input.addEventListener('change', waistProgress);
 });
 
 document.querySelectorAll("input[name='medicamento']").forEach((input) =>
 {
-  input.addEventListener('change', check3);
+  input.addEventListener('change', pillsProgress);
 });
 
 document.querySelectorAll("input[name='fruta']").forEach((input) =>
 {
-  input.addEventListener('change', check4);
+  input.addEventListener('change', fruitsProgress);
 });
 
 document.querySelectorAll("input[name='familia']").forEach((input) =>
 {
-  input.addEventListener('change', check5);
+  input.addEventListener('change', diabeticFamilyProgress);
 });
 
 document.querySelectorAll("input[name='fumar']").forEach((input) =>
 {
-  input.addEventListener('change', check6);
+  input.addEventListener('change', smokeProgress);
 });
 
 document.querySelectorAll("input[name='acucar']").forEach((input) =>
 {
-  input.addEventListener('change', check7);
+  input.addEventListener('change', sugarProgress);
 });
 
 document.querySelectorAll("input[name='levelglic']").forEach((input) =>
 {
-  input.addEventListener('change', check8);
+  input.addEventListener('change', glicemyLevelProgress);
 });
 
 document.querySelectorAll("input[name='ifgirl']").forEach((input) =>
 {
-  input.addEventListener('change', check9);
+  input.addEventListener('change', isGirlProgress);
 });
 
 document.querySelectorAll("input[name='diabetes']").forEach((input) =>
 {
-  input.addEventListener('change', check10);
+  input.addEventListener('change', diabetesProgress);
 });
 
 document.querySelectorAll("input[name='peso']").forEach((input) =>
 {
-  input.addEventListener('change', check11);
+  input.addEventListener('change', weightProgress);
 });
 
 document.querySelectorAll("input[name='altura']").forEach((input) =>
 {
-  input.addEventListener('change', check12);
+  input.addEventListener('change', heightProgress);
+});
+
+document.querySelectorAll("input[name='glic']").forEach((input) =>
+{
+  input.addEventListener('change', glicemyValueSelectProgress);
+});
+
+document.querySelectorAll("input[name='glicemia']").forEach((input) =>
+{
+  input.addEventListener('change', glicemyValueFieldProgress);
 });
 
 document.querySelectorAll("input[name='atividade']").forEach((input) =>
 {
-  input.addEventListener('change', check13);
+  input.addEventListener('change', physicalExerciseProgress);
 });
 
 document.querySelectorAll("input[name='gordura']").forEach((input) =>
 {
-  input.addEventListener('change', check14);
+  input.addEventListener('change', fatProgress);
 });
 
 
+//   for (let i = 0, len = comp.length; i < len; i=1)
+//   {
+//     comp[i].value = null;
+
+//   }
+// }
+// componentes()
+
+// function resetMyForm()
+// {
+//   let formulario = document.getElementById('idForm');
+//   formulario.reset();
+// }
+
+// resetMyForm()
+
+// function increaseValue()
+// {
+
+//   const button = document.getElementById('btnNext');
+
+//   let elementClicked = true;
+
+//   button.addEventListener('click', function handleClick()
+//   {
+//     let progress = document.getElementById('progress');
+//     let value = progress.value;
+//     let maximumProgress = 100;
+
+//     if (value < maximumProgress)
+//     {
+//       value = value + 12.5;
+
+//       progress.value = value;
+//     } else
+//     {
+//       console.log("chegou no limite");
+//     }
 
 
-
-
-function ifChecked()
-{
-  // if (document.orderform.elements[].checked == true){
-  //     console.log("Oieee");
-  // }                                                                                                  
-}
-ifChecked()
-
-function componentes()
-{
-  let comp = document.getElementsByClassName('my-component');
-  console.warn(comp);
-
-  for (let i = 0, len = comp.length; i < len; i++)
-  {
-    comp[i].value = null;
-
-  }
-}
-componentes()
-
-function resetMyForm()
-{
-  let formulario = document.getElementById('idForm');
-  formulario.reset();
-}
-
-resetMyForm()
-
-function increaseValue()
-{
-
-  const button = document.getElementById('btnNext');
-
-  let elementClicked = true;
-
-  button.addEventListener('click', function handleClick()
-  {
-    let progress = document.getElementById('progress');
-    let value = progress.value;
-    let maximumProgress = 100;
-
-    if (value < maximumProgress)
-    {
-      value = value + 12.5;
-
-      progress.value = value;
-    } else
-    {
-      console.log("chegou no limite");
-    }
-
-
-  });
-}
+//   });
+// }
 
 //increaseValue()
 
 
-
 let divAtual = 1;
 
-function call()
-{
-  console.log("hello");
-}
+// function call()
+// {
+//   console.log("hello");
+// }
 
 function nextDiv()
 {
   disableAllDivs();
+  console.log(divAtual);
   switch (divAtual)
   {
     case 1:
@@ -410,16 +394,4 @@ function disableAllDivs()
   document.getElementById("div7").classList.add("disableDiv");
   document.getElementById("div8").classList.add("disableDiv");
 
-}
-
-
-function validate()
-{
-  if (document.getElementById('progress').checked)
-  {
-    alert("checked");
-  } else
-  {
-    alert("You didn't check it! Let me check it for you.");
-  }
 }

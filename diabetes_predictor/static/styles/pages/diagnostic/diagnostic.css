@@ -5,19 +5,24 @@
 h6 {
   margin-top: 10px !important;
   text-align: center;
+  font-weight: bold;
 }
 
 .formBox {
-  border: 1px solid #93deff !important;
+  border: 2px solid #93deff !important;
   width: 400px !important;
-  height: 400px !important;
+  height: 500px !important;
   /* display: grid !important;
   grid-template-rows: 10% 90% !important; */
 }
 
+.form-select{
+  max-width: 300px !important; 
+}
 
 label{
   margin-bottom: 10px;
+  
 }
 
 .formGrid

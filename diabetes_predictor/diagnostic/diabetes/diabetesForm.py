@@ -62,7 +62,6 @@ CHOICES_ACUCAR = (
 
 CHOICES_GLIC = (
     ('Não sei', 'Não sei'),
-    ('S', 's')
 )
 
 CHOICES_LEVELGLIC = (
@@ -135,8 +134,8 @@ class DiabetesForm(forms.ModelForm):
 
         widgets = {
             'sexo': forms.Select(attrs={'class': 'form-select'}),
-            'peso': forms.TextInput(attrs={'class': 'form-control'}),
-            'altura': forms.TextInput(attrs={'class': 'form-control'}),
+            'peso': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Peso'}),
+            'altura': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Altura'}),
             'data': forms.TextInput(attrs={'class': 'form-control'}),
-            'glicemia': forms.TextInput(attrs={'class': 'form-control'})
+            'glicemia': forms.TextInput(attrs={'class': 'form-control','placeholder':'Valor da glicemia'})
         }
