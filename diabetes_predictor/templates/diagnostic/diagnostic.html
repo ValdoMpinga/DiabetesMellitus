@@ -18,7 +18,7 @@
     <div class="container">
       <div class="row">
         <div class="col-lg d-flex justify-content-center">
-          <form id="idForm " action="" method="post">
+          <form id="diagnosticForm " action="" method="post">
             {%csrf_token%}
 
             <div class="formBox ms-auto p-4">
@@ -204,7 +204,11 @@
                 >
                   <i class="icon-arrow-left"></i>
                 </button>
-                <button class="btn btn-lg submitButton" type="submit">
+                <button
+                  class="btn btn-lg submitButton"
+                  type="submit"
+                  
+                >
                   Submeter
                 </button>
 

@@ -302,7 +302,6 @@ let divAtual = 1;
 function nextDiv()
 {
   disableAllDivs();
-  console.log(divAtual);
   switch (divAtual)
   {
     case 1:

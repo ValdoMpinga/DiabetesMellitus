@@ -115,7 +115,7 @@ class DiabetesForm(forms.ModelForm):
         attrs={'class': 'Radio' 'form-control'}), initial=1)
     acucar = forms.ChoiceField(required=True, choices=CHOICES_ACUCAR, widget=forms.RadioSelect(
         attrs={'class': 'Radio' 'form-control'}), initial=1)
-    glic = forms.ChoiceField(required=True, choices=CHOICES_GLIC, widget=forms.RadioSelect(
+    glic = forms.ChoiceField(required=False, choices=CHOICES_GLIC, widget=forms.RadioSelect(
         attrs={'class': 'Radio' 'form-control'}), initial=1)
     levelglic = forms.ChoiceField(required=True, choices=CHOICES_LEVELGLIC, widget=forms.RadioSelect(
         attrs={'class': 'Radio' 'form-control'}), initial=1)

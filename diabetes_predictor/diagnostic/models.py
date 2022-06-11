@@ -1,4 +1,3 @@
-from email.policy import default
 from django.db import models
 import os
 from django.conf import settings
@@ -17,10 +16,9 @@ import joblib
 
 class DiagnosticSample(models.Model):
 
-    sex_choices = (('m', 'Masculino'), ('f', 'Feminino'),)
+    sex_choices = (('m', 'Masculino'), ('f', 'Feminino'))
 
     sexo = models.TextField(choices=sex_choices,default='f')
-    # idade = models.CharField(max_length = 1,choices=sex_choices)
     peso = models.CharField(max_length=10)
     altura = models.CharField(max_length=10)
     glicemia = models.CharField(max_length=10)
