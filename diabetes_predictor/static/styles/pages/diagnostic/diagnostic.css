@@ -16,6 +16,14 @@ h6 {
   grid-template-rows: 10% 90% !important; */
 }
 
+.outputBox {
+  border: 2px solid #323643 !important;
+  width: 400px !important;
+  height: 500px !important;
+  /* display: grid !important;
+  grid-template-rows: 10% 90% !important; */
+}
+
 .form-select{
   max-width: 300px !important; 
 }
@@ -31,12 +39,29 @@ label{
   display: grid;
   grid-template-rows: 50% 50%;
 }
+
+progress{
+  max-width: 200px;
+  height: 30px;
+}
+
+.submitButton{
+  background-color: #93DEFF !important;
+}
+
+/* .formButtons{
+  display: grid;
+  grid-template-columns: 20% 80% 20%;
+} */
+
+
 /*
 #div1 {
   display: grid !important;
   grid-template-rows: 50% 50% !important;
 }
 
+.
 
 select{
   width: 75% !important;
