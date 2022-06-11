@@ -4,23 +4,29 @@
 
 h6 {
   margin-top: 10px !important;
-  width: 5px;
-  margin: 0;
-  padding: 0;
+  text-align: center;
 }
 
 .formBox {
-  border: 1px solid #93deff;
-  width: 400px;
-  height: 400px;
-  display: grid !important;
-  grid-template-rows: 10% 90% !important;
+  border: 1px solid #93deff !important;
+  width: 400px !important;
+  height: 400px !important;
+  /* display: grid !important;
+  grid-template-rows: 10% 90% !important; */
 }
 
 
 label{
   margin-bottom: 10px;
 }
+
+.formGrid
+{
+  height: 360px;
+  display: grid;
+  grid-template-rows: 50% 50%;
+}
+/*
 #div1 {
   display: grid !important;
   grid-template-rows: 50% 50% !important;
@@ -35,4 +41,4 @@ select{
 
 label, select {
   margin-left: 40px !important;
-}
+} */
