@@ -18,7 +18,7 @@
     <div class="container">
       <div class="row">
         <div class="col-lg d-flex justify-content-center">
-          <form id="diagnosticForm " action="" method="post">
+          <form id="diagnosticForm " action=""  method="post">
             {%csrf_token%}
 
             <div class="formBox ms-auto p-4">
@@ -159,7 +159,8 @@
                       (mg/dL)?</label
                     >
 
-                    {{ form.glic }} {{ form.glicemia }}
+                    <!-- {{ form.glic }}  -->
+                    {{ form.glicemia }}
                   </div>
 
                   <div class="secDiv">
@@ -200,14 +201,17 @@
                   type="button"
                   class="btn btn-lg disableDiv"
                   onclick="previousDiv()"
+
                   id="btnPrev"
                 >
                   <i class="icon-arrow-left"></i>
-                </button>
+                </button> 
+
                 <button
+                  id="submitButton"
                   class="btn btn-lg submitButton"
                   type="submit"
-                  
+                  onclick="handlePrematureSubmit()"
                 >
                   Submeter
                 </button>

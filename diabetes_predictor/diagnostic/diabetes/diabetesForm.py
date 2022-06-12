@@ -137,5 +137,5 @@ class DiabetesForm(forms.ModelForm):
             'peso': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Peso'}),
             'altura': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Altura'}),
             'data': forms.TextInput(attrs={'class': 'form-control'}),
-            'glicemia': forms.TextInput(attrs={'class': 'form-control','placeholder':'Valor da glicemia'})
+            'glicemia': forms.TextInput(attrs={'class': 'form-control','placeholder':'Digite Não sei caso não saiba!'})
         }

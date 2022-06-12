@@ -1,16 +1,19 @@
 from django.shortcuts import render
-# from .models import predictPreview
 from .diabetes.diabetesForm import DiabetesForm
+from .diabetes_predictor.diabetesPredictor import Predict
+import json
 
 
 def diagnostic(request):
     if request.method == 'POST':
-        print("yo")
-        # predictPreview()
+        jsonData= json.loads(request.body)
         form = DiabetesForm
         context = {
             'form': form
         }
+        prediction = Predict(jsonData)
+        print("Home:")
+        print(prediction)
         return render(request, 'diagnostic/diagnostic.html', context=context)
     else:
         print("Ha")
