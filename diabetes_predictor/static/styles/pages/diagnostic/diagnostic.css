@@ -24,36 +24,49 @@ h6 {
   grid-template-rows: 10% 90% !important; */
 }
 
-.form-select{
-  max-width: 300px !important; 
+.boxContainer {
+    height: 500px !important;
+  display: grid !important;
+  grid-template-rows: 1fr 1fr 1fr !important;
 }
 
-label{
+.form-select {
+  max-width: 300px !important;
+}
+
+label {
   margin-bottom: 10px;
-  
 }
 
-.formGrid
-{
+.formGrid {
   height: 360px;
   display: grid;
   grid-template-rows: 50% 50%;
 }
 
-progress{
+progress {
   max-width: 200px;
   height: 30px;
 }
 
-.submitButton{
-  background-color: #93DEFF !important;
+.submitButton {
+  background-color: #93deff !important;
 }
 
+.replayButton {
+  background-color: #323643 !important;
+  color: white !important;
+  width: 120px;
+  height: 48px;
+}
+
+#predictionHeader {
+  color: #93deff !important;
+}
 /* .formButtons{
   display: grid;
   grid-template-columns: 20% 80% 20%;
 } */
-
 
 /*
 #div1 {

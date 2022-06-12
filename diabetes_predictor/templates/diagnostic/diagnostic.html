@@ -18,9 +18,8 @@
     <div class="container">
       <div class="row">
         <div class="col-lg d-flex justify-content-center">
-          <form id="diagnosticForm " action=""  method="post">
+          <form id="diagnosticForm " action="" method="post">
             {%csrf_token%}
-
             <div class="formBox ms-auto p-4">
               <div id="div1">
                 <h6 class="h6">1/8</h6>
@@ -201,15 +200,14 @@
                   type="button"
                   class="btn btn-lg disableDiv"
                   onclick="previousDiv()"
-
                   id="btnPrev"
                 >
                   <i class="icon-arrow-left"></i>
-                </button> 
+                </button>
 
                 <button
                   id="submitButton"
-                  class="btn btn-lg submitButton"
+                  class="btn submitButton"
                   type="submit"
                   onclick="handlePrematureSubmit()"
                 >
@@ -228,12 +226,32 @@
             </div>
           </form>
         </div>
+
         <div class="col-lg d-flex justify-content-center">
-          <div class="outputBox text-center mb-3">
-            <h6 class="">O seu diagnostico aparecerá aqui</h6>
-            <progress class="mt-3" id="progress" value="12.5" max="100">
-              32%
-            </progress>
+          <div class="outputBox">
+            <div class="boxContainer">
+              <div class="text-center mb-3">
+                <h6 class="">O seu diagnostico aparecerá aqui</h6>
+                <progress class="mt-4" id="progress" value="12.5" max="100">
+                  32%
+                </progress>
+              </div>
+
+              <section class="mt-3 p2 text-center outputTextSection">
+                <h4 class="align-middle fw-bold" id="predictionHeader">
+                  Segundo o nosso modelo
+                </h4>
+                <h4 class="align-middle" id="predictionContent">
+                  Possui uma chance de 73% de não ser diabetico!
+                </h4>
+              </section>
+
+              <div class="mt-5 text-center outputReplayButton">
+                <button class="btn replayButton" onclick="handleReplayButton()">
+                  Repetir
+                </button>
+              </div>
+            </div>
           </div>
         </div>
       </div>

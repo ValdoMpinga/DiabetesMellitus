@@ -16,6 +16,15 @@ let heightVerifier = 0
 let physicalExerciseVerifier = 0
 let fatVerifier = 0
 
+
+function outputDiv()
+{
+  document.querySelector(".outputTextSection").style.display = "none";
+  document.querySelector(".outputReplayButton").style.display = "none";
+}
+
+outputDiv()
+
 function getCookie(name)
 {
   var cookieValue = null;
@@ -293,7 +302,7 @@ form.onsubmit = async (e) =>
       'Content-Type': 'application/json',
       'X-CSRFToken': csrftoken
     },
-    body : JSON.stringify({
+    body: JSON.stringify({
       "sex": formObj.sexo,
       "age": formObj.idade,
       "waist": formObj.cintura,
@@ -312,16 +321,62 @@ form.onsubmit = async (e) =>
       "areYouDiabetic": formObj.diabetes
     })
 
+
+
+
   }
 
 
 
-  await fetch('http://192.168.1.234:8080/diagnostic', requestOptions)
+  let response = await fetch('http://192.168.1.234:8080/diagnostic', requestOptions)
 
-  console.log(jsonValues);
+  let data = await response.json()
+
+  // console.log("bellow");
+  console.log(data.prediction);
+  console.log(data.probability);
+  // console.log(mydata2);
+
+  if (data.prediction == 1)
+  {
+
+    document.querySelector("#predictionContent").innerHTML = `Possui uma chance de ${Math.floor(data.probability * 100)}% de ser diabetico!`;
+  }else {
+    document.querySelector("#predictionContent").innerHTML = `Possui uma chance de ${Math.floor(data.probability * 100)}% de não ser diabetico!`;
+  }
+
+  document.querySelector(".outputTextSection").style.display = "block";
+  document.querySelector(".outputReplayButton").style.display = "block";
 
 }
 
+function handleReplayButton()
+{
+  document.querySelector('form').reset()
+  progress.value = 12.5
+  ageVerifier = 0
+  waistVerifier = 0
+  pillsVerifier = 0
+  fruitsVerifier = 0
+  diabeticFamilyVerifier = 0
+  smokeVerifier = 0
+  sugarVerifier = 0
+  glicemyLevelVerifier = 0
+  glicemyValueVerifier = 0
+  isGirlVerifier = 0
+  diabetesVerifier = 0
+  weightVerifier = 0
+  heightVerifier = 0
+  physicalExerciseVerifier = 0
+  fatVerifier = 0
+  for (let i = 7; i > 0; i--)
+  {
+
+    document.querySelector('#btnPrev').click()
+  }
+
+  outputDiv()
+}
 
 function JsonOrganizer(formData)
 {

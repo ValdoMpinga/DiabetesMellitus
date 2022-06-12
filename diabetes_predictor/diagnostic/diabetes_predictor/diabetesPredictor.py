@@ -41,7 +41,7 @@ def Predict(data):
     predictionOutput = getPrediction(sampleArray)
     predictionProbabilityOutput = getPredictionProbability(
         sampleArray, predictionOutput)
-    
+
     return ([predictionOutput, predictionProbabilityOutput])
 
 
@@ -61,8 +61,7 @@ def getPrediction(sampleArray):
 
 
 def getPredictionProbability(sampleArray, prediction):
-    prediction_probability = diabetesPredictorModel.predict_proba([
-                                                                  sampleArray])
+    prediction_probability = diabetesPredictorModel.predict_proba([sampleArray])
 
     parserPrediction_probability = prediction_probability.tolist()
     parsedArray = parserPrediction_probability[0]
