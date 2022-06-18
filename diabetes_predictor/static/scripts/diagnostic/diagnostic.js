@@ -49,7 +49,7 @@ function ageProgress()
 {
   if (ageVerifier == 0)
   {
-    progress.value += 6
+    progress.value += 7
     ageVerifier = 1
   }
 }
@@ -58,7 +58,7 @@ function waistProgress()
 {
   if (waistVerifier == 0)
   {
-    progress.value += 6
+    progress.value += 7
     waistVerifier = 1
   }
 }
@@ -67,7 +67,7 @@ function pillsProgress()
 {
   if (pillsVerifier == 0)
   {
-    progress.value += 6
+    progress.value += 7
     pillsVerifier = 1
   }
 }
@@ -76,7 +76,7 @@ function fruitsProgress()
 {
   if (fruitsVerifier == 0)
   {
-    progress.value += 6
+    progress.value += 7
     fruitsVerifier = 1
   }
 }
@@ -85,7 +85,7 @@ function diabeticFamilyProgress()
 {
   if (diabeticFamilyVerifier == 0)
   {
-    progress.value += 6
+    progress.value += 7
     diabeticFamilyVerifier = 1
   }
 }
@@ -94,7 +94,7 @@ function smokeProgress()
 {
   if (smokeVerifier == 0)
   {
-    progress.value += 6
+    progress.value += 7
     smokeVerifier = 1
   }
 }
@@ -103,7 +103,7 @@ function sugarProgress()
 {
   if (sugarVerifier == 0)
   {
-    progress.value += 6
+    progress.value += 7
     sugarVerifier = 1
   }
 }
@@ -112,7 +112,7 @@ function glicemyLevelProgress()
 {
   if (glicemyLevelVerifier == 0)
   {
-    progress.value += 6
+    progress.value += 7
     glicemyLevelVerifier = 1
   }
 }
@@ -121,7 +121,7 @@ function isGirlProgress()
 {
   if (isGirlVerifier == 0)
   {
-    progress.value += 6
+    progress.value += 7
     isGirlVerifier = 1
   }
 }
@@ -132,7 +132,7 @@ function diabetesProgress()
   {
 
 
-    progress.value += 6
+    progress.value += 7
     diabetesVerifier = 1
   }
 }
@@ -150,7 +150,7 @@ function heightProgress()
 {
   if (heightVerifier == 0)
   {
-    progress.value += 6
+    progress.value += 7
     heightVerifier = 1
   }
 }
@@ -159,7 +159,7 @@ function glicemyValueSelectProgress()
 {
   if (glicemyValueVerifier == 0)
   {
-    progress.value += 6
+    progress.value += 7
     glicemyValueVerifier = 1
   }
 }
@@ -168,7 +168,7 @@ function glicemyValueFieldProgress()
 {
   if (glicemyValueVerifier == 0)
   {
-    progress.value += 6
+    progress.value += 7
     glicemyValueVerifier = 1
   }
 }
@@ -177,7 +177,7 @@ function physicalExerciseProgress()
 {
   if (physicalExerciseVerifier == 0)
   {
-    progress.value += 6
+    progress.value += 7
     physicalExerciseVerifier = 1
   }
 }
@@ -186,7 +186,7 @@ function fatProgress()
 {
   if (fatVerifier == 0)
   {
-    progress.value += 6
+    progress.value += 7
     fatVerifier = 1
   }
 }
@@ -266,12 +266,6 @@ document.querySelectorAll("input[name='gordura']").forEach((input) =>
   input.addEventListener('change', fatProgress);
 });
 
-function handleSubmit()
-{
-  alert("in")
-  event.preventDefault()
-  alert("out")
-}
 
 function handlePrematureSubmit()
 {
@@ -320,15 +314,9 @@ form.onsubmit = async (e) =>
       "womanGlucose": formObj.ifgirl,
       "areYouDiabetic": formObj.diabetes
     })
-
-
-
-
   }
 
-
-
-  let response = await fetch('http://192.168.1.234:8080/diagnostic', requestOptions)
+  let response = await fetch('http://127.0.0.1:8080/diagnostic', requestOptions)
 
   let data = await response.json()
 
@@ -353,7 +341,7 @@ form.onsubmit = async (e) =>
 function handleReplayButton()
 {
   document.querySelector('form').reset()
-  progress.value = 12.5
+  progress.value = 4
   ageVerifier = 0
   waistVerifier = 0
   pillsVerifier = 0
@@ -409,82 +397,10 @@ function JsonOrganizer(formData)
 
   return sample
 }
-// ArrowRight = key =>
-// {
-//   document.getElementById("btnNext").click();
-// },
 
-// ArrowLeft = key =>
-// {
-//   document.getElementById("btnPrev").click();
-// },
-
-// handler = {
-//   ArrowRight,
-//   ArrowLeft
-// };
-
-// document.addEventListener("keydown", e =>
-// {
-//   const key = e.key;
-
-//   if (handler.hasOwnProperty(key))
-//   {
-//     handler[key](key);
-//   }
-// });
-//   for (let i = 0, len = comp.length; i < len; i=1)
-//   {
-//     comp[i].value = null;
-
-//   }
-// }
-// componentes()
-
-// function resetMyForm()
-// {
-//   let formulario = document.getElementById('idForm');
-//   formulario.reset();
-// }
-
-// resetMyForm()
-
-// function increaseValue()
-// {
-
-//   const button = document.getElementById('btnNext');
-
-//   let elementClicked = true;
-
-//   button.addEventListener('click', function handleClick()
-//   {
-//     let progress = document.getElementById('progress');
-//     let value = progress.value;
-//     let maximumProgress = 100;
-
-//     if (value < maximumProgress)
-//     {
-//       value = value + 12.5;
-
-//       progress.value = value;
-//     } else
-//     {
-//       console.log("chegou no limite");
-//     }
-
-
-//   });
-// }
-
-//increaseValue()
 
 
 let divAtual = 1;
-
-// function call()
-// {
-//   console.log("hello");
-// }
 
 function nextDiv()
 {

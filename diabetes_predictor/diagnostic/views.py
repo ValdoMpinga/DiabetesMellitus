@@ -12,7 +12,6 @@ def diagnostic(request):
 
         prediction = Predict(jsonData)
 
-        print()
         data = {'prediction': prediction[0],
                 'probability': prediction[1]}
         data = json.dumps(data)

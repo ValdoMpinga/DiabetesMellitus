@@ -1,7 +1,7 @@
 from django import forms
-from ..models import *
-from django.forms import ModelForm, widgets
+from .models import Contribute
 from django.forms import Select
+
 
 CHOICES = (
     ('Menos de 45 anos', 'Menos de 45 anos'),
@@ -98,7 +98,7 @@ class Select(Select):
         return option
 
 
-class DiabetesForm(forms.ModelForm):
+class ContributionForm(forms.ModelForm):
     idade = forms.ChoiceField(required=True, choices=CHOICES, widget=forms.RadioSelect(
         attrs={'class': 'Radio' 'form-control my-component'}), initial=1)
     cintura = forms.ChoiceField(required=True, choices=CHOICES_CINTURA, widget=forms.RadioSelect(
@@ -130,7 +130,7 @@ class DiabetesForm(forms.ModelForm):
 
     class Meta():
 
-        model = DiagnosticSample
+        model = Contribute
         fields = ('sexo', 'idade', 'peso', 'altura',
                   'cintura', 'medicamento', 'glicemia')
 
@@ -139,5 +139,5 @@ class DiabetesForm(forms.ModelForm):
             'peso': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Peso'}),
             'altura': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Altura'}),
             'data': forms.TextInput(attrs={'class': 'form-control'}),
-            'glicemia': forms.TextInput(attrs={'class': 'form-control','placeholder':'Digite Não sei caso não saiba!'})
+            'glicemia': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Digite Não sei caso não saiba!'})
         }

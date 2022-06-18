@@ -86,3 +86,14 @@ def saveUserContribute(userContribute):
     areYouDiabetic = userContribute['areYouDiabetic'] )
 
     contribute.save()
+
+
+class Contribute(models.Model):
+
+    sex_choices = (('Masculino', 'Masculino'), ('Feminino', 'Feminino'))
+
+    sexo = models.TextField(choices=sex_choices, default='Feminino')
+    peso = models.CharField(max_length=10)
+    altura = models.CharField(max_length=10)
+    glicemia = models.CharField(max_length=10)
+    data = models.DateField()

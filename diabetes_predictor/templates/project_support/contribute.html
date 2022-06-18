@@ -1,24 +1,21 @@
 {% load static %}
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <link
+    <head>
+         <link
       rel="stylesheet"
       href="{% static '/styles/pages/diagnostic/diagnostic.css' %}"
     />
-    {% include '../components/head.html' %}
-  </head>
-
-  <body>
+        <link rel="stylesheet" href="{% static '/styles/pages/contribute/contribute.css' %}" />
+        {% include '../components/head.html' %}
+    </head>
+<body>
     {% include '../components/navBar.html' %}
-    <section class="text-center mb-5">
-      <h1 class="mt-3">Preencha o formulário e obtenha o diagnostico!</h1>
-    </section>
-
-    <div class="container">
+    <main>
+        <div class="container">
       <div class="row">
         <div class="col-lg d-flex justify-content-center">
-          <form id="diagnosticForm " action="" method="post">
+          <form id="contributionForm " action="" method="post">
             {%csrf_token%}
             <div class="formBox ms-auto p-4">
               <div id="div1">
@@ -183,6 +180,13 @@
                     >
                     {{ form.ifgirl }}
                   </div>
+
+                  <div class="secDiv mt-5">
+                    <label class="fw-bold mt-5" for="smoke">
+                      16. Tem diabetes?</label
+                    >
+                    {{ form.diabetes }}
+                  </div>
                 </div>
               </div>
             </div>
@@ -224,18 +228,18 @@
           <div class="outputBox">
             <div class="boxContainer">
               <div class="text-center mb-3">
-                <h6 class="">O seu diagnostico aparecerá aqui</h6>
-                <progress class="mt-4" id="progress" value="4" max="100">
+                <h6 class="">Progresso do seu contributo</h6>
+                <progress class="mt-4" id="progress" value="12.5" max="100">
                   32%
                 </progress>
               </div>
 
               <section class="mt-3 p2 text-center outputTextSection">
                 <h4 class="align-middle fw-bold" id="predictionHeader">
-                  Segundo o nosso modelo
+                  Muito obrigado!
                 </h4>
                 <h4 class="align-middle" id="predictionContent">
-                  Possui uma chance de 73% de não ser diabetico!
+                  A sua contribuição foi salva, só podera contribuir novamente daqui a 365 dias!
                 </h4>
               </section>
 
@@ -249,7 +253,7 @@
         </div>
       </div>
     </div>
-  </body>
-</html>
+    </main>
+</body>
 
-<script src="{% static '/scripts/diagnostic/diagnostic.js' %}"></script>
+<script src="{% static '/scripts/contribute/contribute.js' %}"></script>

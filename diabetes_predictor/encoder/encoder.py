@@ -1,7 +1,10 @@
 from .helpers.encoderHelper import *
 
 
-def Encoder(option, sex, age, weight, height, waist, doesExercise, takePills, eatFruit, diabeticFamily, eatFats, smoke, bloodGlucose, analysis, glucoseLevelChange, womanGlucose, **diabetic):
+def Encoder(option, sex, age, weight,
+            height, waist, doesExercise, takePills, 
+            eatFruit, diabeticFamily, eatFats, smoke,
+            bloodGlucose, analysis, glucoseLevelChange, womanGlucose, *diabetic):
 
     if(option == 1):
         # Data persistence
