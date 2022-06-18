@@ -59,14 +59,21 @@ def contribute(request):
             #     str(today), '%Y-%m-%d').strftime('%d/%m/%Y'))
             # print(userLastContributionDate)
             currentDate = datetime.datetime.strptime(str(today), '%Y-%m-%d').strftime('%d/%m/%Y')
+            currentDateString = currentDate
             currentDate = datetime.datetime.strptime(currentDate, "%d/%m/%Y")
             lastContribuitionDate = datetime.datetime.strptime(
                 userLastContributionDate,"%d/%m/%Y")
             
             daysOfDifference = (currentDate - lastContribuitionDate).days
-            
-            
-          
+            print(daysOfDifference)
+            if daysOfDifference >= 365:
+                userModel.UserModel.objects.filter(
+                    email=request.user).update(contribuition_date=currentDateString)
+                saveUserContribute(userContribute)
+                print("contributed!")
+            else:
+                print("Early to contribute!")
+
         #     email=request.user).values('contribuition_date')
     #    if(userLastContribution)
     #     userModel.UserModel.objects.filter(
