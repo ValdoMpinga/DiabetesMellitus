@@ -318,9 +318,21 @@ form.onsubmit = async (e) =>
 
     let response = await fetch('http://127.0.0.1:8080/projectsupport/contribute', requestOptions)
 
-    console.log("!H");
-    document.querySelector(".outputTextSection").style.display = "block";
-    document.querySelector(".outputReplayButton").style.display = "block";
+    let data = await response.json()
+    if (data.isAuthroized == 1)
+    {
+        document.querySelector(".outputTextSection").style.display = "block";
+        document.querySelector(".outputReplayButton").style.display = "block";
+    } else if (data.isAuthroized == 0)
+    {
+        alert(`Muito obrigado pela intenção, porem esta conta só podera contribuir novamente em ${data.daysLeft} dias!`)
+    } else
+    {
+        let confirmation = confirm("È necessario inciar uma sessão para fazer a contribuição, pretende prosseguir?")
+
+        if (confirmation)
+            window.location.href = "http://127.0.0.1:8080/login"
+    }
 
 }
 
@@ -483,5 +495,6 @@ function disableAllDivs()
     document.getElementById("div8").classList.add("disableDiv");
 
 }
+
 
 

@@ -1,16 +1,6 @@
-let csrftoken = getCookie('csrftoken');
-
-const requestOptions =
-{
-    method: 'POST',
-    headers: {
-        'Content-Type': 'application/json',
-        'X-CSRFToken': csrftoken
-    }
-}
-
 function getCookie(name)
 {
+
     var cookieValue = null;
     if (document.cookie && document.cookie !== '')
     {
@@ -31,5 +21,30 @@ function getCookie(name)
 
 async function contribute()
 {
+    let csrftoken = getCookie('csrftoken');
+
+    const requestOptions =
+    {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+            'X-CSRFToken': csrftoken
+        },
+        body: {}
+    }
+
+
     let response = await fetch('http://127.0.0.1:8080/projectsupport', requestOptions)
+    let data = await response.json()
+    if (data.isAuthroized == 1){
+         window.location.href = "http://127.0.0.1:8080/projectsupport/contribute"}
+    else if (data.isAuthroized == -1)
+    {
+
+        let confirmation = confirm("È necessario inciar uma sessão para fazer a contribuição, pretende prosseguir?")
+
+        if (confirmation)
+            window.location.href = "http://127.0.0.1:8080/login"
+    }
+
 }
