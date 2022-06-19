@@ -1,0 +1,30 @@
+/* body {
+  background-image: url("https://mdbcdn.b-cdn.net/img/Photos/new-templates/search-box/img4.webp");
+} */
+
+.user-profile-link
+{
+  font-weight: 900 !important;
+  text-decoration: overline !important;
+}
+
+.please-login-col {
+  background-color: white !important;
+  border: 3px solid #93deff !important; 
+  max-width: 500px !important;
+  min-height: 350px !important;
+
+}
+
+.btn{
+    width: 100px !important;
+    height: 50px;
+}
+
+label{
+    margin-left: 20px;
+}
+
+.login-btn{
+    background-color: #93deff !important;
+}

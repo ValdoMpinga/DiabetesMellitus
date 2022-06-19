@@ -45,7 +45,8 @@ INSTALLED_APPS = [
     'register',
     'login',
     'project_support',
-    'encoder'
+    'encoder',
+    'user_profile'
 ]
 
 MIDDLEWARE = [

@@ -36,6 +36,7 @@ urlpatterns = [
    #path('loginRef',views.login,name="loginRef"),
     path('register',include('register.urls')),
     path('projectsupport',include('project_support.urls')),
+    path('userprofile',include('user_profile.urls')),
 ]
 
 urlpatterns += staticfiles_urlpatterns()

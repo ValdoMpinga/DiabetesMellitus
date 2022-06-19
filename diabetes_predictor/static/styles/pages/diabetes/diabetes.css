@@ -4,23 +4,25 @@ img {
   background-color: red !important;
 }
 
-.diabetes-link
-{
-  font-weight: 900 !important
+.diabetes-link {
+  font-weight: 900 !important;
+  text-decoration: overline !important;
 }
+
 body {
   position: relative;
 }
+
 @media screen and (max-width: 576px) {
   .carousel {
     width: 100%;
   }
 }
 
-h5{
-    color: black !important;
+h5 {
+  color: black !important;
 }
 
-p{
-    color: black !important;
+p {
+  color: black !important;
 }

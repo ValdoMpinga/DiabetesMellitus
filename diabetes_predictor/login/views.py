@@ -2,6 +2,8 @@ from django.shortcuts import redirect, render
 from django.contrib.auth import authenticate, login, logout
 from .loginForm import LoginForm
 from django.contrib import messages
+from .bll import daysCalculator
+import globalVars
 # from .loginForm import UserloginRegistationForm
 
 
@@ -22,7 +24,14 @@ def loginFunc(request):
         print("User ", user)
         if user is not None:
             login(request , user)
+            print(request.user.contribuition_date)
+            days = daysCalculator.daysCalculator(
+                request.user.contribuition_date)
+            print(days)
+            globalVars.days = days 
+            print(globalVars.days)
             return redirect('/projectsupport')
+        
         else:
             messages.info(request, 'Email or password incorrect')
 	
@@ -31,7 +40,3 @@ def loginFunc(request):
             'form' : form
         }
         return render(request,'login/login.html', context = context)
-
-def logoutFunc(request):
-    logout(request)
-    return redirect('/login')

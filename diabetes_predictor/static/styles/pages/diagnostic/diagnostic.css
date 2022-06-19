@@ -1,5 +1,6 @@
 .diagnostic-link {
   font-weight: 900 !important;
+    text-decoration: overline !important;
 }
 
 h6 {

@@ -1,0 +1,78 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <head>
+        <link rel="stylesheet" href="{% static '/styles/pages/user_profile/user_profile.css' %}" />
+    {% include '../components/head.html' %}
+  </head>
+  <body>
+    <main>
+      {%csrf_token%}
+      {% include '../components/navBar.html' %} 
+      <div class="container text-center mt-3">
+
+          <h1 class="">Perfil</h1>
+      </div>
+      {% block content %} 
+
+      {% if user.is_authenticated%}
+
+        <div class="container">
+            <div class="col-lg mx-auto please-login-col mt-5 ">
+                <div class="container text-center mt-4">
+                    <h2  class="fw-bold mt-2 text-left">{{ user.first_name }} {{ user.last_name }}</h2>
+                </div>
+
+                <div class="row mt-5">
+                    <div class="container ">
+            
+                            <div class="col ">
+                                <label for="email" class="fw-bold mr-4">Email:</label>
+                                <span>{{ user.email }}</span>
+                            </div>
+
+                            <div class="col mt-3">
+                                <label for="contribuitionDate" class="fw-bold">Ultima data de contribuição:</label>
+                                <span>{{ user.contribuition_date }}</span>
+                            </div>
+
+                            <div class="col mt-3">
+                                <label for="contribuitionDate" class="fw-bold">Numero de dias até a proxima contribuição:</label>
+                                <span>{{ days }} dias</span>
+                            </div>
+            
+    
+                    </div>
+
+                    
+                    <div class="text-center">
+                        <button 
+                        onclick="logout()"
+                        class="btn btn-large btn-danger logout-btn mt-5">Logout</button>
+                    </div>
+
+                </div>
+            </div>
+      </div>
+
+
+      {% else %}
+      <div class="container ">
+        <div class="row ">
+            <div class="col-lg mx-auto please-login-col mt-5 text-center">
+                <h2 class="mt-3 fw-bold">Por favor efectue o login!</h2>
+                <p class="mt-5">Efectue o login e visualize dados como o email registado na conta, data da ultima contribuição feita e dias restantes ate a submissão e uma nova contribuição</p>
+                <button class="btn btn-large mt-5 login-btn" onclick="goToLoginPage()">Login</button>
+            </div>
+
+        </div>
+    </div>
+      {% endif %}
+    
+      {% endblock %}
+    </main>
+  </body>
+</html>
+
+<script src="{% static '/scripts/user_profile/user_profile.js' %}"></script>
