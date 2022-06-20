@@ -1,10 +1,67 @@
+{% load static %}
 <!DOCTYPE html>
-<html lang="en">
- {% include '../components/head.html' %}
+<head>
+    <html lang="en">
+    <link
+    rel="stylesheet"
+    href="{% static '/styles/pages/diabetes/typeTwoDiabetes.css' %}"
+  />
+     {% include '../components/head.html' %}
+
+</head>
+
 <body>
     {% include '../components/navBar.html' %}
-    <h2>
-    Diabetes Tipo 2
-    </h2>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col lg-1 md-0 sm-0"></div>
+            <div class="col-xs-6 col-md-6 col-lg-8 content-div" >
+                <h1 class="mt-3">Diabetes tipo 2</h1>
+                <p>
+                    A diabetes mellitus tipo 2 é a forma mais frequente de diabetes: 9 em cada 10 diabéticos são do tipo 2. Sendo também o tipo mais frequente de diabetes: cerca de 1 em cada 10 portugueses tem este tipo de diabetes. Esta patologia surge em qualquer idade, mas é mais frequente nas pessoas adultas com peso a mais. Neste tipo de diabetes, o organismo produz menos insulina e a insulina faz menos efeito (chama-se a isto "resistência à insulina"). É tratada com medidas de alteração do estilo de vida e comprimidos. Com o passar dos anos, o utente também precisa da administração de insulina.
+                </p>
+                <p>Há duas causas principais que justificam a elevação anormal e descontrolada dos níveis de glicemia ("açúcar" no sangue), são elas:
+                    <ul >
+                        <li>
+                            A perda progressiva da eficácia da insulina, também designada de "resistência à insulina"
+                        </li>
+                        <li>
+                            A diminuição anormal e progressiva da produção de insulina por parte do pâncreas
+                        </li>
+                    </ul>
+                </p>
+
+                <p>A resistência à insulina começa muito antes da diabetes aparecer. Tanto quanto se sabe hoje em dia, a sequência de acontecimentos é a seguinte: 
+                    <ul>
+                        <li>
+                            Como resultado do estilo de vida e dos genes herdados, o organismo vai ficando progressivamente mais resistente à insulina, ou seja, a insulina deixa de "fazer efeito".
+                        </li>
+                        <li>
+                            Para compensar, o pâncreas produz mais insulina. Com este esforço do pâncreas, os níveis de glicemia vão-se mantendo controlados e dentro de valores normais.
+                        </li>
+                        <li>
+                            Em algumas pessoas, o pâncreas começa lenta mas progressivamente a falhar e a deixar de produzir a quantidade suficiente de insulina para manter a glicemia controlada.
+                        </li>
+                        <li>
+                            Quando isto acontece, a glicemia sobe anormalmente e de forma descontrolada, dando origem à diabetes mellitus.
+                        </li>
+                    </ul>
+                </p>
+
+                <p>
+                    Não sabemos porque é que em algumas pessoas o pâncreas começa a falhar, mas sabemos que o excesso de peso, o aumento da gordura no organismo e a inatividade física aumentam a resistência à insulina e portanto são fortes fatores de risco e agravamento da diabetes tipo 2.
+                </p>
+            </div>
+            <div class="col-xs-6 col-md-6 col-lg-3 nav-div" >
+                <h2 class="mt-3">Diabetes</h2>
+                <p>Conheça também outros tipos de diabetes:</p>
+                <ul>
+                    <li  class="list-item"  onclick="location.href='/diabetes/typeone'">Diabetes tipo 1</li>
+                    <li  class="list-item"  onclick="location.href='/diabetes/gestational'">Diabetes gestacional</li>
+                </ul>
+                <img src="../static/images/types.jpg" alt="">
+            </div>
+        </div>
+    </div>
 </body>
 </html>

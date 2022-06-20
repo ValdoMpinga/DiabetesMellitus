@@ -1,8 +1,50 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <link
+    rel="stylesheet"
+    href="{% static '/styles/pages/diabetes/gestationalDiabetes.css' %}"
+  />
+  </head>
   {% include '../components/head.html' %}
   <body>
     {% include '../components/navBar.html' %}
-    <h2>Diabetes gestacional</h2>
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col lg-1 md-0 sm-0"></div>
+          <div class="col-xs-6 col-md-6 col-lg-8 content-div " >
+              <h1 class="mt-3">Diabetes gestacional</h1>
+              <p>
+                A diabetes gestacional surge durante a gravidez e desaparece após o parto. Se se mantiver depois do nascimento do bebé, trata-se de uma diabetes tipo 2, e não uma diabetes gestacional.
+                As mulheres que tiveram diabetes gestacional têm um risco elevado de vir a ter uma diabetes tipo 2 mais tarde na vida, pelo que devem ser particularmente cuidadosas com o acompanhamento médico ao longo da vida.
+              </p>
+              <p>
+                O estado da gravidez por si só vai dificultar um pouco o trabalho da insulina, pois a mulher vai repartir o que ingere com o bebé para que ele cresça e se desenvolva no melhor ambiente possível. Por isso, as necessidades do feto ficam à frente das da mãe e a glicose e aminoácidos vão de forma interrupta para o feto. A grávida fica com seu metabolismo assegurado à base de ácidos gordos. Todas estas alterações promovem nas grávidas um estado de hipoglicémia (baixa de açúcar no sangue) em jejum e uma hiperglicemia (aumento do açúcar no sangue) após as refeições.
+              </p>
+              <p>Quais os sintomas?</p>
+              <p>A diabetes gestacional não apresenta qualquer sintoma. As análises de rotina da gravidez são a única forma de detetar, pelo que é muito importante um acompanhamento médico desde que saiba que está grávida.</p>
+              <p>Durante a gravidez é importante que a mulher:
+                  <ul>
+                      <li >
+                        Coma várias vezes ao longo do dia com quantidades moderadas (de modo a facilitar a digestão e evitar a azia/sensação de enfartamento).
+                      </li>
+                      <li>
+                        Evite as restrições de hidratos de carbono (pão, massas, arroz, quinoa..), podendo optar por substituir por versões mais saudáveis e integrais.
+                      </li>
+                  </ul>
+              </p>
+          </div>
+          <div class="col-xs-6 col-md-6 col-lg-3 nav-div" >
+              <h2 class="mt-3">Diabetes</h2>
+              <p>Conheça também outros tipos de diabetes:</p>
+              <ul>
+                  <li  class="list-item" onclick="location.href='/diabetes/typeone'">Diabetes tipo 1</li>
+                  <li class="list-item" onclick="location.href='/diabetes/typetwo'">Diabetes tipo 2</li>
+              </ul>
+              <img src="../static/images/types.jpg" alt="">
+          </div>
+      </div>
+  </div>
   </body>
 </html>
