@@ -13,11 +13,14 @@ def register(request):
         if form.is_valid():
             first_name = form.cleaned_data['first_name']
             last_name = form.cleaned_data['last_name']
+            username = form.cleaned_data['username']
             email = form.cleaned_data['email']
+            print(first_name, last_name, username, email)
             if form.cleaned_data['password1'] == form.cleaned_data['password2']:
                 raw_password = form.cleaned_data['password1']
                 data = UserModel(first_name=first_name,
                                  last_name=last_name,
+                                 username=username,
                                  email=email,
                                  )
                 data.set_password(raw_password)

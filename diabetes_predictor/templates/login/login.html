@@ -10,41 +10,35 @@
   </head>
   <body>
     {% include '../components/navBar.html' %}
-      <div class="container">
-        <div class="row d-flex justify-content-center align-items-center">
-          <div class="col-12 col-md-9 col-lg-7 col-xl-6 mt-5">
-            <div class="card">
-              <div class="card-body p-5">
-                <h2 class="text-center ">Login</h2>
+    <div class="container">
+      <div class="row d-flex justify-content-center align-items-center">
+        <div class="col-12 col-md-9 col-lg-7 col-xl-6 mt-5">
+          <div class="card">
+            <div class="card-body p-5">
+              <h2 class="text-center">Login</h2>
 
-                <form action="" class="p-3" method="post">
-                  {%csrf_token%}
+              <form action="" class="p-3" method="post">
+                {%csrf_token%} {% include '../components/logo.html' %}
+                <label for="username" class="label"> Nome do usuário</label>
+                {{ form.username }} {% include '../components/logo.html' %}
+                <label for="password" class="label mt-5"> Palavra-passe</label>
+                {{ form.password }}
 
-                  {% include '../components/logo.html' %}
-                  <label for="email" class="label"> Email</label>
-                  {{ form.email }}
+                <div class="d-flex justify-content-center">
+                  <button type="submit" class="btn btn-lg mt-5">Login</button>
+                </div>
+              </form>
 
-                  {% include '../components/logo.html' %}
-                  <label for="password" class="label mt-5">
-                    Palavra-passe</label
-                  >
-                  {{ form.password }}
-
-                  <div class="d-flex justify-content-center">
-                    <button type="submit" class="btn btn-lg mt-5">Login</button>
-                  </div>
-                </form>
-
-                <p class="text-center text-muted mt-3 mb-0">
-                  Não possui uma conta? Faça já o seu
-                  <span onclick="location.href='/register'"
-                    ><u>registo </u>
-                  </span>
-                </p>
-              </div>
+              <p class="text-center text-muted mt-3 mb-0">
+                Não possui uma conta? Faça já o seu
+                <span onclick="location.href='/register'"
+                  ><u>registo </u>
+                </span>
+              </p>
             </div>
           </div>
         </div>
       </div>
+    </div>
   </body>
 </html>

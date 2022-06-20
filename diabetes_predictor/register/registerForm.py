@@ -6,6 +6,8 @@ from .models import UserModel
 
 
 class CreateUserForm(ModelForm):
+    username = forms.CharField(widget=forms.TextInput(attrs={'class': 'form-control','placeholder':'Nome de usuário','type':'text'}))
+    
     first_name = forms.CharField(widget=forms.TextInput(
     attrs={'class': 'form-control', 'placeholder': 'Primeiro nome', 'type': 'text'}))
     
@@ -21,4 +23,5 @@ class CreateUserForm(ModelForm):
     password2 = forms.CharField(widget=forms.PasswordInput(attrs={'class': 'form-control', 'placeholder': 'Confirmação da palavra-passe'}))
     class Meta:
         model = UserModel
-        fields =['first_name','last_name', 'email','password1', 'password2']
+        fields = ['username', 'first_name', 'last_name',
+                  'email', 'password1', 'password2']

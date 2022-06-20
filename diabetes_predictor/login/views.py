@@ -17,9 +17,9 @@ def loginFunc(request):
         return render(request, 'login/login.html', context=context)
     else:
         form = LoginForm(request.POST)
-        print(form.data['email'])
+        print(form.data['username'])
         user = authenticate(request, 
-                            username=form.data['email'],
+                            username=form.data['username'],
                             password = form.data['password'])
         print("User ", user)
         if user is not None:
@@ -33,7 +33,7 @@ def loginFunc(request):
             return redirect('/projectsupport')
         
         else:
-            messages.info(request, 'Email or password incorrect')
+            messages.info(request, 'Username or password incorrect')
 	
         form = LoginForm
         context = {
