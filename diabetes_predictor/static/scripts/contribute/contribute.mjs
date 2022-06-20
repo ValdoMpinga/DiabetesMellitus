@@ -1,3 +1,7 @@
+import { nextDiv, previousDiv, outputDiv } from "../handlers/divHandler.mjs";
+import { handlePrematureSubmit } from "../handlers/formHandler.mjs";
+import { getCookie } from "../handlers/cookieHandler.mjs";
+import { JSONParser } from "../handlers/jsonHandler.mjs";
 
 const progress = document.getElementById("progress");
 let ageVerifier = 0
@@ -17,33 +21,7 @@ let physicalExerciseVerifier = 0
 let fatVerifier = 0
 
 
-function outputDiv()
-{
-    document.querySelector(".outputTextSection").style.display = "none";
-    document.querySelector(".outputReplayButton").style.display = "none";
-}
-
 outputDiv()
-
-function getCookie(name)
-{
-    var cookieValue = null;
-    if (document.cookie && document.cookie !== '')
-    {
-        var cookies = document.cookie.split(';');
-        for (var i = 0; i < cookies.length; i++)
-        {
-            var cookie = cookies[i].trim();
-            // Does this cookie string begin with the name we want?
-            if (cookie.substring(0, name.length + 1) === (name + '='))
-            {
-                cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
-                break;
-            }
-        }
-    }
-    return cookieValue;
-}
 
 function ageProgress()
 {
@@ -155,15 +133,6 @@ function heightProgress()
     }
 }
 
-function glicemyValueSelectProgress()
-{
-    if (glicemyValueVerifier == 0)
-    {
-        progress.value += 6
-        glicemyValueVerifier = 1
-    }
-}
-
 function glicemyValueFieldProgress()
 {
     if (glicemyValueVerifier == 0)
@@ -266,12 +235,7 @@ document.querySelectorAll("input[name='gordura']").forEach((input) =>
     input.addEventListener('change', fatProgress);
 });
 
-
-function handlePrematureSubmit()
-{
-    if (progress.value != 100)
-        alert('O formulário deve ser completamente preenchido antes de submetido')
-}
+document.getElementById("submitButton").addEventListener("click", () => { if (timeOnThisPage > 0) { handlePrematureSubmit(progress.value) } else { timeOnThisPage++ } })
 
 const form = document.querySelector('form')
 
@@ -281,13 +245,7 @@ form.onsubmit = async (e) =>
     const formData = new FormData(e.target);
     let csrftoken = getCookie('csrftoken');
 
-    formObj = {};
-
-    for (const [fieldName] of formData)
-    {
-        const fieldValue = formData.getAll(fieldName);
-        formObj[fieldName] = fieldValue.length == 1 ? fieldValue.toString() : fieldValue
-    }
+    let formObject = JSONParser(formData)
 
     const requestOptions =
     {
@@ -297,22 +255,22 @@ form.onsubmit = async (e) =>
             'X-CSRFToken': csrftoken
         },
         body: JSON.stringify({
-            "sex": formObj.sexo,
-            "age": formObj.idade,
-            "waist": formObj.cintura,
-            "weight": formObj.peso,
-            "height": formObj.altura,
-            "exercise": formObj.atividade,
-            "pills": formObj.medicamento,
-            "fruits": formObj.fruta,
-            "diabeticFamily": formObj.familia,
-            "fats": formObj.gordura,
-            "smoke": formObj.fumar,
-            "highBloodGlucose": formObj.acucar,
-            "glucoseAnalysis": formObj.glicemia,
-            "glucoseLevelChange": formObj.levelglic,
-            "womanGlucose": formObj.ifgirl,
-            "areYouDiabetic": formObj.diabetes
+            "sex": formObject.sexo,
+            "age": formObject.idade,
+            "waist": formObject.cintura,
+            "weight": formObject.peso,
+            "height": formObject.altura,
+            "exercise": formObject.atividade,
+            "pills": formObject.medicamento,
+            "fruits": formObject.fruta,
+            "diabeticFamily": formObject.familia,
+            "fats": formObject.gordura,
+            "smoke": formObject.fumar,
+            "highBloodGlucose": formObject.acucar,
+            "glucoseAnalysis": formObject.glicemia,
+            "glucoseLevelChange": formObject.levelglic,
+            "womanGlucose": formObject.ifgirl,
+            "areYouDiabetic": formObject.diabetes
         })
     }
 
@@ -333,10 +291,9 @@ form.onsubmit = async (e) =>
         if (confirmation)
             window.location.href = "http://127.0.0.1:8080/login"
     }
-
 }
 
-function handleReplayButton()
+document.querySelector('.replayButton').addEventListener('click', () =>
 {
     document.querySelector('form').reset()
     progress.value = 12.5
@@ -355,146 +312,16 @@ function handleReplayButton()
     heightVerifier = 0
     physicalExerciseVerifier = 0
     fatVerifier = 0
-    for (let i = 7; i > 0; i--)
-    {
 
+    for (let i = 7; i > 0; i--)
         document.querySelector('#btnPrev').click()
-    }
 
     outputDiv()
-}
-
-function JsonOrganizer(formData)
-{
-    formObj = {};
-
-    for (const [fieldName] of formData)
-    {
-        const fieldValue = formData.getAll(fieldName);
-        formObj[fieldName] = fieldValue.length == 1 ? fieldValue.toString() : fieldValue
-    }
-
-    let sample = {
-        "sex": formObj.sexo,
-        "age": formObj.idade,
-        "waist": formObj.cintura,
-        "weight": formObj.peso,
-        "height": formObj.altura,
-        "exercise": formObj.atividade,
-        "pills": formObj.medicamento,
-        "fruits": formObj.fruta,
-        "diabeticFamily": formObj.familia,
-        "fats": formObj.gordura,
-        "smoke": formObj.fumar,
-        "highBloodGlucose": formObj.acucar,
-        "glucoseAnalysis": formObj.glicemia,
-        "glucoseLevelChange": formObj.levelglic,
-        "womanGlucose": formObj.ifgirl,
-        "areYouDiabetic": formObj.diabetes
-    }
-
-    return sample
-}
-
+})
 
 
 let divAtual = 1;
 
-function nextDiv()
-{
-    disableAllDivs();
-    switch (divAtual)
-    {
-        case 1:
-            divAtual++
-            document.getElementById("btnPrev").classList.remove("disableDiv");
-            document.getElementById("div2").classList.remove("disableDiv");
-            break;
-        case 2:
-            divAtual++
-            document.getElementById("div3").classList.remove("disableDiv");
-            break;
-        case 3:
-            divAtual++
-            document.getElementById("div4").classList.remove("disableDiv");
-            break;
-        case 4:
-            divAtual++
-            document.getElementById("div5").classList.remove("disableDiv");
-            break;
-        case 5:
-            divAtual++
-            document.getElementById("div6").classList.remove("disableDiv");
-            break;
-        case 6:
-            divAtual++
-            document.getElementById("div7").classList.remove("disableDiv");
-            break;
-        case 7:
-            divAtual++
-            document.getElementById("btnNext").classList.add("disableDiv");
-            document.getElementById("div8").classList.remove("disableDiv");
-            break;
-        case 8:
-            document.getElementById("div8").classList.remove("disableDiv");
-            break;
-    }
-}
 
-function previousDiv()
-{
-    disableAllDivs();
-
-    switch (divAtual)
-    {
-        case 1:
-            document.getElementById("div1").classList.remove("disableDiv");
-            break;
-        case 2:
-            divAtual--
-            document.getElementById("btnPrev").classList.add("disableDiv");
-            document.getElementById("div1").classList.remove("disableDiv");
-            break;
-        case 3:
-            divAtual--
-            document.getElementById("div2").classList.remove("disableDiv");
-            break;
-        case 4:
-            divAtual--
-            document.getElementById("div3").classList.remove("disableDiv");
-            break;
-        case 5:
-            divAtual--
-            document.getElementById("div4").classList.remove("disableDiv");
-            break;
-        case 6:
-            divAtual--
-            document.getElementById("div5").classList.remove("disableDiv");
-            break;
-        case 7:
-            divAtual--
-            document.getElementById("div6").classList.remove("disableDiv");
-            break;
-        case 8:
-            divAtual--
-            document.getElementById("btnNext").classList.remove("disableDiv");
-            document.getElementById("div7").classList.remove("disableDiv");
-            break;
-    }
-}
-
-function disableAllDivs()
-{
-    document.getElementById("div1").classList.add("disableDiv");
-    document.getElementById("div2").classList.add("disableDiv");
-    document.getElementById("div3").classList.add("disableDiv");
-    document.getElementById("div4").classList.add("disableDiv");
-    document.getElementById("div5").classList.add("disableDiv");
-    document.getElementById("div6").classList.add("disableDiv");
-    document.getElementById("div7").classList.add("disableDiv");
-    document.getElementById("div8").classList.add("disableDiv");
-
-}
-
-
-
+document.getElementById("btnNext").addEventListener("click", function () { divAtual = nextDiv(divAtual); });
+document.getElementById("btnPrev").addEventListener("click", function () { divAtual = previousDiv(divAtual); });

@@ -1,0 +1,62 @@
+
+h6 {
+  margin-top: 10px !important;
+  text-align: center;
+  font-weight: bold;
+}
+
+.formBox {
+  border: 2px solid #93deff !important;
+  width: 400px !important;
+  height: 500px !important;
+  /* display: grid !important;
+  grid-template-rows: 10% 90% !important; */
+}
+
+.outputBox {
+  border: 2px solid #323643 !important;
+  width: 400px !important;
+  height: 500px !important;
+  /* display: grid !important;
+  grid-template-rows: 10% 90% !important; */
+}
+
+.boxContainer {
+    height: 500px !important;
+  display: grid !important;
+  grid-template-rows: 1fr 1fr 1fr !important;
+}
+
+.form-select {
+  max-width: 300px !important;
+}
+
+label {
+  margin-bottom: 10px;
+}
+
+.formGrid {
+  height: 360px;
+  display: grid;
+  grid-template-rows: 50% 50%;
+}
+
+progress {
+  max-width: 200px;
+  height: 30px;
+}
+
+.submitButton {
+  background-color: #93deff !important;
+}
+
+.replayButton {
+  background-color: #323643 !important;
+  color: white !important;
+  width: 120px;
+  height: 48px;
+}
+
+#predictionHeader {
+  color: #93deff !important;
+}

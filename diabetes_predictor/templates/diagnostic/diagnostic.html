@@ -6,6 +6,10 @@
       rel="stylesheet"
       href="{% static '/styles/pages/diagnostic/diagnostic.css' %}"
     />
+    <link
+      rel="stylesheet"
+      href="{% static '/styles/components/diabetesForm.css' %}"
+    />
     {% include '../components/head.html' %}
   </head>
 
@@ -252,4 +256,19 @@
   </body>
 </html>
 
-<script src="{% static '/scripts/diagnostic/diagnostic.js' %}"></script>
+<script
+  type="module"
+  src="{% static '/scripts/handlers/divHandler.mjs' %}"
+></script>
+<script
+  type="module"
+  src="{% static '/scripts/handlers/cookieHandler.mjs' %}"
+></script>
+<script
+  type="module"
+  src="{% static '/scripts/handlers/formHandler.mjs' %}"
+></script>
+<script
+  type="module"
+  src="{% static '/scripts/diagnostic/diagnostic.mjs' %}"
+></script>

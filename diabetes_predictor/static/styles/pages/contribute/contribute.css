@@ -1,4 +1,6 @@
 .support-project-link
 {
-  font-weight: 900 !important
+  font-weight: 900 !important;
+  text-decoration: overline !important;
 }
+
