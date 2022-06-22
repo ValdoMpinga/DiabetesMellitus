@@ -5,8 +5,19 @@ from .diabetes_predictor.diabetesPredictor import Predict
 import json
 from django.http import HttpResponse
 
+from project_support.models import DiabetesSamples
+import pandas as pd
+from sklearn.model_selection import train_test_split
+from sklearn.linear_model import LogisticRegression
+import os
+from django.conf import settings
+
+
+from data_exporter.exporter import diabetesDatasetExporter
+
 def diagnostic(request):
     if request.method == 'POST':
+        diabetesDatasetExporter()
         jsonData = json.loads(request.body)
         form = DiabetesForm
 
@@ -18,9 +29,9 @@ def diagnostic(request):
         context = {
             'form': form,
         }
-        # print("Home:")
-        # print(prediction)
-        response = HttpResponse(data, content_type='application/json charset=utf-8')
+
+        response = HttpResponse(
+            data, content_type='application/json charset=utf-8')
         return response
     else:
         form = DiabetesForm(request.POST)
@@ -30,6 +41,7 @@ def diagnostic(request):
         }
 
         return render(request, 'diagnostic/diagnostic.html', context=context)
+
         # name = {
         #     "n": "Pedro"
         # }
@@ -40,3 +52,6 @@ def diagnostic(request):
         # }
 
       #  return render(request, 'diagnostic/diagnostic.html', {'x': name, 'v': context})
+
+
+""""""

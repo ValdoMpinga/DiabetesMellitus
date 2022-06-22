@@ -1,5 +1,6 @@
 from cmath import log
 import os
+from os.path import exists
 from django.conf import settings
 import joblib
 from encoder.encoder import Encoder
@@ -7,14 +8,20 @@ from typing import Iterable
 
 # from ...encoder.encoder import Encoder
 
-diabetesPredictorModel = joblib.load(os.path.join(
+file_exists = exists(os.path.join(
     settings.BASE_DIR, './static/diabetesModel', 'LogisticRegressionDiabetesModel'))
+
+if not exists:
+    diabetesPredictorModel = joblib.load(os.path.join(
+    settings.BASE_DIR, './static/diabetesModel', 'LogisticRegressionDiabetesModel'))
+else:
+    diabetesPredictorModel= joblib.load(os.path.join(
+        settings.BASE_DIR, './static/diabetesBackupModel', 'LogisticRegressionDiabetesModel'))
+
+
 
 
 def Predict(data):
-
-    # encodedSample=Encoder()
-   # print(data)
     sampleArray = []
     encondedSample = Encoder(2, data['sex'],
                              data['age'],
@@ -33,11 +40,10 @@ def Predict(data):
                              data['womanGlucose'],
                              )
 
-    # print(encondedSample)
     for key, value in recursive_items(encondedSample):
         sampleArray.append(value)
 
-   # print(sampleArray)
+
     predictionOutput = getPrediction(sampleArray)
     predictionProbabilityOutput = getPredictionProbability(
         sampleArray, predictionOutput)
@@ -70,3 +76,4 @@ def getPredictionProbability(sampleArray, prediction):
         return parsedArray[0]
     else:
         return parsedArray[1]
+

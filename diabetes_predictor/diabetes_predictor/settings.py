@@ -46,7 +46,8 @@ INSTALLED_APPS = [
     'login',
     'project_support',
     'encoder',
-    'user_profile'
+    'user_profile',
+    'ai_trainer',
 ]
 
 MIDDLEWARE = [
@@ -87,6 +88,9 @@ DATABASES = {
     'default': {
         'ENGINE': 'djongo',
         'NAME':'diabetes_predictorDB',
+        # 'CLIENT': {
+        #     'host': 'mongodb+srv://ValdoMpinga:dG4nEEnFsuztY3n@cluster0.iqhst.mongodb.net/test'
+        # }
     }
 }
 

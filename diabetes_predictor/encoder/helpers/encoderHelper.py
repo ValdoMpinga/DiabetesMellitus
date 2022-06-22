@@ -4,6 +4,7 @@ from .encoderEnumerations import *
 
 
 class EncoderHelper():
+    
     def sexHandler(sex):
         try:
             if(sex == SexEnum.male.value):
@@ -111,8 +112,7 @@ class EncoderHelper():
                 return 1
             elif imc <= 1:
                 return 0
-            else:
-                print("Imc:" + imc)
+
         except:
             print("Please check if you inserted the right values")
 
@@ -358,9 +358,3 @@ class EncoderHelper():
         except:
             print("Please check if you inserted the right values")
 
-
-# class Age(Enum):
-#     ageBellow45 = "Menos de 45 anos"
-#     ageBetween45And54 = "45-54 anos"
-#     ageBetween55And64 = "55-64 anos"
-#     ageAbove64 = "Mais de 64 anos"

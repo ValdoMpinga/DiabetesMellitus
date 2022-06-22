@@ -26,7 +26,7 @@ def Encoder(option, sex, age, weight,
             "glucoseAnalysis": EncoderHelper.glucoseAnalysisHandler(analysis),
             "glucoseLevelChange": EncoderHelper.glucoseLevelChangeHandler(glucoseLevelChange),
             "womanGlucose": EncoderHelper.womanGlucoseChangeHandler(womanGlucose),
-            "areYouDiabetic":     EncoderHelper.areYouDiabeticHandler(diabetic)
+            "areYouDiabetic":  EncoderHelper.areYouDiabeticHandler(diabetic[0])
         }
     elif(option == 2):
         # Analysys

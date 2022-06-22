@@ -1,17 +1,20 @@
+from project_support.models import DiabetesSamples
+import re
 from .bll import contribuition
-from django.shortcuts import redirect, render
+from django.shortcuts import  render
 from encoder import encoder
 from .models import saveUserContribute
+from .models import DiabetesSamples
 from register import models as userModel
-import pandas as pd
-from django.contrib.auth import authenticate, login, logout, user_logged_in
 from .contributionForm import ContributionForm
 import json
 from django.http import HttpResponse
 from datetime import date
 import datetime
 today = date.today()
-
+from django.dispatch import receiver
+from django.db.models.signals import ( post_save)
+from ai_trainer.diabetes_model.diabetesModel import diabetesModelTrainer
 
 def project_support(request):
     if request.method == "GET":
@@ -19,15 +22,6 @@ def project_support(request):
     else:
         if request.user.is_authenticated:
             print('yes the user is logged-in')
-
-            # userLastContributionDate = userModel.UserModel.objects.filter(
-            #     email=request.user).values('contribuition_date')
-            # userLastContributionDate = list(userLastContributionDate)
-            # userLastContributionDate = userLastContributionDate[0]['contribuition_date']
-            # permission = contribuition.contributionIntentValidator(
-            #     userLastContributionDate)
-            # print(permission)
-
             data = {'isAuthroized': "1"}
             data = json.dumps(data)
             response = HttpResponse(
@@ -47,8 +41,9 @@ def project_support(request):
 def contribute(request):
     if request.method == 'POST':
         userLastContributionDate = userModel.UserModel.objects.filter(
-        email=request.user).values('contribuition_date')
+            username=request.user).values('contribuition_date')
         userLastContributionDate = list(userLastContributionDate)
+        print(userLastContributionDate)
         userLastContributionDate = userLastContributionDate[0]['contribuition_date']
 
         permission = contribuition.contributionIntentValidator(
@@ -58,46 +53,26 @@ def contribute(request):
         if permission == 1:
             jsonData = json.loads(request.body)
             userContribute = encoderCaller(jsonData)
-            
+
             res = {'isAuthroized': "1"}
             res = json.dumps(res)
-            response = HttpResponse(res, content_type='application/json charset=utf-8')
+            response = HttpResponse(
+                res, content_type='application/json charset=utf-8')
             currentDate = datetime.datetime.strptime(
                 str(today), '%Y-%m-%d').strftime('%d/%m/%Y')
             currentDateString = currentDate
-            userModel.UserModel.objects.filter(email=request.user).update(
-                contribuition_date=currentDateString)
+            userModel.UserModel.objects.filter(username=request.user).update(contribuition_date=currentDateString)
             saveUserContribute(userContribute)
             return response
         else:
-            print("Herte")
             data = {'isAuthroized': "0",
                     "daysLeft": permission['days']}
             data = json.dumps(data)
             response = HttpResponse(
                 data, content_type='application/json charset=utf-8')
             return response
-    
 
-
-        """email=request.user).values('contribuition_date')
-       if(userLastContribution)
-        userModel.UserModel.objects.filter(
-                email=request.user).update(contribuition_date=today)
-        print(user.values('contribuition_date'))
-        userModel.UserModel.save(update_fields[''])
-        a = userModel.UserModel.objects.filter(
-            email=request.user).values('contribuition_date')
-        a = list(a)
-        print(a[0]['contribuition_date'])
-
-        # dd/mm/YY
-        d1 = today.strftime("%d/%m/%Y")
-        print(type(d1))
-        print(request.user)
-        saveUserContribute(userContribute)"""
     else:
-        print("Here2")
         form = ContributionForm(request.POST)
         form = ContributionForm
         context = {
@@ -107,7 +82,7 @@ def contribute(request):
 
 
 def encoderCaller(jsonData):
-     userContribute = encoder.Encoder(1,
+    userContribute = encoder.Encoder(1,
                                      jsonData['sex'],
                                      jsonData['age'],
                                      jsonData['weight'],
@@ -124,5 +99,19 @@ def encoderCaller(jsonData):
                                      jsonData['glucoseLevelChange'],
                                      jsonData['womanGlucose'],
                                      jsonData['areYouDiabetic'],)
-     return userContribute
-    
+    return userContribute
+
+
+@receiver(post_save, sender=DiabetesSamples)
+
+def diagnosticInsertedHandler(sender, instance, created, *args, **kwargs):
+    print(args,kwargs)
+    if created:
+        currentNumberOfSamples = DiabetesSamples.objects.all().count()
+        if(currentNumberOfSamples % 500 == 0):
+            diabetesModelTrainer(DiabetesSamples.objects.all().values_list())
+       
+        
+    else:
+        print("Not mailing him!")
+
