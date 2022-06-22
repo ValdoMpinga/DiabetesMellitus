@@ -1,17 +1,11 @@
-function handlePrematureSubmit(progress)
-{
-  if (progress != 100)
-    alert('O formulário deve ser completamente preenchido antes de submetido')
-}
-
-
+//Hides the div that is showen when user completes form
 function outputDiv()
 {
   document.querySelector(".outputTextSection").style.display = "none";
   document.querySelector(".outputReplayButton").style.display = "none";
 }
 
-
+//Display the next content on the div
 function nextDiv(divAtual)
 {
   disableAllDivs();
@@ -54,6 +48,7 @@ function nextDiv(divAtual)
   return divAtual;
 }
 
+//Display the previous content on the div
 function previousDiv(divAtual)
 {
   disableAllDivs();
@@ -110,4 +105,4 @@ function disableAllDivs()
 
 }
 
-export { handlePrematureSubmit, nextDiv, previousDiv, outputDiv }
+export { nextDiv, previousDiv, outputDiv }

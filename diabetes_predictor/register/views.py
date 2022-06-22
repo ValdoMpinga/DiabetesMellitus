@@ -1,14 +1,17 @@
-import logging
 from django.shortcuts import render, redirect
-from django.shortcuts import render
-from .registerForm import CreateUserForm
+from forms.register.registerForm import CreateUserForm
 from .models import UserModel
+
+# Renders register page and and handles users registation
 
 
 def register(request):
-    form = CreateUserForm()
 
-    if request.method == 'POST':
+    if request.method == "GET":
+        form = CreateUserForm()
+        context = {'form': form}
+        return render(request, 'register/register.html', context)
+    elif request.method == 'POST':
         form = CreateUserForm(request.POST)
         if form.is_valid():
             first_name = form.cleaned_data['first_name']
@@ -23,8 +26,6 @@ def register(request):
                                  username=username,
                                  email=email,
                                  )
-                data.set_password(raw_password)
+                data.set_password(raw_password)  # encrypts passwords
                 data.save()
-
-    context = {'form': form}
-    return render(request, 'register/register.html', context)
+        return redirect('/login')

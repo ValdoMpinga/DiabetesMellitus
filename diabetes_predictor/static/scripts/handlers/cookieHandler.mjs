@@ -1,3 +1,4 @@
+//Gets csrfm token
 function getCookie(name)
 {
     var cookieValue = null;
@@ -7,7 +8,6 @@ function getCookie(name)
         for (var i = 0; i < cookies.length; i++)
         {
             var cookie = cookies[i].trim();
-            // Does this cookie string begin with the name we want?
             if (cookie.substring(0, name.length + 1) === (name + '='))
             {
                 cookieValue = decodeURIComponent(cookie.substring(name.length + 1));

@@ -48,7 +48,7 @@
                     
                     <div class="text-center">
                         <button 
-                        onclick="logout()"
+                        id="userLogoutButton"
                         class="btn btn-large btn-danger logout-btn mt-5">Logout</button>
                     </div>
 
@@ -63,7 +63,12 @@
             <div class="col-lg mx-auto please-login-col mt-5 text-center">
                 <h2 class="mt-3 fw-bold">Por favor efectue o login!</h2>
                 <p class="mt-5">Efectue o login e visualize dados como o email registado na conta, data da ultima contribuição feita e dias restantes ate a submissão e uma nova contribuição</p>
-                <button class="btn btn-large mt-5 login-btn" onclick="goToLoginPage()">Login</button>
+
+                <button 
+                id="userLoginBtn"
+                class="btn btn-large mt-5 login-btn">
+                Login
+            </button>
             </div>
 
         </div>
@@ -75,4 +80,8 @@
   </body>
 </html>
 
-<script src="{% static '/scripts/user_profile/user_profile.js' %}"></script>
+<script type="module" src="{% static '/scripts/user_profile/user_profile.mjs' %}"></script>
+<script
+  type="module"
+  src="{% static '/scripts/handlers/cookieHandler.mjs' %}"
+></script>

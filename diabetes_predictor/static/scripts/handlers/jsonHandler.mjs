@@ -1,3 +1,4 @@
+//Parses JSON form input to string
 function JSONParser(formData)
 {
     let formObject = {};
