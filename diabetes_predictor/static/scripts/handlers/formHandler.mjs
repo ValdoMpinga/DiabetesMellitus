@@ -1,3 +1,4 @@
+//Handles form premature submit
 function handlePrematureSubmit(progress)
 {
     if (progress != 100)

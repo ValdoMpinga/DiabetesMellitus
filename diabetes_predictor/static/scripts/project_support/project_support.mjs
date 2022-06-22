@@ -1,0 +1,36 @@
+import { getCookie } from "../handlers/cookieHandler.mjs";
+
+document.querySelector('#contributeButton').addEventListener('click', contribute)
+
+async function contribute()
+{
+    let csrftoken = getCookie('csrftoken');
+
+    const requestOptions =
+    {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+            'X-CSRFToken': csrftoken
+        },
+        body: {}
+    }
+
+
+    let response = await fetch('http://127.0.0.1:8080/projectsupport', requestOptions)
+    let data = await response.json()
+
+    if (data.isAuthroized == 1)//Takes user to contribute page
+    {
+        window.location.href = "http://127.0.0.1:8080/projectsupport/contribute"
+    }
+    else if (data.isAuthroized == -1)//Warns user about he must login to contribute
+    {
+
+        let confirmation = confirm("È necessario inciar uma sessão para fazer a contribuição, pretende prosseguir?")
+
+        if (confirmation)
+            window.location.href = "http://127.0.0.1:8080/login"
+    }
+
+}

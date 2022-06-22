@@ -1,42 +1,27 @@
 from django.shortcuts import redirect, render
 from django.contrib.auth import authenticate, login, logout
-from .loginForm import LoginForm
+from forms.login.loginForm import LoginForm
 from django.contrib import messages
-from .bll import daysCalculator
+from bll.userContribution import daysCalculator
 import globalVars
-# from .loginForm import UserloginRegistationForm
 
+# Renders login page and and handles users authentication
 
-def loginFunc(request):
+def loginFunction(request):
     if request.method == "GET":
-        print("hahaha")
         form = LoginForm
-        context = {
-            'form': form
-        }
+        context = {'form': form}
         return render(request, 'login/login.html', context=context)
-    else:
+    elif request.method == "POST":
         form = LoginForm(request.POST)
-        print(form.data['username'])
-        user = authenticate(request, 
-                            username=form.data['username'],
-                            password = form.data['password'])
-        print("User ", user)
+        user = authenticate(request, username=form.data['username'],password=form.data['password'])
         if user is not None:
-            login(request , user)
-            print(request.user.contribuition_date)
-            days = daysCalculator.daysCalculator(
-                request.user.contribuition_date)
-            print(days)
-            globalVars.days = days 
-            print(globalVars.days)
+            print("User authenticated: ", form.data['username'])
+            login(request, user)
+            print("User last contribution date: ",
+                  request.user.contribuition_date)
+            days = daysCalculator.daysCalculator( request.user.contribuition_date)
+            globalVars.days = days
             return redirect('/projectsupport')
-        
         else:
             messages.info(request, 'Username or password incorrect')
-	
-        form = LoginForm
-        context = {
-            'form' : form
-        }
-        return render(request,'login/login.html', context = context)

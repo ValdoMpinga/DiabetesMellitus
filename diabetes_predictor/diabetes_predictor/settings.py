@@ -30,7 +30,6 @@ DEBUG = True
 
 ALLOWED_HOSTS = []
 
-
 # Application definition
 
 INSTALLED_APPS = [
@@ -45,9 +44,7 @@ INSTALLED_APPS = [
     'register',
     'login',
     'project_support',
-    'encoder',
     'user_profile',
-    'ai_trainer',
 ]
 
 MIDDLEWARE = [

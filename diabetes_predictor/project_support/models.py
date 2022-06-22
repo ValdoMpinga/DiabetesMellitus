@@ -1,6 +1,5 @@
 from django.db import models
 
-# Create your models here.
 class DiabetesSamples(models.Model):
     sex = models.IntegerField()
     age1 = models.IntegerField()

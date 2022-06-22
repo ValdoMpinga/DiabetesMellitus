@@ -3,7 +3,9 @@ import { handlePrematureSubmit } from "../handlers/formHandler.mjs";
 import { getCookie } from "../handlers/cookieHandler.mjs";
 import { JSONParser } from "../handlers/jsonHandler.mjs";
 
-const progress = document.getElementById("progress");
+const progress = document.getElementById("progress");// Form completation progress bar
+
+//Variables that validate if a form section as select boxes have been filled to increment progress value on the progress bar
 let ageVerifier = 0
 let waistVerifier = 0
 let pillsVerifier = 0
@@ -20,9 +22,10 @@ let heightVerifier = 0
 let physicalExerciseVerifier = 0
 let fatVerifier = 0
 
-
+//Handles the form final output div
 outputDiv()
 
+//All progess functions increment to the total progress when a form element is selected
 function ageProgress()
 {
     if (ageVerifier == 0)
@@ -160,6 +163,7 @@ function fatProgress()
     }
 }
 
+//Event listeners that listen whenver the form fields are selected or filled
 document.querySelectorAll("input[name='idade']").forEach((input) =>
 {
     input.addEventListener('change', ageProgress);
@@ -235,15 +239,17 @@ document.querySelectorAll("input[name='gordura']").forEach((input) =>
     input.addEventListener('change', fatProgress);
 });
 
+//event lister that alerts user if he tries to submit uncompleted form
 document.getElementById("submitButton").addEventListener("click", () => { if (timeOnThisPage > 0) { handlePrematureSubmit(progress.value) } else { timeOnThisPage++ } })
 
 const form = document.querySelector('form')
 
+//event lister handles form submission
 form.onsubmit = async (e) =>
 {
     e.preventDefault()
     const formData = new FormData(e.target);
-    let csrftoken = getCookie('csrftoken');
+    let csrftoken = getCookie('csrftoken'); //Gets crsf token which is necessary to make post requests to django
 
     let formObject = JSONParser(formData)
 
@@ -275,16 +281,16 @@ form.onsubmit = async (e) =>
     }
 
     let response = await fetch('http://127.0.0.1:8080/projectsupport/contribute', requestOptions)
-
     let data = await response.json()
-    if (data.isAuthroized == 1)
+
+    if (data.isAuthroized == 1)//If submmited successfully, it displays the user a message
     {
         document.querySelector(".outputTextSection").style.display = "block";
         document.querySelector(".outputReplayButton").style.display = "block";
-    } else if (data.isAuthroized == 0)
+    } else if (data.isAuthroized == 0)//If submmited unsuccessfully, it displays the user a message
     {
         alert(`Muito obrigado pela intenção, porem esta conta só podera contribuir novamente em ${data.daysLeft} dias!`)
-    } else
+    } else //If user tries to submit form with login
     {
         let confirmation = confirm("È necessario inciar uma sessão para fazer a contribuição, pretende prosseguir?")
 
@@ -293,6 +299,7 @@ form.onsubmit = async (e) =>
     }
 }
 
+//Resets form if user wishes to answer it again
 document.querySelector('.replayButton').addEventListener('click', () =>
 {
     document.querySelector('form').reset()
@@ -322,6 +329,7 @@ document.querySelector('.replayButton').addEventListener('click', () =>
 
 let divAtual = 1;
 
-
+//Handles form div next button
 document.getElementById("btnNext").addEventListener("click", function () { divAtual = nextDiv(divAtual); });
+//Handles form div forward button
 document.getElementById("btnPrev").addEventListener("click", function () { divAtual = previousDiv(divAtual); });

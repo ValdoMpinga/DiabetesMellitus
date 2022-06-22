@@ -3,7 +3,9 @@ import { handlePrematureSubmit } from "../handlers/formHandler.mjs";
 import { getCookie } from "../handlers/cookieHandler.mjs";
 import { JSONParser } from "../handlers/jsonHandler.mjs";
 
-const progress = document.getElementById("progress");
+const progress = document.getElementById("progress");// Form completation progress bar
+
+//Variables that validate if a form section as select boxes have been filled to increment progress value on the progress bar
 let ageVerifier = 0
 let waistVerifier = 0
 let pillsVerifier = 0
@@ -21,8 +23,10 @@ let physicalExerciseVerifier = 0
 let fatVerifier = 0
 let timeOnThisPage = 0;
 
+//Handles the form final output div
 outputDiv()
 
+//All progess functions increment to the total progress when a form element is selected
 function ageProgress()
 {
   if (ageVerifier != 0) return;
@@ -154,6 +158,7 @@ function fatProgress()
   }
 }
 
+//Event listeners that listen whenver the form fields are selected or filled
 document.querySelectorAll("input[name='idade']").forEach((input) =>
 {
   input.addEventListener('change', ageProgress);
@@ -229,17 +234,17 @@ document.querySelectorAll("input[name='gordura']").forEach((input) =>
   input.addEventListener('change', fatProgress);
 });
 
-
+//event lister that alerts user if he tries to submit uncompleted form
 document.getElementById("submitButton").addEventListener("click", () => { if (timeOnThisPage > 0) { handlePrematureSubmit(progress.value) } else { timeOnThisPage++ } })
 
 const form = document.querySelector('form')
 
-
+//event lister handles form submission
 form.onsubmit = async (e) =>
 {
   e.preventDefault()
   const formData = new FormData(e.target);
-  let csrftoken = getCookie('csrftoken');
+  let csrftoken = getCookie('csrftoken'); //Gets crsf token which is necessary to make post requests to django
 
   let formObject= JSONParser(formData)
 
@@ -286,6 +291,7 @@ form.onsubmit = async (e) =>
   alert("È importante lembrar que o nosso modelo não substitui jamais o diagnostico médico!")
 }
 
+//Resets form if user wishes to answer it again
 document.querySelector('.replayButton').addEventListener('click', () =>
 {
   document.querySelector('form').reset()
@@ -314,7 +320,9 @@ document.querySelector('.replayButton').addEventListener('click', () =>
 
 let divAtual = 1;
 
+//Handles form div chnage button
 document.getElementById("btnNext").addEventListener("click", function () { divAtual = nextDiv(divAtual); });
+//Handles form div forward button
 document.getElementById("btnPrev").addEventListener("click", function () { divAtual = previousDiv(divAtual); });
 
 
