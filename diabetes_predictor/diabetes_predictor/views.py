@@ -28,3 +28,4 @@ def diabetes(request):
 def diabetesTipo1(request):
     return render(request,'diabetesTipo1.html')
 
+

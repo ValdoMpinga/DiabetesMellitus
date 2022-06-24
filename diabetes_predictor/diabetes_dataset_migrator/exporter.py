@@ -2,7 +2,7 @@ import pandas as pd
 import os
 from django.conf import settings
 from bll.encoder import encoder
-from project_support.models import saveUserContribute
+from bll.userContribution import saveUserContribute
 
 # This function exports the csv dataset data to the database
 def diabetesDatasetExporter():
@@ -37,4 +37,4 @@ def diabetesDatasetExporter():
                                       row['15. Se mulher, alguma vez teve alteração do seu nível de glicose, diabetes durante a gravidez ou filhos com mais de 4 quilos à nascença?'],
                                       row['16. Tem diabetes?']
                                       )
-        saveUserContribute(encodedData)
+        saveUserContribute.saveUserContribute(encodedData)

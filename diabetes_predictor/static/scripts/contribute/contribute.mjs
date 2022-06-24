@@ -287,6 +287,11 @@ form.onsubmit = async (e) =>
     {
         document.querySelector(".outputTextSection").style.display = "block";
         document.querySelector(".outputReplayButton").style.display = "block";
+
+        setTimeout(() => window.location.href = "http://127.0.0.1:8080/userprofile",4000)
+        
+        
+
     } else if (data.isAuthroized == 0)//If submmited unsuccessfully, it displays the user a message
     {
         alert(`Muito obrigado pela intenção, porem esta conta só podera contribuir novamente em ${data.daysLeft} dias!`)

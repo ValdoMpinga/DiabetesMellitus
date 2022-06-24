@@ -45,6 +45,7 @@ INSTALLED_APPS = [
     'login',
     'project_support',
     'user_profile',
+    'django_extensions',
 ]
 
 MIDDLEWARE = [
@@ -143,3 +144,12 @@ STATICFILES_DIRS = [
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 ALLOWED_HOSTS = ['*']
+
+GRAPH_MODELS = {
+  'all_applications': True,
+  'group_models': True,
+}
+
+GRAPH_MODELS = {
+  'app_labels': ["myapp1", "myapp2", "auth"],
+}

@@ -9,8 +9,10 @@ def user_profile(request):
     if request.method == 'POST':
         print(request.user.contribuition_date)
         logout(request)
+        globalVars.days = 0
         print(globalVars.days)
         return HttpResponse(status=204)
     elif request.method == "GET":
         context={ "days": globalVars.days}
+        print(globalVars.days)
         return render(request, 'user_profile/user_profile.html', context=context)
