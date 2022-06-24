@@ -1,11 +1,12 @@
+import globalVars
 from django.db.models.signals import (post_save)
 from bll.ai_trainer.diabetesModel import diabetesModelTrainer
 from django.dispatch import receiver
 from project_support.models import DiabetesSamples
 from bll.userContribution.contribuition import contributionIntentValidator
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from bll.encoder import encoder
-from .models import saveUserContribute
+from bll.userContribution import saveUserContribute
 from .models import DiabetesSamples
 from register import models as userModel
 from forms.project_support.contributionForm import ContributionForm
@@ -13,6 +14,7 @@ import json
 from django.http import HttpResponse
 from datetime import date
 import datetime
+from django.contrib.auth import logout
 today = date.today()
 
 # Renders project support page and checks if can or not contribute
@@ -22,13 +24,23 @@ def project_support(request):
     if request.method == "GET":
         return render(request, 'project_support/project_support.html')
     elif request.method == "POST":
+        print(globalVars.days)
         if request.user.is_authenticated:
             print('yes the user is logged-in')
-            data = {'isAuthroized': "1"}
-            data = json.dumps(data)  # Converts data to string
-            response = HttpResponse(
-                data, content_type='application/json charset=utf-8')
-            return response
+            if globalVars.days == 0:      
+                data = {'isAuthroized': "1"}
+                data = json.dumps(data)  # Converts data to string
+                response = HttpResponse(
+                    data, content_type='application/json charset=utf-8')
+                return response
+            else:
+                data = {'isAuthroized': "0",
+                        'daysLeft': globalVars.days}
+                data = json.dumps(data)  # Converts data to string
+                response = HttpResponse(
+                    data, content_type='application/json charset=utf-8')
+                return response
+        
         else:
             print('no the user is not logged-in')
             data = {'isAuthroized': "-1"}
@@ -50,7 +62,7 @@ def contribute(request):
 
         # Validates if user can or not contribute
         permission = contributionIntentValidator(userLastContributionDate)
-        print(permission)
+        print("Perm: ",permission)
 
         if permission == 1:  # If user is allowed to contribute
             jsonData = json.loads(request.body)
@@ -65,23 +77,30 @@ def contribute(request):
             currentDateString = currentDate
             userModel.UserModel.objects.filter(username=request.user).update(
                 contribuition_date=currentDateString)  # Updates user contribute date
-            saveUserContribute(userContribute)  # saves user contribute
+            saveUserContribute.saveUserContribute(userContribute)  # saves user contribute
+            globalVars.days = 366
             return response
         else:
             data = {'isAuthroized': "0", "daysLeft": permission['days']}
             data = json.dumps(data)  # convertes the response to string
             response = HttpResponse(
                 data, content_type='application/json charset=utf-8')
+            
             return response
 
     elif request.method == "GET":
-        form = ContributionForm
-        context = {
-            'form': form,
-        }
-        return render(request, 'project_support/contribute.html', context)
+        if globalVars.days > 0 or request.user.is_anonymous:#forbids the access to the contribute page if the user is not logged or if he's on contribution cooldown(366 days)
+            return redirect('/projectsupport/404')
+        else: 
+            form = ContributionForm
+            context = {'form': form,}
+            return render(request, 'project_support/contribute.html', context)
 
 # Encodes user contribute
+
+def page404(request):
+    if request.method == "GET":
+        return render(request, 'project_support/page404.html')
 
 
 def encoderCaller(jsonData):
@@ -104,10 +123,10 @@ def encoderCaller(jsonData):
                                      jsonData['areYouDiabetic'],)
     return userContribute
 
-
+    
 # Signal,(django trigger equivalent) that handles AI model re training after reaching a number divible by 500 on the database
 @receiver(post_save, sender=DiabetesSamples)
-def diagnosticInsertedHandler(sender, instance, created, *args, **kwargs):
+def sampleInsertedHandler(sender, instance, created, *args, **kwargs):
     print(args, kwargs)
     if created:
         currentNumberOfSamples = DiabetesSamples.objects.all().count()

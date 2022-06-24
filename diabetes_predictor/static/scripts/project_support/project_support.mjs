@@ -31,6 +31,9 @@ async function contribute()
 
         if (confirmation)
             window.location.href = "http://127.0.0.1:8080/login"
+    } else if (data.isAuthroized == 0)//Warns the user about the remaining time until he can contribute again
+    {
+        alert(`Muito obrigado pela intenção, porem esta conta só podera contribuir novamente em ${data.daysLeft} dias!`)
     }
 
 }

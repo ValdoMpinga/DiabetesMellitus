@@ -1,0 +1,26 @@
+body {
+  background-color: whitesmoke;
+}
+
+li {
+  list-style: none;
+  padding-top: 4px;
+}
+
+h1 {
+  color: #93deff;
+}
+
+h2 {
+  color: #323643;
+}
+
+a {
+  color: #323643;
+  font-size: 20px;
+  font-weight: bold;
+}
+
+a:hover {
+  color: #93deff;
+}

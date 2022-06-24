@@ -5,5 +5,6 @@ app_name ='project_support'
 
 urlpatterns =[
     path('', views.project_support, name='project_support'),
-    path('/contribute', views.contribute, name='project_support')
+    path('/contribute', views.contribute, name='project_support'),
+    path('/404', views.page404, name='project_support'),
 ]

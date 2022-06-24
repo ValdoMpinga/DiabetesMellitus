@@ -1,11 +1,15 @@
+from cmath import log
 from django.shortcuts import redirect, render
 from django.contrib.auth import authenticate, login, logout
 from forms.login.loginForm import LoginForm
 from django.contrib import messages
 from bll.userContribution import daysCalculator
 import globalVars
+from django.http import HttpResponse
+from register import models as userModel
 
 # Renders login page and and handles users authentication
+
 
 def loginFunction(request):
     if request.method == "GET":
@@ -14,14 +18,25 @@ def loginFunction(request):
         return render(request, 'login/login.html', context=context)
     elif request.method == "POST":
         form = LoginForm(request.POST)
-        user = authenticate(request, username=form.data['username'],password=form.data['password'])
+        context = {'form': form}
+        user = authenticate(
+            request, username=form.data['username'], password=form.data['password'])
         if user is not None:
             print("User authenticated: ", form.data['username'])
             login(request, user)
-            print("User last contribution date: ",
-                  request.user.contribuition_date)
-            days = daysCalculator.daysCalculator( request.user.contribuition_date)
-            globalVars.days = days
-            return redirect('/projectsupport')
+
+            print("Contrib day: ", request.user.contribuition_date)
+            days = daysCalculator.daysCalculator(
+                request.user.contribuition_date)
+         
+            if days > 366 or days == None:
+                globalVars.days = 0
+                return redirect('/projectsupport')
+            else:
+                globalVars.days = 366 - days
+                return redirect('/userprofile')
+
         else:
-            messages.info(request, 'Username or password incorrect')
+            print("Here")
+            messages.error(request, 'Nome do usuário ou palavra passe errada')
+            return render(request, 'login/login.html', context)

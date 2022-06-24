@@ -12,9 +12,7 @@ def daysCalculator(userLastContributionDate):
             userLastContributionDate, "%d/%m/%Y")
 
         daysOfDifference = (currentDate - lastContribuitionDate).days
-        if daysOfDifference > 366:
-            return  daysOfDifference - 366 
-        else:
-            return  366 - daysOfDifference
+       
+        return daysOfDifference
     else:
         return 0

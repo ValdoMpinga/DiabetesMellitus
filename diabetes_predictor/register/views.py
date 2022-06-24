@@ -1,7 +1,7 @@
 from django.shortcuts import render, redirect
 from forms.register.registerForm import CreateUserForm
 from .models import UserModel
-
+from django.contrib  import messages
 # Renders register page and and handles users registation
 
 
@@ -13,6 +13,7 @@ def register(request):
         return render(request, 'register/register.html', context)
     elif request.method == 'POST':
         form = CreateUserForm(request.POST)
+        context = {'form': form}
         if form.is_valid():
             first_name = form.cleaned_data['first_name']
             last_name = form.cleaned_data['last_name']
@@ -28,4 +29,8 @@ def register(request):
                                  )
                 data.set_password(raw_password)  # encrypts passwords
                 data.save()
-        return redirect('/login')
+                return redirect('/login')
+            else:
+                messages.info(request, 'invalid registration details')
+        return render(request, 'register/register.html', context)
+        
