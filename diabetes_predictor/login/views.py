@@ -3,7 +3,7 @@ from django.shortcuts import redirect, render
 from django.contrib.auth import authenticate, login, logout
 from forms.login.loginForm import LoginForm
 from django.contrib import messages
-from bll.userContribution import daysCalculator
+from bll.userContribution.contribuition import contributionIntentValidator
 import globalVars
 from django.http import HttpResponse
 from register import models as userModel
@@ -19,21 +19,19 @@ def loginFunction(request):
     elif request.method == "POST":
         form = LoginForm(request.POST)
         context = {'form': form}
-        user = authenticate(
-            request, username=form.data['username'], password=form.data['password'])
+        user = authenticate(request, username=form.data['username'], password=form.data['password'])
         if user is not None:
             print("User authenticated: ", form.data['username'])
             login(request, user)
 
             print("Contrib day: ", request.user.contribuition_date)
-            days = daysCalculator.daysCalculator(
-                request.user.contribuition_date)
+            days = contributionIntentValidator(request.user.contribuition_date)
          
-            if days > 366 or days == None:
+            if days == 1:
                 globalVars.days = 0
                 return redirect('/projectsupport')
             else:
-                globalVars.days = 366 - days
+                globalVars.days = days['days']
                 return redirect('/userprofile')
 
         else:

@@ -4,8 +4,6 @@ from .diabetes_predictor_ai.diabetesPredictor import predict
 import json
 from django.http import HttpResponse
 from diabetes_dataset_migrator.exporter import diabetesDatasetExporter
-
-
 def diagnostic(request):
     if request.method == 'POST':
         #Gets request  data

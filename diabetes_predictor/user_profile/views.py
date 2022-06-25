@@ -14,5 +14,5 @@ def user_profile(request):
         return HttpResponse(status=204)
     elif request.method == "GET":
         context={ "days": globalVars.days}
-        print(globalVars.days)
+        print("on profile: ", globalVars.days)
         return render(request, 'user_profile/user_profile.html', context=context)

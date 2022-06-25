@@ -235,7 +235,14 @@ document.querySelectorAll("input[name='gordura']").forEach((input) =>
 });
 
 //event lister that alerts user if he tries to submit uncompleted form
-document.getElementById("submitButton").addEventListener("click", () => { if (timeOnThisPage > 0) { handlePrematureSubmit(progress.value) } else { timeOnThisPage++ } })
+document.getElementById("submitButton").addEventListener("click", (e) =>
+{
+  if (timeOnThisPage > 0)
+  {
+    e.stopPropagation();
+    handlePrematureSubmit(progress.value)
+  } else { timeOnThisPage++ }
+})
 
 const form = document.querySelector('form')
 
@@ -247,7 +254,24 @@ form.onsubmit = async (e) =>
   let csrftoken = getCookie('csrftoken'); //Gets crsf token which is necessary to make post requests to django
 
   let formObject= JSONParser(formData)
+  // var newGlicemyAnalysisValue=null
 
+  // console.log(typeof (formObject.glicemia))
+  // console.log(formObject.glicemia)
+
+  // if (!/[^a-zA-Z]/.test(formObject.glicemia))
+  // {
+  //   formObject.glicemia = "Não sei"
+  //   console.log(formObject.glicemia);
+  //   newGlicemyAnalysisValue = "Não sei"
+  // } else
+  // {
+  //   formObject.glicemia = formObject.glicemia.replace(/[^0-9.]/g, '')
+  //   console.log(formObject.glicemia);
+  // }
+
+  // console.log("Here: " + formObject.glicemia);
+  // console.log("Here: " + newGlicemyAnalysisValue);
   const requestOptions =
   {
     method: 'POST',
@@ -292,8 +316,9 @@ form.onsubmit = async (e) =>
 }
 
 //Resets form if user wishes to answer it again
-document.querySelector('.replayButton').addEventListener('click', () =>
+document.querySelector('.replayButton').addEventListener('click', (e) =>
 {
+  e.stopPropagation();
   document.querySelector('form').reset()
   progress.value = 4
   ageVerifier = 0
@@ -321,9 +346,17 @@ document.querySelector('.replayButton').addEventListener('click', () =>
 let divAtual = 1;
 
 //Handles form div chnage button
-document.getElementById("btnNext").addEventListener("click", function () { divAtual = nextDiv(divAtual); });
+document.getElementById("btnNext").addEventListener("click", function (e)
+{
+  divAtual = nextDiv(divAtual);
+  e.stopPropagation();
+});
 //Handles form div forward button
-document.getElementById("btnPrev").addEventListener("click", function () { divAtual = previousDiv(divAtual); });
+document.getElementById("btnPrev").addEventListener("click", function (e)
+{
+  e.stopPropagation();
+  divAtual = previousDiv(divAtual);
+});
 
 
 

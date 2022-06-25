@@ -5,6 +5,9 @@ def Encoder(option, sex, age, weight,
             height, waist, doesExercise, takePills,
             eatFruit, diabeticFamily, eatFats, smoke,
             bloodGlucose, analysis, glucoseLevelChange, womanGlucose, *diabetic):
+    if analysis == '':
+        print("Passing by")
+        analysis = "Não sei"
     
     if(option == 1):#option 1 means the input is data persistence
         encoderOutput = {
