@@ -23,6 +23,8 @@ else:
 
 def predict(data):
     sampleArray = []
+    
+        
     encondedSample = encoder.Encoder(2, data['sex'],
                                      data['age'],
                                      data['weight'],
