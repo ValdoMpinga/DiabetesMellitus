@@ -46,7 +46,7 @@ INSTALLED_APPS = [
     'project_support',
     'user_profile',
     'django_extensions',
-]
+    'ai_trainer_condition',
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',

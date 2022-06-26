@@ -133,8 +133,7 @@ class DiabetesForm(forms.ModelForm):
 
         widgets = {
             'sexo': forms.Select(attrs={'class': 'form-select'}),
-            'peso': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Peso'}),
+            'peso': forms.NumberInput(attrs={'class': 'form-control', 'placeholder': 'Peso', 'min': '8'}),
             'altura': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Altura'}),
-            'data': forms.TextInput(attrs={'class': 'form-control'}),
             'glicemia': forms.TextInput(attrs={'class': 'form-control','placeholder':'Digite Não sei caso não saiba!'})
         }

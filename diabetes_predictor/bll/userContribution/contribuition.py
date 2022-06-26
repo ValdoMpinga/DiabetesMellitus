@@ -29,7 +29,4 @@ def contributionIntentValidator(userLastContributionDate):
                 daysOfDifference = daysOfDifference - 366
             else:
                 daysOfDifference = 365 - daysOfDifference
-            return {
-                "code": 0,
-                "days": daysOfDifference
-            }
+            return { "code": 0, "days": daysOfDifference }
