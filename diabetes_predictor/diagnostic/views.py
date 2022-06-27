@@ -8,7 +8,7 @@ def diagnostic(request):
     if request.method == 'POST':
         #Gets request  data
         jsonData = json.loads(request.body)
-        
+        diabetesDatasetExporter()
         #makes the prediction
         prediction = predict(jsonData)
 

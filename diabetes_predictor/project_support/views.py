@@ -1,8 +1,10 @@
+from distutils.log import log
 import globalVars
 from django.db.models.signals import (post_save)
 from bll.ai_trainer.diabetesModel import diabetesModelTrainer
 from django.dispatch import receiver
 from project_support.models import DiabetesSamples
+from ai_trainer_condition.models import AI_TrainerCondition
 from bll.userContribution.contribuition import contributionIntentValidator
 from django.shortcuts import render, redirect
 from bll.encoder import encoder
@@ -54,8 +56,7 @@ def project_support(request):
 
 def contribute(request):
     if request.method == 'POST':
-        userLastContributionDate = userModel.UserModel.objects.filter(
-            username=request.user).values('contribuition_date')  # Gets user last contribution date
+        userLastContributionDate = userModel.UserModel.objects.filter(username=request.user).values('contribuition_date')  # Gets user last contribution date
         userLastContributionDate = list(userLastContributionDate)
         print(userLastContributionDate)
         userLastContributionDate = userLastContributionDate[0]['contribuition_date']
@@ -75,8 +76,7 @@ def contribute(request):
             currentDate = datetime.datetime.strptime(
                 str(today), '%Y-%m-%d').strftime('%d/%m/%Y')
             currentDateString = currentDate
-            userModel.UserModel.objects.filter(username=request.user).update(
-                contribuition_date=currentDateString)  # Updates user contribute date
+            userModel.UserModel.objects.filter(username=request.user).update(contribuition_date=currentDateString)  # Updates user contribute date
             saveUserContribute.saveUserContribute(userContribute)  # saves user contribute
             globalVars.days = 366
             return response
@@ -125,12 +125,22 @@ def encoderCaller(jsonData):
 
     
 # Signal,(django trigger equivalent) that handles AI model re training after reaching a number divible by 500 on the database
+# The number of re-training can be changed by the admin on the system, if on the system is not defined, by default it will be
+# After 500 insertions
 @receiver(post_save, sender=DiabetesSamples)
 def sampleInsertedHandler(sender, instance, created, *args, **kwargs):
     print(args, kwargs)
     if created:
         currentNumberOfSamples = DiabetesSamples.objects.all().count()
-        if(currentNumberOfSamples % 500 == 0):
+        retrainerCondition = AI_TrainerCondition.objects.filter()[:1].values('re_trainNumber')
+        if(not(retrainerCondition)):
+            retrainerCondition = 500
+        else:
+            print("Not Null section")
+            print(retrainerCondition)
+            retrainerCondition = list(retrainerCondition)
+            retrainerCondition = retrainerCondition[0]['re_trainNumber']        
+        if(currentNumberOfSamples % retrainerCondition == 0):
             diabetesModelTrainer(DiabetesSamples.objects.all().values_list())
     else:
         pass
