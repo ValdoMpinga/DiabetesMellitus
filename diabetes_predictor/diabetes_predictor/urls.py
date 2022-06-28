@@ -17,7 +17,6 @@ from django.contrib import admin
 from django.urls import include, path
 from django.contrib.staticfiles.urls import staticfiles_urlpatterns
 
-
 from . import views
 
 urlpatterns = [
@@ -29,6 +28,10 @@ urlpatterns = [
     path('register',include('register.urls')),
     path('projectsupport',include('project_support.urls')),
     path('userprofile',include('user_profile.urls')),
+    path('charts',include('charts.urls')),
 ]
 
+admin.site.index_title="Diabetes Mellitus"
+admin.site.site_header="Diabetes Mellitus Admin"
+admin.site.site_title="Diabetes Mellitus Admin"
 urlpatterns += staticfiles_urlpatterns()

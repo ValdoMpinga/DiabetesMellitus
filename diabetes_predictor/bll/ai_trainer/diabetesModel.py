@@ -5,6 +5,7 @@ import joblib
 import os
 from django.conf import settings
 from sklearn.metrics import classification_report, log_loss
+from django.core.mail import send_mail
 #Trains 1000 diabetes models, picks the best of them and saves them on the diabetes model and diabetes model backup folders
 def diabetesModelTrainer(data):
     global bestModel 
@@ -58,6 +59,9 @@ def diabetesModelTrainer(data):
             bestModelLoss = currentLoss
             
   
+    bestModelScore = bestModelScore * 100
+    bestModelPrecision = bestModelPrecision * 100
+    bestModelLoss = bestModelLoss * 100
 
     if bestModelScore > 0.90:
         print("Goal achieved")
@@ -65,12 +69,27 @@ def diabetesModelTrainer(data):
         print("Best Score: ", bestModelScore)
         print("Best Precission: ", bestModelPrecision)
         print("Best Loss: ", bestModelLoss)
+      
+        send_mail('Relatorio do re treino da IA', 
+                  'A IA de diabetes foi re treinada com sucesso, com uma pontuação de {} %, uma precisão de {} % e perca de {} %'.format(int(bestModelScore), int(bestModelPrecision), round(bestModelLoss,2)),
+                  settings.EMAIL_HOST_USER, 
+                  ['valdom@ipvc.pt'], 
+                  fail_silently=False)
+
     else:
         print("Goal dont achieved")
         print(bestModel)
         print("Best Score: ", bestModelScore)
         print("Best Precission: ", bestModelPrecision)
         print("Best Loss: ", bestModelLoss)
+        
+        send_mail('Relatorio do re treino da IA',
+                  'A IA de diabetes foi re treinada, porem sem sucesso, com uma pontuação de {} , uma precisão de {} e perca de {} '.format(
+                      bestModelScore, bestModelPrecision, bestModelLoss),
+                  settings.EMAIL_HOST_USER,
+                  ['valdom@ipvc.pt'],
+                  fail_silently=False)
+        
         
     #Removes the previous models on the diabetes model folder
     os.remove(os.path.join(settings.BASE_DIR, './static/diabetesModel', 'LogisticRegressionDiabetesModel'))

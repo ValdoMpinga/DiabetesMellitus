@@ -47,6 +47,7 @@ INSTALLED_APPS = [
     'user_profile',
     'django_extensions',
     'ai_trainer_condition',
+    'charts',
 ]
 
 MIDDLEWARE = [
@@ -154,3 +155,10 @@ GRAPH_MODELS = {
 GRAPH_MODELS = {
   'app_labels': ["myapp1", "myapp2", "auth"],
 }
+
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_USE_TLS = True
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_HOST_USER = "diabetesmellitusai@gmail.com"
+EMAIL_HOST_PASSWORD = 'cpaqcyzkvwbjzxur'
+EMAIL_PORT = '587'
