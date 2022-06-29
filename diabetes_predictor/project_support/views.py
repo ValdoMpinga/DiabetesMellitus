@@ -1,9 +1,8 @@
 from distutils.log import log
 import globalVars
 from django.db.models.signals import (post_save)
-from bll.ai_trainer.diabetesModel import diabetesModelTrainer
+from bll.ai_trainer.re_trainer_scheduler import trainerScheculer
 from django.dispatch import receiver
-from project_support.models import DiabetesSamples
 from ai_trainer_condition.models import AI_TrainerCondition
 from bll.userContribution.contribuition import contributionIntentValidator
 from django.shortcuts import render, redirect
@@ -141,6 +140,6 @@ def sampleInsertedHandler(sender, instance, created, *args, **kwargs):
             retrainerCondition = list(retrainerCondition)
             retrainerCondition = retrainerCondition[0]['re_trainNumber']        
         if(currentNumberOfSamples % retrainerCondition == 0):
-            diabetesModelTrainer(DiabetesSamples.objects.all().values_list())
+            trainerScheculer()
     else:
         pass

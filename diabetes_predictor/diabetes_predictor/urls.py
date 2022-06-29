@@ -28,7 +28,7 @@ urlpatterns = [
     path('register',include('register.urls')),
     path('projectsupport',include('project_support.urls')),
     path('userprofile',include('user_profile.urls')),
-    path('charts',include('charts.urls')),
+    # path('charts',include('charts.urls')),
 ]
 
 admin.site.index_title="Diabetes Mellitus"

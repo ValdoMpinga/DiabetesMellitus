@@ -5,11 +5,12 @@ import json
 from django.http import HttpResponse
 from diabetes_dataset_migrator.exporter import diabetesDatasetExporter
 from django.conf import settings
+
 def diagnostic(request):
     if request.method == 'POST':
         #Gets request  data
         jsonData = json.loads(request.body)
-        #diabetesDatasetExporter()
+        diabetesDatasetExporter()
         #makes the prediction
         prediction = predict(jsonData)
 

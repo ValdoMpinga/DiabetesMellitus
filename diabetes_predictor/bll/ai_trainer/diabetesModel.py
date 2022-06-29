@@ -6,8 +6,11 @@ import os
 from django.conf import settings
 from sklearn.metrics import classification_report, log_loss
 from django.core.mail import send_mail
+from project_support.models import DiabetesSamples
+
 #Trains 1000 diabetes models, picks the best of them and saves them on the diabetes model and diabetes model backup folders
-def diabetesModelTrainer(data):
+def diabetesModelTrainer():
+    data = DiabetesSamples.objects.all().values_list()
     global bestModel 
     global bestModelScore 
     global bestModelScore 
