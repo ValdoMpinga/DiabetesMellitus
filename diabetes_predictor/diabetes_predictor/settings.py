@@ -88,9 +88,9 @@ DATABASES = {
     'default': {
         'ENGINE': 'djongo',
         'NAME':'diabetes_predictorDB',
-        # 'CLIENT': {
-        #     'host': 'mongodb+srv://ValdoMpinga:dG4nEEnFsuztY3n@cluster0.iqhst.mongodb.net/test'
-        # }
+        'CLIENT': {
+            'host': 'mongodb+srv://ValdoMpinga:dG4nEEnFsuztY3n@cluster0.iqhst.mongodb.net/test'
+        }
     }
 }
 

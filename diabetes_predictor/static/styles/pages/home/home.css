@@ -15,9 +15,6 @@
   margin-left: 20px;
 }
 
-
-
-
 h1 {
   margin-top: 40px !important;
   font-size: 45px !important;
@@ -42,3 +39,16 @@ p {
   font-weight: 500;
   color: #323643 !important;
 }
+
+h1{
+  font-size: 50px !important;
+}
+
+.btn{
+  height: 80px !important;
+}
+
+.cont-div{
+  width: 500px;
+}
+
