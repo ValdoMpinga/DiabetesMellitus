@@ -78,7 +78,6 @@ GIRL_CHOICES = (
 DIABETES_CHOICES = (
     ('Sim, diagnosticada pelo médico', 'Sim, diagnosticada pelo médico'),
     ('Não, de acordo com o meu médico', 'Não, de acordo com o meu médico'),
-    ('Não sei', 'Não sei')
 )
 
 

@@ -48,6 +48,8 @@ INSTALLED_APPS = [
     'django_extensions',
     'ai_trainer_condition',
     'charts',
+    'ai_model_history',
+    'django_email_verification'
 ]
 
 MIDDLEWARE = [
@@ -162,3 +164,6 @@ EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_HOST_USER = "diabetesmellitusai@gmail.com"
 EMAIL_HOST_PASSWORD = 'cpaqcyzkvwbjzxur'
 EMAIL_PORT = '587'
+EMAIL_PAGE_TEMPLATE = 'email_confirmation_state.html'
+EMAIL_PAGE_HTML = 'email_confirmation_body.html'
+

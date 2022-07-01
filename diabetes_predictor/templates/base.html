@@ -12,55 +12,54 @@
   <body>
     <header>{% include 'components/navBar.html' %}</header>
     <main>
-      <section class="text-center">
-        <div class="container mt-5">
-          <div class="d-lg-flex align-items-center">
-            <div class="ms-auto">
-              <section>
-                <h1>
-                  Faça uma breve analise e <br />
-                  descubra se tem diabetes!
-                </h1>
+      <div class="container mt-5">
+        <div class="row g-4">
+          <div class="col-lg mx-auto mt-3">
+            <h1 class="text-center p-3 mt-5">
+              Faça uma breve analise e descubra se tem diabetes!
+            </h1>
 
-                <svg
-                  class="navbar-brand logo d-md-none mt-3"
-                  width="40"
-                  onclick="location.href='/'"
-                  height="48"
-                  viewBox="0 0 54 86"
-                  fill="none"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path
-                    d="M54 57.116C54 73.0676 41.9111 86 27 86C12.0889 86 0 73.0676 0 57.116C0 41.1645 23.5956 0 27 0C30.2852 0 54 41.1645 54 57.116Z"
-                    fill="#97DAF8"
-                  />
-                </svg>
-                <p class="p-3">
-                  A nossa equipe criou um modelo de inteligencia artificial
-                  capaz de prever se tem ou não diabetes! Interessado?
-                  Simplesmente precisas preencher um formulario e o resultado
-                  lhe é mostrado em instantes!
-                </p>
-              </section>
-              <div class="buttonsContainer">
-                <button
-                  type="button"
-                  class="btn btn-lg diagnostic-button"
-                  onclick="location.href='diagnostic'"
-                >
-                  Ir ao Diagnostico
-                </button>
-                <button
-                  type="button"
-                  class="btn btn-lg diabetes-button"
-                  onclick="location.href='diabetes'"
-                >
-                  O que são Diabetes
-                </button>
-              </div>
+            <div class="text-center">
+              <svg
+                class="navbar-brand logo d-lg-none mt-3"
+                width="40"
+                onclick="location.href='/'"
+                height="48"6
+                viewBox="0 0 54 86"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M54 57.116C54 73.0676 41.9111 86 27 86C12.0889 86 0 73.0676 0 57.116C0 41.1645 23.5956 0 27 0C30.2852 0 54 41.1645 54 57.116Z"
+                  fill="#97DAF8"
+                />
+              </svg>
             </div>
 
+            <p class="p-3 text-center">
+              A nossa equipe criou um modelo de inteligencia artificial capaz de
+              prever se tem ou não diabetes! Interessado? Simplesmente precisas
+              preencher um formulario e o resultado lhe é mostrado em instantes!
+            </p>
+
+            <div class="buttonsContainer text-center">
+              <button
+                type="button"
+                class="btn btn-lg diagnostic-button"
+                onclick="location.href='diagnostic'"
+              >
+                Ir ao Diagnostico
+              </button>
+              <button
+                type="button"
+                class="btn btn-lg diabetes-button"
+                onclick="location.href='diabetes'"
+              >
+                O que são Diabetes
+              </button>
+            </div>
+          </div>
+          <div class="col-lg mx-auto">
             <img
               src="static/images/diabetes-removed-bg.png"
               class="img-fluid diabetes-image d-none d-md-block text-center"
@@ -68,7 +67,7 @@
             />
           </div>
         </div>
-      </section>
+      </div>
     </main>
   </body>
 </html>

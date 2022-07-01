@@ -1,7 +1,7 @@
 from django.shortcuts import render, redirect
 from forms.register.registerForm import CreateUserForm
 from .models import UserModel
-from django.contrib  import messages
+from django.contrib import messages
 # Renders register page and and handles users registation
 
 
@@ -33,4 +33,3 @@ def register(request):
             else:
                 messages.info(request, 'invalid registration details')
         return render(request, 'register/register.html', context)
-        

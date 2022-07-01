@@ -43,9 +43,7 @@ class DiabetesSamples(models.Model):
 
 
 class Contribute(models.Model):
-
     sex_choices = (('Masculino', 'Masculino'), ('Feminino', 'Feminino'))
-
     sexo = models.TextField(choices=sex_choices, default='Feminino')
     peso = models.CharField(max_length=10)
     altura = models.CharField(max_length=10)
