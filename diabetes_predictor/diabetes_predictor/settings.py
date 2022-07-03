@@ -18,7 +18,6 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 PROJECT_DIR = os.path.join(BASE_DIR, "diabetes_predictor")
 
 
-
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/4.0/howto/deployment/checklist/
 
@@ -34,7 +33,7 @@ ALLOWED_HOSTS = []
 
 INSTALLED_APPS = [
     'jazzmin',
-    'diabetes_predictor.apps.CustomAdminConfig',
+    'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
@@ -68,7 +67,7 @@ ROOT_URLCONF = 'diabetes_predictor.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [os.path.join(BASE_DIR,'templates')],
+        'DIRS': [os.path.join(BASE_DIR, 'templates')],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -90,7 +89,7 @@ WSGI_APPLICATION = 'diabetes_predictor.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'djongo',
-        'NAME':'diabetes_predictorDB',
+        'NAME': 'diabetes_predictorDB',
         'CLIENT': {
             'host': 'mongodb+srv://ValdoMpinga:dG4nEEnFsuztY3n@cluster0.iqhst.mongodb.net/test'
         }
@@ -139,9 +138,9 @@ STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'static')
 ]
 
-#home.png
+# home.png
 
-#STATICFILES_DIRS =  [
+# STATICFILES_DIRS =  [
 #    os.path.join(BASE_DIR,'../DiabetesPredictorApp/diabetes_predictor/static')
 #    ]
 # Default primary key field type
@@ -151,12 +150,12 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 ALLOWED_HOSTS = ['*']
 
 GRAPH_MODELS = {
-  'all_applications': True,
-  'group_models': True,
+    'all_applications': True,
+    'group_models': True,
 }
 
 GRAPH_MODELS = {
-  'app_labels': ["myapp1", "myapp2", "auth"],
+    'app_labels': ["myapp1", "myapp2", "auth"],
 }
 
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
@@ -169,7 +168,6 @@ EMAIL_PAGE_TEMPLATE = 'email_confirmation_state.html'
 EMAIL_PAGE_HTML = 'email_confirmation_body.html'
 
 JAZZMIN_SETTINGS = {
-"site_logo": "images/Logo.png",
+    "site_logo": "images/Logo.png",
     "welcome_sign": "Seja bem vindo!",
-
 }

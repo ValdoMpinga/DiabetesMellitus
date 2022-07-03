@@ -1,11 +1,9 @@
 from django.shortcuts import render
-from pyparsing import Diagnostics
 from diagnostic.models import Diagnostic
 from register.models import UserModel
 from project_support.models import DiabetesSamples
 import pandas as pd
 import calendar
-import json
 
 
 def charts(request):
