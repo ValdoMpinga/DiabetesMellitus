@@ -23,17 +23,17 @@ from . import views
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', views.index, name="index"),
-    path('diabetes',include('diabetes.urls')),
-    path('diagnostic',include('diagnostic.urls')),
-    path('login',include('login.urls')),
-    path('register',include('register.urls')),
-    path('projectsupport',include('project_support.urls')),
-    path('userprofile',include('user_profile.urls')),
-    path('email/',include(mail_urls)),
-    # path('charts',include('charts.urls')),
+    path('diabetes', include('diabetes.urls')),
+    path('diagnostic', include('diagnostic.urls')),
+    path('login', include('login.urls')),
+    path('register', include('register.urls')),
+    path('projectsupport', include('project_support.urls')),
+    path('userprofile', include('user_profile.urls')),
+    path('email/', include(mail_urls)),
+    path('charts', include('charts.urls')),
 ]
 
-admin.site.index_title="Diabetes Mellitus"
-admin.site.site_header="Diabetes Mellitus Admin"
-admin.site.site_title="Diabetes Mellitus Admin"
+admin.site.index_title = "Diabetes Mellitus"
+admin.site.site_header = "Diabetes Mellitus Admin"
+admin.site.site_title = "Diabetes Mellitus Admin"
 urlpatterns += staticfiles_urlpatterns()

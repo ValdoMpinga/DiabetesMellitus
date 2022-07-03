@@ -13,6 +13,6 @@ class DiagnosticSample(models.Model):
 
 
 class Diagnostic(models.Model):
-    diagnosticResult = models.IntegerField(max_length=1)
+    diagnosticResult = models.IntegerField()
     diagnosticProbability = models.IntegerField()
     diagnosticDate = models.DateField()

@@ -2,49 +2,53 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     {% include '../components/head.html' %}
+    <link
+      rel="stylesheet"
+      href="{% static '/styles/pages/charts/charts.css' %}"
+    />
+
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
   </head>
   <body>
     {% include '../components/navBar.html' %}
+    <script type="text/javascript">
+      var diabetic_predicted = "{{diabetic_predicted}}";
+      var non_diabetic_predicted = "{{non_diabetic_predicted}}";
+
+      var diabetics = "{{diabetics}}";
+      var non_diabetics = "{{non_diabetics}}";
+
+      var months = "{{months|safe}}";
+      var userMounthAmount = "{{userMounthAmount|safe}}";
+    </script>
 
     <div class="container">
-      <canvas id="myChart"></canvas>
+      <div class="row text-center g-4 text-center mt-5">
+        <div class="col col-lg mx-auto text-center">
+            <canvas id="diagnosticChart" width="400" height="400"></canvas>
+          <script
+            type="module"
+            src="{% static '/scripts/charts/diagnosticChart.mjs' %}"
+          ></script>
+        </div>
+
+        <div class="col col-lg mx-auto text-center">
+            <canvas id="userChart" width="400" height="400"></canvas>
+          <script
+            type="module"
+            src="{% static '/scripts/charts/userChart.mjs' %}"
+          ></script>
+        </div>
+
+        <div class="col col-lg mx-auto text-center">
+            <canvas id="contributionChart" width="400" height="400"></canvas>
+          <script
+            type="module"
+            src="{% static '/scripts/charts/contributionChart.mjs' %}"
+          ></script>
+        </div>
+      </div>
     </div>
-
-    <ul>
-        <li>Usuarios ao longo dos meses - Bar chart</li>
-        <li>Dados separados por se é diabetico ou nao - Doughnnut chart</li>
-        <li>Contribuição ao longo dos meses - Bar chart</li>
-    </ul>
   </body>
-  <script>
-    const labels = ["January", "February", "March", "April", "May", "June"];
-
-    const data = 
-    {
-      labels: labels,
-      datasets: 
-      [
-        {
-          label: "My First dataset",
-          backgroundColor: "rgb(255, 99, 132)",
-          borderColor: "rgb(255, 99, 132)",
-          data: [0, 10, 5, 2, 20, 30, 45],
-        },
-      ],
-    };
-
-    const config = {
-      type: "line",
-      data: data,
-      options: {},
-    };
-  </script>
-  <script>
-    const myChart = new Chart(document.getElementById("myChart"), config);
-  </script>
 </html>
