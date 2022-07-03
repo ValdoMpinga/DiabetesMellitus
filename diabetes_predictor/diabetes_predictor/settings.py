@@ -33,7 +33,8 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
-    'django.contrib.admin',
+    'jazzmin',
+    'diabetes_predictor.apps.CustomAdminConfig',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
@@ -49,7 +50,7 @@ INSTALLED_APPS = [
     'ai_trainer_condition',
     'charts',
     'ai_model_history',
-    'django_email_verification'
+    'django_email_verification',
 ]
 
 MIDDLEWARE = [
@@ -167,3 +168,8 @@ EMAIL_PORT = '587'
 EMAIL_PAGE_TEMPLATE = 'email_confirmation_state.html'
 EMAIL_PAGE_HTML = 'email_confirmation_body.html'
 
+JAZZMIN_SETTINGS = {
+"site_logo": "images/Logo.png",
+    "welcome_sign": "Seja bem vindo!",
+
+}
