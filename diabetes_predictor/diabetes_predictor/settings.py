@@ -169,3 +169,6 @@ JAZZMIN_SETTINGS = {
     "site_logo": "images/Logo.png",
     "welcome_sign": "Seja bem vindo!",
 }
+
+CSRF_COOKIE_SECURE=True
+SESSION_COOKIE_SECURE =True
