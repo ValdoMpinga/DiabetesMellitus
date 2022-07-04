@@ -1,4 +1,4 @@
-import { nextDiv, previousDiv, outputDiv } from "../handlers/divHandler.mjs";
+import { nextDiv, previousDiv, outputContributionDiv } from "../handlers/divHandler.mjs";
 import { handlePrematureSubmit } from "../handlers/formHandler.mjs";
 import { getCookie } from "../handlers/cookieHandler.mjs";
 import { JSONParser } from "../handlers/jsonHandler.mjs";
@@ -23,7 +23,7 @@ let physicalExerciseVerifier = 0
 let fatVerifier = 0
 
 //Handles the form final output div
-outputDiv()
+outputContributionDiv()
 
 //All progess functions increment to the total progress when a form element is selected
 function ageProgress()
@@ -293,7 +293,6 @@ form.onsubmit = async (e) =>
     if (data.isAuthroized == 1)//If submmited successfully, it displays the user a message
     {
         document.querySelector(".outputTextSection").style.display = "block";
-        document.querySelector(".outputReplayButton").style.display = "block";
 
         setTimeout(() => window.location.href = "http://127.0.0.1:8080/userprofile",4000)
         
@@ -310,35 +309,6 @@ form.onsubmit = async (e) =>
             window.location.href = "http://127.0.0.1:8080/login"
     }
 }
-
-//Resets form if user wishes to answer it again
-document.querySelector('.replayButton').addEventListener('click', (e) =>
-{
-    e.stopPropagation();
-    document.querySelector('form').reset()
-    progress.value = 12.5
-    ageVerifier = 0
-    waistVerifier = 0
-    pillsVerifier = 0
-    fruitsVerifier = 0
-    diabeticFamilyVerifier = 0
-    smokeVerifier = 0
-    sugarVerifier = 0
-    glicemyLevelVerifier = 0
-    glicemyValueVerifier = 0
-    isGirlVerifier = 0
-    diabetesVerifier = 0
-    weightVerifier = 0
-    heightVerifier = 0
-    physicalExerciseVerifier = 0
-    fatVerifier = 0
-
-    for (let i = 7; i > 0; i--)
-        document.querySelector('#btnPrev').click()
-
-    outputDiv()
-})
-
 
 let divAtual = 1;
 

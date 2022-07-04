@@ -1,0 +1,11 @@
+{% load static %}
+{% autoescape off %}
+
+Olá {{user.username}}
+
+Por favor, verifique a sua conta clicando no link abaixo
+
+http://{{domain}}{% url 'activate' uidb64=uid token=token %}
+
+
+{% endautoescape %}
