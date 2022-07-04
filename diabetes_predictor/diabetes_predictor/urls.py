@@ -33,7 +33,6 @@ urlpatterns = [
     path('register', include('register.urls')),
     path('projectsupport', include('project_support.urls')),
     path('userprofile', include('user_profile.urls')),
-    path('email/', include(mail_urls)),
     path('charts', include('charts.urls')),
 ]
 
