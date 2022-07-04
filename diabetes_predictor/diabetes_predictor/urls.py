@@ -20,7 +20,6 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import include, path
 from django.contrib.staticfiles.urls import staticfiles_urlpatterns
-from django_email_verification import urls as mail_urls
 
 from . import views
 
@@ -33,7 +32,6 @@ urlpatterns = [
     path('register', include('register.urls')),
     path('projectsupport', include('project_support.urls')),
     path('userprofile', include('user_profile.urls')),
-    path('email/', include(mail_urls)),
     path('charts', include('charts.urls')),
 ]
 

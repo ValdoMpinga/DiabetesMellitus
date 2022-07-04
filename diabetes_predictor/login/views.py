@@ -21,20 +21,25 @@ def loginFunction(request):
         context = {'form': form}
         user = authenticate(request, username=form.data['username'], password=form.data['password'])
         if user is not None:
+            
+            if user.is_email_verified == False:
+                messages.error(request, 'Por favor verifique o seu email!')
+                return render(request, 'login/login.html', context)
+            
             print("User authenticated: ", form.data['username'])
             login(request, user)
 
             print("Contrib day: ", request.user.contribuition_date)
             days = contributionIntentValidator(request.user.contribuition_date)
-         
+        
             if days == 1:
                 globalVars.days = 0
                 return redirect('/projectsupport')
             else:
                 globalVars.days = days['days']
                 return redirect('/userprofile')
-
+            
         else:
-            print("Here")
             messages.error(request, 'Nome do usuário ou palavra passe errada')
             return render(request, 'login/login.html', context)
+

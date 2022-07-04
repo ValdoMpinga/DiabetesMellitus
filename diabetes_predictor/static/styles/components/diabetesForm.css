@@ -1,4 +1,3 @@
-
 h6 {
   margin-top: 10px !important;
   text-align: center;
@@ -22,9 +21,15 @@ h6 {
 }
 
 .boxContainer {
-    height: 500px !important;
+  height: 500px !important;
   display: grid !important;
   grid-template-rows: 1fr 1fr 1fr !important;
+}
+
+.contributionBoxContainer {
+  height: 500px !important;
+  display: grid !important;
+  grid-template-rows: 1fr 1fr !important;
 }
 
 .form-select {

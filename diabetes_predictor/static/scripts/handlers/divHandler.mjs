@@ -5,6 +5,11 @@ function outputDiv()
   document.querySelector(".outputReplayButton").style.display = "none";
 }
 
+function outputContributionDiv()
+{
+  document.querySelector(".outputTextSection").style.display = "none";
+}
+
 //Display the next content on the div
 function nextDiv(divAtual)
 {
@@ -105,4 +110,4 @@ function disableAllDivs()
 
 }
 
-export { nextDiv, previousDiv, outputDiv }
+export { nextDiv, previousDiv, outputDiv, outputContributionDiv }

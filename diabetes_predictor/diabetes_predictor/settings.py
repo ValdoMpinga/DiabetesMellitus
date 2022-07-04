@@ -12,6 +12,7 @@ https://docs.djangoproject.com/en/4.0/ref/settings/
 
 from pathlib import Path
 import os
+from decouple import config
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -22,11 +23,10 @@ PROJECT_DIR = os.path.join(BASE_DIR, "diabetes_predictor")
 # See https://docs.djangoproject.com/en/4.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-h3le(l!9ln=#rg_1lsu947awm7wkx@0f7am+bo)h^=4%nm(!md'
+SECRET_KEY = config('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
-
+DEBUG = config('DEBUG', default=False, cast=bool)
 ALLOWED_HOSTS = []
 
 # Application definition
@@ -49,7 +49,6 @@ INSTALLED_APPS = [
     'ai_trainer_condition',
     'charts',
     'ai_model_history',
-    'django_email_verification',
 ]
 
 MIDDLEWARE = [
@@ -91,7 +90,7 @@ DATABASES = {
         'ENGINE': 'djongo',
         'NAME': 'diabetes_predictorDB',
         'CLIENT': {
-            'host': 'mongodb+srv://ValdoMpinga:dG4nEEnFsuztY3n@cluster0.iqhst.mongodb.net/test'
+            'host': config('DATABASE')
         }
     }
 }
@@ -131,8 +130,7 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/4.0/howto/static-files/
 
 STATIC_URL = '/static/'
-# STATIC_ROOT = '/static/'
-#MEDIA_URL = '/images/'
+
 
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'static')
@@ -147,7 +145,7 @@ STATICFILES_DIRS = [
 # https://docs.djangoproject.com/en/4.0/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
-ALLOWED_HOSTS = ['*']
+ALLOWED_HOSTS = ['127.0.0.1']
 
 GRAPH_MODELS = {
     'all_applications': True,
@@ -159,11 +157,11 @@ GRAPH_MODELS = {
 }
 
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
-EMAIL_USE_TLS = True
-EMAIL_HOST = 'smtp.gmail.com'
-EMAIL_HOST_USER = "diabetesmellitusai@gmail.com"
-EMAIL_HOST_PASSWORD = 'cpaqcyzkvwbjzxur'
-EMAIL_PORT = '587'
+EMAIL_USE_TLS = config('EMAIL_USE_TLS', default=False, cast=bool)
+EMAIL_HOST = config('EMAIL_HOST', default='localhost')
+EMAIL_HOST_USER = config('EMAIL_HOST_USER')
+EMAIL_HOST_PASSWORD = config('EMAIL_HOST_PASSWORD')
+EMAIL_PORT = config('EMAIL_PORT', default=25, cast=int)
 EMAIL_PAGE_TEMPLATE = 'email_confirmation_state.html'
 EMAIL_PAGE_HTML = 'email_confirmation_body.html'
 
@@ -171,3 +169,6 @@ JAZZMIN_SETTINGS = {
     "site_logo": "images/Logo.png",
     "welcome_sign": "Seja bem vindo!",
 }
+
+CSRF_COOKIE_SECURE=True
+SESSION_COOKIE_SECURE =True
