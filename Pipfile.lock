@@ -596,7 +596,7 @@
             ],
             "index": "pypi",
             "version": "==6.2.0"
-        },
+        }
     },
     "develop": {
         "autopep8": {
