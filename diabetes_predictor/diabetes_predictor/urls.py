@@ -1,5 +1,4 @@
 from . import views
-from django_email_verification import urls as mail_urls
 from django.contrib.staticfiles.urls import staticfiles_urlpatterns
 from django.urls import include, path
 from django.contrib import admin
