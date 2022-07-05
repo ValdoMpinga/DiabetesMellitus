@@ -32,7 +32,7 @@ ALLOWED_HOSTS = ['diabetesmellitusai.herokuapp.com','127.0.0.1']
 # Application definition
 
 INSTALLED_APPS = [
-    # 'jazzmin',
+    'jazzmin',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -167,10 +167,10 @@ EMAIL_PORT = os.environ.get('EMAIL_PORT')
 EMAIL_PAGE_TEMPLATE = 'email_confirmation_state.html'
 EMAIL_PAGE_HTML = 'email_confirmation_body.html'
 
-# JAZZMIN_SETTINGS = {
-#     "site_logo": "images/Logo.png",
-#     "welcome_sign": "Seja bem vindo!",
-# }
+JAZZMIN_SETTINGS = {
+    "site_logo": "images/Logo.png",
+    "welcome_sign": "Seja bem vindo!",
+}
 
 CSRF_COOKIE_SECURE=True
 SESSION_COOKIE_SECURE =True
