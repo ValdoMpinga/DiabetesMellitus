@@ -41,6 +41,7 @@ toml = "==0.10.2"
 tzdata = "==2022.1"
 tzlocal = "==4.2"
 whitenoise = "==6.2.0"
+winkerberos = "==0.9.0"
 
 [dev-packages]
 autopep8 = "*"
