@@ -253,25 +253,7 @@ form.onsubmit = async (e) =>
   const formData = new FormData(e.target);
   let csrftoken = getCookie('csrftoken'); //Gets crsf token which is necessary to make post requests to django
 
-  let formObject= JSONParser(formData)
-  // var newGlicemyAnalysisValue=null
-
-  // console.log(typeof (formObject.glicemia))
-  // console.log(formObject.glicemia)
-
-  // if (!/[^a-zA-Z]/.test(formObject.glicemia))
-  // {
-  //   formObject.glicemia = "Não sei"
-  //   console.log(formObject.glicemia);
-  //   newGlicemyAnalysisValue = "Não sei"
-  // } else
-  // {
-  //   formObject.glicemia = formObject.glicemia.replace(/[^0-9.]/g, '')
-  //   console.log(formObject.glicemia);
-  // }
-
-  // console.log("Here: " + formObject.glicemia);
-  // console.log("Here: " + newGlicemyAnalysisValue);
+  let formObject= JSONParser(formData);
   const requestOptions =
   {
     method: 'POST',
@@ -301,9 +283,6 @@ form.onsubmit = async (e) =>
 
   let response = await fetch('http://127.0.0.1:8080/diagnostic', requestOptions)
   let data = await response.json()
-
-  console.log("Prediction: " + data.prediction);
-  console.log("Probability: " + data.probability);
 
   if (data.prediction == 1)
     document.querySelector("#predictionContent").innerHTML = `Possui uma chance de ${Math.floor(data.probability * 100)}% de ser diabetico!`;

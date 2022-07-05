@@ -89,7 +89,7 @@ WSGI_APPLICATION = 'diabetes_predictor.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'djongo',
-        'NAME': 'diabetes_predictorDB',
+        'NAME': 'diabetes_mellitusDB',
         'CLIENT': {
             'host': os.environ.get('DATABASE')
         }

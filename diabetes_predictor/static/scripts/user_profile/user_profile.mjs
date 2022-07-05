@@ -18,12 +18,12 @@ async function logout()
     console.log(confirmation);
     if (confirmation)
     {
-        await fetch('http://127.0.0.1:8080/userprofile', requestOptions)
-        window.location.href = "http://127.0.0.1:8080/"
+        await fetch('/userprofile', requestOptions)
+        window.location.href = "/"
     }
 }
 
-function goToLoginPage(){  window.location.href = 'http://127.0.0.1:8080/login' }
+function goToLoginPage(){  window.location.href = '/login' }
 
 //Add event listener if element is rendered
 if (document.getElementById('userLogoutButton') != null)

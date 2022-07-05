@@ -287,7 +287,7 @@ form.onsubmit = async (e) =>
         })
     }
 
-    let response = await fetch('http://127.0.0.1:8080/projectsupport/contribute', requestOptions)
+    let response = await fetch('/projectsupport/contribute', requestOptions)
     let data = await response.json()
 
     if (data.isAuthroized == 1)//If submmited successfully, it displays the user a message
@@ -306,7 +306,7 @@ form.onsubmit = async (e) =>
         let confirmation = confirm("È necessario inciar uma sessão para fazer a contribuição, pretende prosseguir?")
 
         if (confirmation)
-            window.location.href = "http://127.0.0.1:8080/login"
+            window.location.href = "/login"
     }
 }
 
