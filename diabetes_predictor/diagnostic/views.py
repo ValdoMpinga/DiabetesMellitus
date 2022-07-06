@@ -19,10 +19,10 @@ def diagnostic(request):
         data = {'prediction': prediction[0],
                 'probability': prediction[1]}
         probability =(prediction[1] * 100)
-        # diagnosticInstance = Diagnostic(diagnosticResult=prediction[0],
-        #                                 diagnosticProbability=int(probability),
-        #                                 diagnosticDate=datetime.now())
-        # diagnosticInstance.save()
+        diagnosticInstance = Diagnostic(diagnosticResult=prediction[0],
+                                        diagnosticProbability=int(probability),
+                                        diagnosticDate=datetime.now())
+        diagnosticInstance.save()
         
         #converts json data to string
         data = json.dumps(data)
