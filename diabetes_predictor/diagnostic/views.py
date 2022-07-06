@@ -12,17 +12,17 @@ def diagnostic(request):
     if request.method == 'POST':
         #Gets request  data
         jsonData = json.loads(request.body)
-        # diabetesDatasetExporter()
+
         #makes the prediction
         prediction = predict(jsonData)
 
         data = {'prediction': prediction[0],
                 'probability': prediction[1]}
         probability =(prediction[1] * 100)
-        diagnosticInstance = Diagnostic(diagnosticResult=prediction[0],
-                                        diagnosticProbability=int(probability),
-                                        diagnosticDate=datetime.now())
-        diagnosticInstance.save()
+        # diagnosticInstance = Diagnostic(diagnosticResult=prediction[0],
+        #                                 diagnosticProbability=int(probability),
+        #                                 diagnosticDate=datetime.now())
+        # diagnosticInstance.save()
         
         #converts json data to string
         data = json.dumps(data)
