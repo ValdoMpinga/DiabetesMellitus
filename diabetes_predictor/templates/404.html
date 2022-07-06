@@ -1,0 +1,52 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    {% include '../components/head.html' %}
+
+    <link
+      rel="stylesheet"
+      href="{% static '/styles/pages/404/page404.css' %}"
+    />
+  </head>
+
+  <body>
+    <main>
+      <div class="container">
+        <div class="row text-center">
+          <h1>Oops...</h1>
+          <h2 class="mt-5">Pagina nao encontrada</h2>
+        </div>
+      </div>
+
+      <div class="container text-center">
+        <img src="{%static '/images/page2.png' %}" />
+      </div>
+
+      <div class="container">
+        <div class="row text-center">
+          <h3>Alguns links para si:</h3>
+          <ul>
+            <li>
+              <a href="/"
+                >Pagina principal<span class="sr-only"> </span>
+              </a>
+            </li>
+
+            <li>
+              <a href="/diagnostic"
+                >Diagnostico<span class="sr-only"> </span>
+              </a>
+            </li>
+
+            <li>
+              <a href="/diabetes"
+                >Diabetes<span class="sr-only"> </span>
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </main>
+  </body>
+</html>
