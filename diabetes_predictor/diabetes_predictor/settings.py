@@ -26,7 +26,7 @@ PROJECT_DIR = os.path.join(BASE_DIR, "diabetes_predictor")
 SECRET_KEY = os.environ.get('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = os.environ.get('CUSTOM_DEBUG',default=False)
+DEBUG = False
 ALLOWED_HOSTS = ['diabetesmellitusai.herokuapp.com','127.0.0.1']
 
 # Application definition
