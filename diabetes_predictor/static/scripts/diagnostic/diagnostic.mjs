@@ -281,7 +281,7 @@ form.onsubmit = async (e) =>
     })
   }
 
-  let response = await fetch('http://127.0.0.1:8080/diagnostic', requestOptions)
+  let response = await fetch('/diagnostic', requestOptions)
   let data = await response.json()
 
   if (data.prediction == 1)
