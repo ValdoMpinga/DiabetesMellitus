@@ -13,6 +13,7 @@ function outputContributionDiv()
 //Display the next content on the div
 function nextDiv(divAtual)
 {
+  console.log('Going right')
   disableAllDivs();
   switch (divAtual)
   {
@@ -56,6 +57,8 @@ function nextDiv(divAtual)
 //Display the previous content on the div
 function previousDiv(divAtual)
 {
+  console.log('Going left')
+
   disableAllDivs();
 
   switch (divAtual)
