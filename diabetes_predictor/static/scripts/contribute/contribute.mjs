@@ -294,7 +294,7 @@ form.onsubmit = async (e) =>
     {
         document.querySelector(".outputTextSection").style.display = "block";
 
-        setTimeout(() => window.location.href = "http://127.0.0.1:8080/userprofile",4000)
+        setTimeout(() => window.location.href = "/userprofile",4000)
         
         
 
