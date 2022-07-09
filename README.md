@@ -1,6 +1,7 @@
 # Diabetees Mellitus
 
-![App image!](https://drive.google.com/file/d/1DOeJybGWo_wb4qDGsBxPMsreqlloegVM/view?usp=sharing)
+![App image!](https://drive.google.com/file/d/1DOeJybGWo_wb4qDG![download](https://user-images.githubusercontent.com/76015450/178124560-09165a6a-4b15-47d9-90af-6c6507bd51a6.png)
+sBxPMsreqlloegVM/view?usp=sharing)
 <img src="https://drive.google.com/file/d/1DOeJybGWo_wb4qDGsBxPMsreqlloegVM/view?usp=sharing">
 
 > Status: Developed
