@@ -28,4 +28,4 @@ Diabetes is a chronic disease characterized by increased levels of sugar (glucos
     <td>----<td/>
     <td>----<td/>
   <tr/>
-<table>  
+<table/>  
