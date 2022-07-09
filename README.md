@@ -15,17 +15,17 @@ Diabetes is a chronic disease characterized by increased levels of sugar (glucos
 
 <table>
   <tr>
-    <td>Django<td/>
-    <td>Scikit Learn<td/>
-    <td>Mongo DB<td/>
-    <td>Heroku<td/>
-    <td>Vs Code<td/>
-  <tr/>
+    <td>Django</td>
+    <td>Scikit Learn</td>
+    <td>Mongo DB</td>
+    <td>Heroku</td>
+    <td>Vs Code</td>
+  </tr>
   <tr>
-    <td>4.0.5<td/>
-    <td>1.1.1<td/>
-    <td>----<td/>
-    <td>----<td/>
-    <td>----<td/>
-  <tr/>
-<table/>  
+    <td>4.0.5</td>
+    <td>1.1.1</td>
+    <td>----</td>
+    <td>----</td>
+    <td>----</td>
+  </tr>
+</table>  
