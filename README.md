@@ -1,5 +1,5 @@
 # Diabetees Mellitus
 
-> Status: Developed
+> Status: Developing
 
 ### DIabetes Predictor
