@@ -1,4 +1,4 @@
-# Diabetees Mellitus
+# Diabetes Mellitus
 
 
 
