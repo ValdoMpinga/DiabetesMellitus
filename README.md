@@ -2,6 +2,8 @@
 
 > Status: Developed
 
+to access the app click: <a href="https://diabetesmellitusai.herokuapp.com/">here!</a> 
+
 ## Diabetes Mellitus is a web app made with django framework, also powered by an AI to predict if a user has diabetes or not
 
 
