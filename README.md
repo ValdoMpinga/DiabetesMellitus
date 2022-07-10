@@ -1,11 +1,14 @@
 # Diabetes Mellitus
 
-
+<br/>
 
 > Status: Developed
-> 
+
+<br/>
+
 ![appImage](https://user-images.githubusercontent.com/76015450/178124571-c7e5b153-f6f7-400e-b668-293dd25bd430.png)
 
+<br/>
 
 to access the app click: <a href="https://diabetesmellitusai.herokuapp.com/">here!</a> 
 
