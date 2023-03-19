@@ -287,14 +287,14 @@ form.onsubmit = async (e) =>
         })
     }
 
-    let response = await fetch('http://127.0.0.1:8000/projectsupport/contribute', requestOptions)
+    let response = await fetch('http://0.0.0.0:8000/projectsupport/contribute', requestOptions)
     let data = await response.json()
 
     if (data.isAuthroized == 1)//If submmited successfully, it displays the user a message
     {
         document.querySelector(".outputTextSection").style.display = "block";
 
-        setTimeout(() => window.location.href = "http://127.0.0.1:8000/userprofile", 4000)
+        setTimeout(() => window.location.href = "http://0.0.0.0:8000/userprofile", 4000)
 
 
 
@@ -306,7 +306,7 @@ form.onsubmit = async (e) =>
         let confirmation = confirm("È necessario inciar uma sessão para fazer a contribuição, pretende prosseguir?")
 
         if (confirmation)
-            window.location.href = "http://127.0.0.1:8000/login"
+            window.location.href = "http://0.0.0.0:8000/login"
     }
 }
 

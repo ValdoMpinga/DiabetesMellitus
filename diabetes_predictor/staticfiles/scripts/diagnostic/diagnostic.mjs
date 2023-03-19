@@ -299,7 +299,7 @@ form.onsubmit = async (e) =>
     })
   }
 
-  let response = await fetch('http://127.0.0.1:8000/diagnostic', requestOptions)
+  let response = await fetch('http://0.0.0.0:8000/diagnostic', requestOptions)
   let data = await response.json()
 
   console.log("Prediction: " + data.prediction);
