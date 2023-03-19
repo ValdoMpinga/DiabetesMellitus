@@ -253,7 +253,7 @@ form.onsubmit = async (e) =>
   const formData = new FormData(e.target);
   let csrftoken = getCookie('csrftoken'); //Gets crsf token which is necessary to make post requests to django
 
-  let formObject= JSONParser(formData)
+  let formObject = JSONParser(formData)
   // var newGlicemyAnalysisValue=null
 
   // console.log(typeof (formObject.glicemia))
@@ -299,7 +299,7 @@ form.onsubmit = async (e) =>
     })
   }
 
-  let response = await fetch('http://127.0.0.1:8080/diagnostic', requestOptions)
+  let response = await fetch('http://127.0.0.1:8000/diagnostic', requestOptions)
   let data = await response.json()
 
   console.log("Prediction: " + data.prediction);
@@ -339,7 +339,7 @@ document.querySelector('.replayButton').addEventListener('click', (e) =>
 
   for (let i = 7; i > 0; i--)
     document.querySelector('#btnPrev').click()
-  
+
   outputDiv()
 })
 

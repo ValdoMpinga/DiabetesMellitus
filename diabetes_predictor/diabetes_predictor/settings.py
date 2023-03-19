@@ -27,11 +27,7 @@ SECRET_KEY = config('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = config('DEBUG', default=False, cast=bool)
-ALLOWED_HOSTS = []
-
-RENDER_EXTERNAL_HOSTNAME = config('RENDER_EXTERNAL_HOSTNAME')
-if RENDER_EXTERNAL_HOSTNAME:
-    ALLOWED_HOSTS.append(RENDER_EXTERNAL_HOSTNAME)
+ALLOWED_HOSTS = ['127.0.0.1']
 
 # Application definition
 
@@ -142,14 +138,13 @@ STATICFILES_DIRS = [
 
 # home.png
 
-# STATICFILES_DIRS =  [
-#    os.path.join(BASE_DIR,'../DiabetesPredictorApp/diabetes_predictor/static')
-#    ]
+STATICFILES_DIRS =  [
+   os.path.join(BASE_DIR,'../diabetes_predictor/static')
+   ]
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.0/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
-ALLOWED_HOSTS = ['.vercel.app']
 
 GRAPH_MODELS = {
     'all_applications': True,
