@@ -1,1 +1,1 @@
-web: gunicorn -b 0.0.0.0:$PORT --static-map /static=/static diabetes_predictor.wsgi --log-file - 
+web: gunicorn -b 0.0.0.0:8000 diabetes_predictor.wsgi --log-file - 
