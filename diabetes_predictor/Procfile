@@ -1,1 +1,1 @@
-web: gunicorn diabetes_predictor.wsgi --log-file - -bind 0.0.0.0
+web: gunicorn diabetes_predictor.wsgi --log-file - -b 0.0.0.0
