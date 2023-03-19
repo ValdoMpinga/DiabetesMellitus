@@ -1,0 +1,33 @@
+.content-div {
+  font-size: large !important;
+  padding-left: 25px !important;
+  padding-right: 25px !important;
+}
+
+.nav-div {
+  font-size: large !important;
+  padding-left: 25px !important;
+  padding-right: 25px !important;
+  background-color: whitesmoke !important;
+}
+
+.list-item {
+  cursor: pointer;
+  list-style: square;
+  margin-left: 20px;
+}
+
+.list-item:hover {
+  color: #93DEFF;
+}
+
+.diabetes-link {
+  font-weight: 900 !important;
+  text-decoration: overline !important;
+}
+
+
+
+.page-list{
+    list-style: circle !important;
+}

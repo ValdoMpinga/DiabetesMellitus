@@ -1,0 +1,31 @@
+.col-lg
+{
+    border: solid rgb(50, 50, 80) !important; 
+    max-width: 230px !important; 
+    max-height: 300px !important; 
+    padding: 10px !important;
+}
+
+.support-project-link
+{
+  font-weight: 900 !important;
+  text-decoration: overline !important;
+}
+
+.bi
+{
+   color: aqua !important;
+   margin-top: 5px !important;
+}
+
+h6{
+    margin-bottom: 10px !important;
+}
+
+
+.btn
+{
+    background-color: #93DEFF !important;
+    color: black !important;
+    font-weight: bold;
+}

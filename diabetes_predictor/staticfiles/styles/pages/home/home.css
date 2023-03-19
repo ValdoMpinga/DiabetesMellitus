@@ -1,0 +1,40 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+.diagnostic-button {
+  background-color: #323643 !important;
+  color: white !important;
+  margin-right: 20px;
+}
+
+.diabetes-button {
+  background-color: #93deff !important;
+  color: white !important;
+  margin-left: 20px;
+}
+
+
+p {
+  margin-top: 40px !important;
+  font-size: 20px !important;
+  color: #606470 !important;
+}
+
+.buttonsContainer {
+  display: grid;
+  grid-template-columns: 50% 50%;
+  padding: 20px;
+}
+
+/* @media screen and (min-width: 992px) {
+  body {
+    background-color: olive !important
+  
+  }
+
+  img{
+     margin-top: 30px !important; 
+  }
+} */
